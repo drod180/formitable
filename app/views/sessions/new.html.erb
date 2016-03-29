@@ -1,0 +1,29 @@
+<header class="signup-header group">
+  <nav class="header-nav">
+    <img class="header-logo" src="/assets/formitable-logo-2.png" alt=""/>
+    <link class="header-login">
+      <a href="#">Login</a>
+    </link>
+  </nav>
+</header>
+
+<form action="<%= session_url %>" method="post">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+    <% if flash[:errors] %>
+      <p><%= flash[:errors] %></p>
+    <% end %>
+
+    <label>Email
+      <input type="text" name="user[email]">
+    </label>
+
+    <label>Password
+      <input type="password" name="user[password]">
+    </label>
+
+    <input type="submit">
+</form>
