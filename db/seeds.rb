@@ -7,8 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+
+#Make 1 user so when know the ID of the first user
+email = Faker::Internet.email
+username = Faker::Internet.user_name
+password = Faker::Internet.password
+first_user = User.create!({ email: email, password: password, username: username })
+
+#Make 50 new users
 i = 0
-while i < 50
+while i < 20
   email = Faker::Internet.email
   username = Faker::Internet.user_name
   password = Faker::Internet.password
@@ -16,18 +24,19 @@ while i < 50
   i += 1
 end
 
+#Make 1 more user so when know the ID of the last user
+email = Faker::Internet.email
+username = Faker::Internet.user_name
+password = Faker::Internet.password
+last_user = User.create!({ email: email, password: password, username: username })
+
 Form.destroy_all
 
 i = 0
-while i < 50
+while i < 100
   name = Faker::Hacker.noun
   description = Faker::Hacker.say_something_smart
-  user_id = rand(50)
+  user_id = rand(first_user.id..last_user.id)
   Form.create!({ name: name, description: description, user_id: user_id})
   i += 1
 end
-
-logout!
-user_id = rand(50)
-user = User.find(user_id)
-login!(user)

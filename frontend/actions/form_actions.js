@@ -7,6 +7,13 @@ FormActions = {
       actionType: FormConstants.FORMS_RECEIVED,
       forms: forms
     });
+  },
+
+  receiveFormForUser: function (form) {
+    AppDispatcher.dispatch({
+      actionType: FormConstants.FORM_RECEIVED,
+      form: form
+    });
   }
 };
 

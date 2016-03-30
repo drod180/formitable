@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
+  attr_accessor :password
+
   validates :username, :email, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 7 }
-  attr_accessor :password
 
   after_initialize :ensure_session_token!
 
+  has_many :forms
+  
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     user && user.is_password?(password) ? user : nil

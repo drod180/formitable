@@ -1,3 +1,4 @@
 module.exports = {
   FORMS_RECEIVED: "FORMS_RECEIVED",
+  FORM_RECEIVED: "FORM_RECEIVED",
 };
