@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,15 @@
   "engines": {
    "node": "5.1.0",
    "npm": "3.3.12"
- }
+ },
+
+ "dependencies": {
+  "babel-core": "^6.1.21",
+  "babel-loader": "^6.1.0",
+  "babel-preset-react": "^6.1.18",
+  "bootstrap": "^3.3.5",
+  "react": "^0.14.2",
+  "react-dom": "^0.14.2",
+  "webpack": "^1.12.6"
+  }
 }
