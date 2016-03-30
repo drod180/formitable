@@ -1,29 +1,32 @@
-<header class="signup-header group">
-  <nav class="header-nav">
+<header class="signin-header group">
+  <nav class="header-nav group">
     <img class="header-logo" src="/assets/formitable-logo-2.png" alt=""/>
-    <link class="header-login">
-      <a href="#">Login</a>
-    </link>
+    <a class="header-login" href="#">Login</a>
   </nav>
 </header>
 
-<form action="<%= session_url %>" method="post">
-    <input
-      type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>">
 
-    <% if flash[:errors] %>
-      <p><%= flash[:errors] %></p>
-    <% end %>
+<section class="signin-body group">
+  <h1 class="signin-login">Form It!</h1>
 
-    <label>Email
-      <input type="text" name="user[email]">
-    </label>
+  <form class="signin-form" action="<%= session_url %>" method="post">
+      <input
+        type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
 
-    <label>Password
-      <input type="password" name="user[password]">
-    </label>
+      <% if flash[:errors] %>
+        <p><%= flash[:errors] %></p>
+      <% end %>
 
-    <input type="submit">
-</form>
+      <label class="signin-email">Email Address
+        <input class="text-box" type="text" name="user[email]">
+      </label>
+
+      <label class="signin-password">Password
+        <input class="text-box" type="password" name="user[password]">
+      </label>
+
+      <input class="signin-submit" type="submit">
+  </form>
+</section>

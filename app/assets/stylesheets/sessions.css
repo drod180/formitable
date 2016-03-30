@@ -64,7 +64,7 @@ img {
 }
 
 /* Header */
-.signup-header {
+.signin-header {
   background: #E66760;
   color: #FADDDB;
   font-family: 'Open Sans', sans-serif;
@@ -93,21 +93,21 @@ img {
 }
 
 /* Body */
-.signup-body {
+.signin-body {
   margin: 20px;
   font-family:'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: 200;
 }
 
-.signup-login {
+.signin-login {
   font-size: 34px;
   margin: 0 auto;
   padding-bottom: 20px;
 }
 
 /* Form */
-.signup-form {
+.signin-form {
  width: 80%;
  max-width: 1160px;
  border: 1px solid #ede8e8;
@@ -116,7 +116,7 @@ img {
  padding: 56.88px 37.92px;
 }
 
-.signup-form > label {
+.signin-form > label {
   display: block;
   text-align: left;
   font-size: 15.168px;
@@ -135,7 +135,7 @@ img {
   width: 100%
 }
 
-.signup-submit {
+.signin-submit {
   font-size: 32px;
   padding: 15px 0;
   margin: 24.648px 0;

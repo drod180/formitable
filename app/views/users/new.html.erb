@@ -1,26 +1,37 @@
-<form action="<%= users_url %>" method="post">
-    <input
-      type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>">
+<header class="signup-header group">
+  <nav class="header-nav group">
+    <img class="header-logo" src="/assets/formitable-logo-2.png" alt=""/>
+    <a class="header-login" href="#">Sign Up</a>
+  </nav>
+</header>
 
-    <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
+
+<section class="signup-body group">
+  <h1 class="signup-login">Lets get to work!</h1>
+
+  <form class="signup-form" action="<%= session_url %>" method="post">
+      <input
+        type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+
+      <% if flash[:errors] %>
+        <p><%= flash[:errors] %></p>
       <% end %>
-    <% end %>
 
-    <label>Email
-      <input type="text" name="user[email]">
-    </label>
+      <label class="signup-email">Email Address
+        <input class="text-box" type="text" name="user[email]">
+      </label>
 
-    <label>Password
-      <input type="password" name="user[password]">
-    </label>
+      <label class="signup-password">Password
+        <input class="text-box" type="password" name="user[password]">
+      </label>
 
-    <label>Username
-      <input type="username" name="user[username]">
-    </label>
+      <label class="signup-username">Username
+        <input class="text-box" type="password" name="user[username]">
+      </label>
 
-    <input type="submit">
-</form>
+
+      <input class="signup-submit" type="submit">
+  </form>
+</section>
