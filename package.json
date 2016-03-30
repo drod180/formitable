@@ -2,30 +2,41 @@
   "name": "formitable",
   "version": "1.0.0",
   "description": "== README",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "directories": {
     "test": "test"
   },
+  "dependencies": {
+    "babel-core": "^6.7.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "flux": "^2.1.1",
+    "history": "^2.0.1",
+    "react": "^0.14.8",
+    "react-addons-linked-state-mixin": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "react-router": "^2.0.1",
+    "webpack": "^1.12.14"
+  },
+
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "./node_modules/.bin/webpack"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drod180/formitable.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-
+  "bugs": {
+    "url": "https://github.com/drod180/formitable/issues"
+  },
   "engines": {
    "node": "5.1.0",
    "npm": "3.3.12"
- },
-
- "dependencies": {
-  "babel-core": "^6.1.21",
-  "babel-loader": "^6.1.0",
-  "babel-preset-react": "^6.1.18",
-  "bootstrap": "^3.3.5",
-  "react": "^0.14.2",
-  "react-dom": "^0.14.2",
-  "webpack": "^1.12.6"
-  }
+   },
+  "homepage": "http://formitable.herokuapp.com/"
 }
