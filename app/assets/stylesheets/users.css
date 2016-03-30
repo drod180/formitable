@@ -55,14 +55,6 @@ img {
   clear: both;
 }
 
-/* ClearFix */
-
-.group {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 /* Header */
 .signup-header {
   background: #E66760;

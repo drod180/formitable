@@ -55,14 +55,6 @@ img {
   clear: both;
 }
 
-/* ClearFix */
-
-.group {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 /* Header */
 .signin-header {
   background: #E66760;

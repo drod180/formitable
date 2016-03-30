@@ -1,8 +1,108 @@
 // Place all the styles related to the api/forms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* --- SUPPORT HTML5 TAGS --- */
 
+html, body, header, nav, main,
+section, article, footer, small {
+  display: block;
+}
+
+/* --- RESET --- */
+
+html, body, header, nav, h1, a, ul, li,
+strong, main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small {
+
+  padding: 0;
+  outline: 0;
+  border: 0;
+  margin: 0;
+
+  box-sizing: inherit;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+
+  color: inherit;
+  background: transparent;
+}
+
+/* --- ELEMENTS --- */
+
+body {
+  display: block;
+  text-align: center;
+  font-size: small;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: .01em;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- CLEARFIX --- */
+
+.group:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+/* --- App Body --- */
+
+.app-body {
+  margin-top: 17px;
+}
+
+.navbar {
+  background: #CF3B19;
+  border: 1px solid #B83A1F;
+  width: 960px;
+  margin: 0 auto;
+
+}
 
 .logo-navbar {
-  content: asset-url("formitable-logo-3.png")
+  content: asset-url("formitable-logo-3.png");
+  float: left;
+  height: 41px;
+  width: auto;
+}
+
+.navbar-menu {
+  float: right;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+  color: #FFDA68;
+  font-weight: bold;
+  font-size: 14.3px;
+}
+
+.navbar-item {
+  display: block;
+  float: left;
+  padding-top: 2px;
+  margin-right: 40px;
+}
+ul.account {
+  position: relative;
+}
+.account-item {
+  position: absolute;
+}
+
+.navbar-item > a {
+  display: block;
+  margin: 0 auto;
+  text-decoration: none;
+  line-height: 33px;
 }
