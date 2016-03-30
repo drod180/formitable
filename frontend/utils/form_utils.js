@@ -7,7 +7,7 @@ var FormUtils = {
       url: "api/forms",
       dataType: "json",
       success: function (forms) {
-        ApiActions.receiveFormsForUser(forms);
+        FormActions.receiveFormsForUser(forms);
       },
       error: function () {
         console.log("Failure in ApiUtils#fetchFormsFromUser");
@@ -21,7 +21,7 @@ var FormUtils = {
       url: "api/form/" + params.id,
       dataType: "json",
       success: function (form) {
-        ApiActions.receiveFormForUser(form);
+        FormActions.receiveFormForUser(form);
       },
       error: function () {
         console.log("Failure in ApiUtils#fetchFormFromUser");

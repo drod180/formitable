@@ -1,6 +1,6 @@
 var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/dispatcher');
-
+var FormConstants = require('../constants/form_constants');
 var _forms = [];
 
 function _add(form) {
@@ -15,7 +15,8 @@ function _resetForms(forms) {
 var FormStore = new Store(AppDispatcher);
 
 FormStore.__onDispatch = function (payload) {
-  switch(payload.actionType) {
+
+  switch (payload.actionType) {
       case FormConstants.FORMS_RECEIVED:
         _resetForms(payload.forms);
         FormStore.__emitChange();

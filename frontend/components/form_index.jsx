@@ -21,13 +21,13 @@ var FormIndex = React.createClass({
     return FormStore.all();
   },
 
-  _onClick: function () {
+  _onChange: function () {
     this.setState({ forms: this._getStateFromStore() });
   },
 
   render: function () {
-    var forms = this.state.forms.map(function (form) {
-      return (<FormIndexItem form={form} />);
+    var forms = this.state.forms.map(function (form, i) {
+      return (<FormIndexItem form={form} key={form.id} />);
     });
     return (
       <ul>{forms}</ul>
