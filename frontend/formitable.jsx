@@ -5,14 +5,7 @@ var Route = require('react-router').Route;
 var IndexRoute = require('react-router').IndexRoute;
 
 var FormManager = require('./components/form_manager');
-
-var App = React.createClass({
-  render: function () {
-    return (
-      <div>{this.props.children}</div>
-    );
-  }
-});
+var App = require('./components/app');
 
 var routes = (
   <Route path="/" component={App}>
