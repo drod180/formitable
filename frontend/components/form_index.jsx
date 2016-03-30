@@ -4,7 +4,7 @@ var FormIndexItem = require('./form_index_item');
 var FormUtils = require('../utils/form_utils');
 
 var FormIndex = React.createClass({
-    getInitialState : function () {
+  getInitialState : function () {
     return { forms: this._getStateFromStore() };
   },
 
@@ -30,7 +30,9 @@ var FormIndex = React.createClass({
       return (<FormIndexItem form={form} key={form.id} />);
     });
     return (
-      <ul>{forms}</ul>
+      <section>
+        <ul>{forms}</ul>
+      </section>
     );
   }
 });

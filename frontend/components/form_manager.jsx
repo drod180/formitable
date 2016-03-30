@@ -8,9 +8,9 @@ var FormManager = React.createClass({
     return (
       <div>
         <header>
-          <h1></h1>
-          <p></p>
-          <button></button>
+          <h1>Form Manager</h1>
+          <p>Manage your forms.</p>
+          <button><a href="#">+ New Form</a></button>
         </header>
         <section>
           <header></header>
