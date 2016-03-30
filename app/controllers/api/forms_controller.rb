@@ -1,6 +1,7 @@
 class Api::FormsController < ApplicationController
   def index
     @forms = Form.formsForUser(current_user.id)
+    # @forms = Form.all
   end
 
   # If successfully created go to index page,
