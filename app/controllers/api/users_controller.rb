@@ -15,13 +15,13 @@ class Api::UsersController < ApplicationController
       render json: @user
     else
 
-      flash[:errors] = @user.errors.full_messages
+      errors = @user.errors.full_messages
       unless params[:user][:email].include?('@')
-        flash[:errors].push("Email must contain '@'")
+        errors.push("Email must contain '@'")
       end
 
       render json: {
-        error: flash[:errors]
+        error: errors
         }, status: 401
     end
   end

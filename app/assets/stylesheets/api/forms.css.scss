@@ -75,7 +75,7 @@ img {
 .logo-navbar {
   content: asset-url("formitable-logo-4.png");
   float: left;
-  height: 41px;
+  height: 39px;
   width: auto;
 }
 
@@ -93,19 +93,61 @@ img {
   padding-top: 2px;
   margin-right: 40px;
 }
-ul.account {
-  position: relative;
-}
 
 .navbar-item > a {
   display: block;
   margin: 0 auto;
   text-decoration: none;
-  line-height: 33px;
+  line-height: 36px;
 }
 
-.account-item {
-  background: blue;
-  display: block;
+.navbar-item {
+  position: relative;
+}
+
+.account-items {
+  display: none;
   position: absolute;
+  color: #000;
+  font-weight: bold;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #ECECEC;
+}
+
+li.account-item {
+  line-height: 33px;
+  padding: 0 11px;
+  cursor: pointer;
+}
+
+.account-item > a {
+  display: inline-block;
+  vertical-align: middle;
+}
+.navbar-item:hover .account-items  {
+ display: block;
+}
+
+li.account-item:hover {
+  background: #DDD;
+  color: #fff;
+}
+
+.divider {
+  padding: 0;
+  line-height: normal;
+}
+
+/* --- Manager Header ---- */
+
+.manager-header {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+  padding: 20px;
+}
+
+.manager-header > h1 {
+  font-size: 24px;
+  float: left;
 }

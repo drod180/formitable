@@ -35,13 +35,14 @@ var CurrentUserUtils = {
      });
    },
 
-   logout: function() {
+   logout: function(callback) {
      $.ajax({
        type: "DELETE",
        url: "/api/session",
        dataType: "json",
        success: function() {
          CurrentUserActions.logout();
+         callback && callback();
        },
        error: function () {
          console.log("Failure in CurrentUserUtils#logout");

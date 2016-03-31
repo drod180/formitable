@@ -2,7 +2,12 @@ var React = require('react');
 var FormStore = require('../stores/forms_store');
 
 var FormIndexItem = React.createClass({
-  handlePublicToggle: function () {
+  getInitialState: function () {
+    return { public: this.props.form.public };
+  },
+
+  handlePublicToggle: function (e) {
+    this.setState({public: e.target.value});
   },
 
   render: function () {
@@ -12,7 +17,7 @@ var FormIndexItem = React.createClass({
           <h3>{this.props.form.name}</h3>
           <label>Public</label>
           <input
-            checked={this.props.form.public ? "checked" : false}
+            defaultChecked={this.state.public ? "checked" : false}
             type="checkbox"
             onChange={self.handlePublicToggle}
             />

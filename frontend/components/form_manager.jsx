@@ -6,8 +6,8 @@ var FormManager = React.createClass({
 
   render: function () {
     return (
-      <div>
-        <header>
+      <div className="manager">
+        <header className="manager-header">
           <h1>Form Manager</h1>
           <p>Manage your forms.</p>
           <button><a href="#">+ New Form</a></button>

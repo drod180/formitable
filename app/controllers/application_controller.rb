@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?, :login!
 
   def current_user
-    User.find_by(session_token: session[:session_token])
+    @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
   def login!(user)
@@ -20,4 +20,17 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  def ensure_logged_in
+    unless logged_in?
+      render text: "You must log in", status: 401
+    end
+  end
+
+  def ensure_logged_out
+    if logged_in?
+      render text: "You are already logged in", status: 401
+    end
+  end
+
 end

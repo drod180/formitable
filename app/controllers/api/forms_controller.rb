@@ -1,7 +1,9 @@
 class Api::FormsController < ApplicationController
+
+  before_action :ensure_logged_in
+
   def index
     @forms = Form.formsForUser(current_user.id)
-    # @forms = Form.all
   end
 
   # If successfully created go to index page,

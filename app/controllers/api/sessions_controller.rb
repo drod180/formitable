@@ -1,5 +1,7 @@
 class Api::SessionsController < ApplicationController
 
+before_action :ensure_logged_out, only: [:create]
+
   def show
     if logged_in?
       render json: current_user
@@ -15,9 +17,8 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render json: @user
     else
-      flash[:errors] = @user.errors.full_messages
       render json: {
-        error: flash[:errors]
+        error: @user.errors.full_messages
         }, status: 401
     end
   end
