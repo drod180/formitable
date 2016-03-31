@@ -75,13 +75,13 @@ img {
   height: 60px;
 }
 
-.header-login {
+.header-auth-switch {
   display: block;
   font-size: 18.96px;
   float: right;
   padding: 17px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -97,7 +97,7 @@ img {
   font-weight: 200;
 }
 
-.auth-login {
+.auth-slogan {
   font-size: 34px;
   margin: 0 auto;
   padding-bottom: 20px;
@@ -123,17 +123,21 @@ img {
 }
 
 .text-box {
+  font-size: 18.96px;
   box-sizing: border-box;
   display: block;
   text-align: left;
   border: 1px solid #ede8e8;
   height: 45.391px;
   margin-bottom: 24px;
-  width: 100%
+  width: 100%;
+  color: #3a3a3a;
+  padding: 9.48px;
 }
 
 .auth-submit {
   font-size: 32px;
+  font-weight: bold;
   padding: 15px 0;
   margin: 24.648px 0;
   background: #61e064;

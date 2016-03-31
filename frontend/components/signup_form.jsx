@@ -18,8 +18,14 @@ var SignUpForm = React.createClass({
     e.preventDefault();
 
     var router = this.context.router;
-
-    CurrentUserUtils.login(this.state, function() {
+    var userParams = {
+      user: {
+        email: this.state.email,
+        password: this.state.password,
+        username: this.state.username
+      }
+    };
+    CurrentUserUtils.signup(userParams, function() {
       router.push("/");
     });
   },
@@ -47,12 +53,12 @@ var SignUpForm = React.createClass({
         <header className="auth-header group">
           <nav className="header-nav group">
             <img className="header-logo" src="/assets/formitable-logo-4.png" />
-            <a className="header-login" onClick={this.clickLogin}>Login</a>
+            <a className="header-auth-switch" onClick={this.clickLogin}>Login</a>
           </nav>
         </header>
 
         <section className="auth-body group">
-          <h1 className="auth-login">Become Formitable!.</h1>
+          <h1 className="auth-slogan">Become Formitable!</h1>
           <form className="auth-form" onSubmit={this.handleSubmit}>
 
             <label className="auth-email" htmlFor="email">Email Address</label>

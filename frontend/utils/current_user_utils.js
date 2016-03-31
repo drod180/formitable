@@ -60,7 +60,7 @@ var CurrentUserUtils = {
          callback && callback();
        },
        error: function () {
-         console.log("Failure in CurrentUserUtils#singup");
+         console.log("Failure in CurrentUserUtils#signup");
        }
      });
    }

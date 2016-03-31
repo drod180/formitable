@@ -15,8 +15,9 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       render json: @user
     else
+      flash[:errors] = @user.errors.full_messages
       render json: {
-        message: "Invalid credentials"
+        error: flash[:errors]
         }, status: 401
     end
   end
