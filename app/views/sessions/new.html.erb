@@ -1,6 +1,6 @@
 <header class="signin-header group">
   <nav class="header-nav group">
-    <img class="header-logo" src="/assets/formitable-logo-3.png" alt=""/>
+    <img class="header-logo" src="/assets/formitable-logo-4.png" alt=""/>
     <a class="header-login" href="#">Login</a>
   </nav>
 </header>
@@ -14,10 +14,6 @@
         type="hidden"
         name="authenticity_token"
         value="<%= form_authenticity_token %>">
-
-      <% if flash[:errors] %>
-        <p><%= flash[:errors] %></p>
-      <% end %>
 
       <label class="signin-email">Email Address
         <input class="text-box" type="text" name="user[email]">

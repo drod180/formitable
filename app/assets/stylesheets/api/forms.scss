@@ -73,7 +73,7 @@ img {
 }
 
 .logo-navbar {
-  content: asset-url("formitable-logo-3.png");
+  content: asset-url("formitable-logo-4.png");
   float: left;
   height: 41px;
   width: auto;
@@ -96,13 +96,16 @@ img {
 ul.account {
   position: relative;
 }
-.account-item {
-  position: absolute;
-}
 
 .navbar-item > a {
   display: block;
   margin: 0 auto;
   text-decoration: none;
   line-height: 33px;
+}
+
+.account-item {
+  background: blue;
+  display: block;
+  position: absolute;
 }

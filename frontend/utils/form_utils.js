@@ -10,7 +10,7 @@ var FormUtils = {
         FormActions.receiveFormsForUser(forms);
       },
       error: function () {
-        console.log("Failure in ApiUtils#fetchFormsFromUser");
+        console.log("Failure in FormUtils#fetchFormsFromUser");
       }
     });
   },
@@ -24,7 +24,7 @@ var FormUtils = {
         FormActions.receiveFormForUser(form);
       },
       error: function () {
-        console.log("Failure in ApiUtils#fetchFormFromUser");
+        console.log("Failure in FormUtils#fetchFormFromUser");
       }
     });
   }
