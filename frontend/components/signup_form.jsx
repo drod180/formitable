@@ -1,7 +1,7 @@
 var React = require('react');
 var CurrentUserUtils = require('../utils/current_user_utils');
 
-var LoginForm = React.createClass({
+var SignUpForm = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -9,7 +9,8 @@ var LoginForm = React.createClass({
   getInitialState: function() {
     return {
       email: "",
-      password: ""
+      password: "",
+      username: ""
     };
   },
 
@@ -31,9 +32,13 @@ var LoginForm = React.createClass({
     this.setState({ password: e.currentTarget.value });
   },
 
-  clickSignUp: function (e) {
+  updateUsername: function(e) {
+    this.setState({ username: e.currentTarget.value });
+  },
+
+  clickLogin: function (e) {
     var router = this.context.router;
-    router.push("/signup");
+    router.push("/login");
   },
 
   render: function() {
@@ -42,12 +47,12 @@ var LoginForm = React.createClass({
         <header className="auth-header group">
           <nav className="header-nav group">
             <img className="header-logo" src="/assets/formitable-logo-4.png" />
-            <a className="header-login" onClick={this.clickSignUp}>Sign Up</a>
+            <a className="header-login" onClick={this.clickLogin}>Login</a>
           </nav>
         </header>
 
         <section className="auth-body group">
-          <h1 className="auth-login">Time to Perform.</h1>
+          <h1 className="auth-login">Become Formitable!.</h1>
           <form className="auth-form" onSubmit={this.handleSubmit}>
 
             <label className="auth-email" htmlFor="email">Email Address</label>
@@ -56,6 +61,7 @@ var LoginForm = React.createClass({
               onChange={this.updateEmail}
               type="text"
               value={this.state.email}
+              placeholder="Your valid email"
               id="email"
               />
 
@@ -65,10 +71,21 @@ var LoginForm = React.createClass({
               onChange={this.updatePassword}
               type="password"
               value={this.state.password}
+              placeholder="Minimum 7 chracters"
               id="password"
               />
 
-            <button className="auth-submit">Sign In</button>
+            <label htmlFor="username">Username</label>
+              <input
+                className="text-box"
+                onChange={this.updateUsername}
+                type="text"
+                value={this.state.username}
+                placeholder="Your custom Formitable URL"
+                id="username"
+                />
+
+              <button className="auth-submit">Sign Up</button>
           </form>
         </section>
       </div>
@@ -77,4 +94,4 @@ var LoginForm = React.createClass({
 
 });
 
-module.exports = LoginForm;
+module.exports = SignUpForm;

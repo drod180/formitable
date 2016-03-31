@@ -9,9 +9,9 @@
 User.destroy_all
 
 #Make 1 user so when know the ID of the first user
-email = Faker::Internet.email
-username = Faker::Internet.user_name
-password = Faker::Internet.password
+email = "admin@aa.io"
+username = "admin"
+password = "password"
 first_user = User.create!({ email: email, password: password, username: username })
 
 #Make 50 new users

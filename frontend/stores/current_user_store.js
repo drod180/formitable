@@ -14,11 +14,11 @@ CurrentUserStore.__onDispatch = function (payload) {
      case CurrentUserConstants.CURRENT_USER_RECEIVED:
        _currentUser = payload.currentUser;
        _currentUserHasBeenFetched = true;
-       SessionStore.__emitChange();
+       CurrentUserStore.__emitChange();
        break;
      case CurrentUserConstants.LOGOUT:
        _currentUser = null;
-       SessionStore.__emitChange();
+       CurrentUserStore.__emitChange();
        break;
    }
 };
@@ -27,7 +27,7 @@ CurrentUserStore.currentUser = function () {
   return _currentUser;
 };
 
-CurrentUserStore.loggedIn = function () {
+CurrentUserStore.isLoggedIn = function () {
   return !!_currentUser;
 };
 

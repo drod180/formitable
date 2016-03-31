@@ -1,45 +1,50 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router').Router;
-var Route = require('react-router').Route;
-var IndexRoute = require('react-router').IndexRoute;
+var ReactRouter = require("react-router");
 
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var IndexRoute = ReactRouter.IndexRoute;
+var hashHistory = ReactRouter.hashHistory;
 
 var FormManager = require('./components/form_manager');
 var CurrentUserStore = require('./stores/current_user_store');
 var App = require('./components/app');
 var LoginForm = require('./components/login_form');
-
-var routes = (
-  <Route path="/" component={App}>
-    <IndexRoute component={FormManager}  onEnter={_requireSignedIn} />
-    <Route path="login" component={LoginForm} />
-  </Route>
-
-);
+var SignUpForm = require('./components/signup_form');
+var CurrentUserUtils = require ('./utils/current_user_utils');
 
 
-document.addEventListener("DOMContentLoaded", function () {
+window.initializeApp = function () {
   ReactDOM.render(
-    <Router>{routes}</Router>,
+    <Router history={hashHistory} >
+
+      <Route path="/login" component={LoginForm} />
+      <Route path="/signup" component={SignUpForm}/>
+      <Route path="/" component={App}>
+        <IndexRoute component={FormManager}  onEnter={_requireSignedIn} />
+      </Route>
+
+
+    </Router>,
     document.getElementById('root')
   );
-});
-
-var _requireSignedIn = function(nextState, replace, asyncCompletionCallback) {
-  if (CurrentUserStore.currentUserHasBeenFetched){
-    ApiUtil.fetchCurrentUser(function () {
-      _redirectIfNotLoggedIn(asyncCompletionCallback);
-    });
-  } else {
-    _redirectIfNotLoggedIn(asyncCompletionCallback);
-  }
 };
 
-function _redirectIfNotLoggedIn(callback) {
-  if(!CurrentUserStore.loggedIn) {
-    replace("/login");
+function _requireSignedIn(nextState, replace, asyncCompletionCallback) {
+  if (CurrentUserStore.currentUserHasBeenFetched){
+    CurrentUserUtils.fetchCurrentUser(function () {
+      _redirectIfNotLoggedIn();
+    });
+  } else {
+    _redirectIfNotLoggedIn();
   }
 
-  callback();
+  function _redirectIfNotLoggedIn() {
+    if(!CurrentUserStore.isLoggedIn) {
+      replace("/login");
+    }
+
+    asyncCompletionCallback();
+  }
 }

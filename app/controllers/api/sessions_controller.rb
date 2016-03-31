@@ -1,13 +1,15 @@
 class Api::SessionsController < ApplicationController
+
   def show
-  if logged_in?
-    render json: current_user
-  else
-    render json: { message: "Not logged in" }, status: 401
+    if logged_in?
+      render json: current_user
+    else
+      render json: { message: "Not logged in" }, status: 401
+    end
   end
-end
+
   def create
-    @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
+    @user = User.find_by_credentials(params[:email], params[:password])
 
     if @user
       login!(@user)

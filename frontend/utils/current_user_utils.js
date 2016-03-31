@@ -8,7 +8,7 @@ var CurrentUserUtils = {
       url: "api/session",
       dataType: "json",
       success: function (user) {
-        CurrentUserActions.recieveCurrentUser(user);
+        CurrentUserActions.currentUserReceived(user);
       },
       complete: function() {
         completion && completion();
@@ -48,6 +48,22 @@ var CurrentUserUtils = {
        }
      });
    },
+
+   signup: function (credentials, callback) {
+     $.ajax({
+       type: "POST",
+       url: "/api/users",
+       dataType: "json",
+       data: credentials,
+       success: function(currentUser) {
+         CurrentUserActions.currentUserReceived(currentUser);
+         callback && callback();
+       },
+       error: function () {
+         console.log("Failure in CurrentUserUtils#singup");
+       }
+     });
+   }
 
 };
 

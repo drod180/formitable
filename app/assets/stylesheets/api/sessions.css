@@ -82,6 +82,11 @@ img {
   padding: 17px;
   text-transform: uppercase;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.header-login:hover {
+  color: #ffdf8f;
 }
 
 /* Body */
@@ -135,4 +140,9 @@ img {
   color: #FADDDB;
   display: block;
   width: 100%;
+  cursor: pointer;
+}
+
+.signin-submit:hover {
+  background: #4cdc4f;
 }
