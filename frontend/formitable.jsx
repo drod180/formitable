@@ -7,11 +7,11 @@ var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 var browserHistory = ReactRouter.browserHistory;
 
-var FormManager = require('./components/form_manager');
+var FormManager = require('./components/manager/form_manager');
 var CurrentUserStore = require('./stores/current_user_store');
 var App = require('./components/app');
-var LoginForm = require('./components/login_form');
-var SignUpForm = require('./components/signup_form');
+var LoginForm = require('./components/auth/login_form');
+var SignUpForm = require('./components/auth/signup_form');
 var CurrentUserUtils = require ('./utils/current_user_utils');
 
 

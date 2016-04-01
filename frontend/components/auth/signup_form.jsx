@@ -1,5 +1,5 @@
 var React = require('react');
-var CurrentUserUtils = require('../utils/current_user_utils');
+var CurrentUserUtils = require('../../utils/current_user_utils');
 
 var SignUpForm = React.createClass({
   contextTypes: {
@@ -53,7 +53,10 @@ var SignUpForm = React.createClass({
         <header className="auth-header group">
           <nav className="header-nav group">
             <img className="header-logo" />
-            <a className="header-auth-switch" onClick={this.clickLogin}>Login</a>
+            <a
+							className="header-auth-switch header-auth-switch-login"
+							onClick={this.clickLogin}
+							>Login</a>
           </nav>
         </header>
 
@@ -77,7 +80,7 @@ var SignUpForm = React.createClass({
               onChange={this.updatePassword}
               type="password"
               value={this.state.password}
-              placeholder="Minimum 7 chracters"
+              placeholder="Minimum 7 characters"
               id="password"
               />
 

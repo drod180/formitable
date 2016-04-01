@@ -1,5 +1,5 @@
 var React = require('react');
-var FormStore = require('../stores/forms_store');
+var FormStore = require('../../stores/forms_store');
 
 var FormIndexItem = React.createClass({
   getInitialState: function () {

@@ -218,6 +218,10 @@ li.account-item:hover {
   line-height: 37px;
 }
 
+.form-item-header:hover {
+	background: #FAE158;
+}
+
 .form-item-header > h3 {
   float: left;
   font-size: 15px;
@@ -260,5 +264,17 @@ li.account-item:hover {
   background: #F8F8F8;
   height: 30px;
   box-shadow: #A9C5DD 0 1px 3px;
-  margin-bottom: 8px;
+	margin-bottom: 8px;
+}
+
+.form-list > li:not(:first-child) {
+	margin-top: 8px;
+}
+
+.form-list > li:not(:first-child):hover > section.form-options {
+	display: block;
+}
+
+.form-list > li:not(:first-child) > section.form-options {
+		 display: none;
 }

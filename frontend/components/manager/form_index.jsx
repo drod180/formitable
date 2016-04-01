@@ -1,7 +1,7 @@
 var React = require('react');
-var FormStore = require('../stores/forms_store');
+var FormStore = require('../../stores/forms_store');
 var FormIndexItem = require('./form_index_item');
-var FormUtils = require('../utils/form_utils');
+var FormUtils = require('../../utils/form_utils');
 
 var FormIndex = React.createClass({
   getInitialState : function () {
@@ -31,7 +31,7 @@ var FormIndex = React.createClass({
     });
     return (
       <section>
-        <ul>{forms}</ul>
+        <ul className="form-list">{forms}</ul>
       </section>
     );
   }

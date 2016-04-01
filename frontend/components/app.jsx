@@ -1,6 +1,7 @@
 var React = require('react');
 var CurrentUserStore = require('../stores/current_user_store');
 var CurrentUserUtils = require('../utils/current_user_utils');
+
 var App = React.createClass({
   contextTypes: {
    router: React.PropTypes.object.isRequired
