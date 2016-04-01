@@ -5,7 +5,7 @@ var ReactRouter = require("react-router");
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var hashHistory = ReactRouter.hashHistory;
+var browserHistory = ReactRouter.browserHistory;
 
 var FormManager = require('./components/form_manager');
 var CurrentUserStore = require('./stores/current_user_store');
@@ -17,7 +17,7 @@ var CurrentUserUtils = require ('./utils/current_user_utils');
 
 window.initializeApp = function () {
   ReactDOM.render(
-    <Router history={hashHistory} >
+    <Router history={browserHistory} >
 
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignUpForm}/>

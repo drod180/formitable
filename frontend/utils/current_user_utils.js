@@ -5,7 +5,7 @@ var CurrentUserUtils = {
   fetchCurrentUser: function (completion) {
     $.ajax({
       type: "GET",
-      url: "api/session",
+      url: "/api/session",
       dataType: "json",
       success: function (user) {
         CurrentUserActions.currentUserReceived(user);

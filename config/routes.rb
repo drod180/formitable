@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
   end
 
+
+  get '*unmatched_route', to: 'static_pages#root'
 end

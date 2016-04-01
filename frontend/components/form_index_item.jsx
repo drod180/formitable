@@ -12,16 +12,20 @@ var FormIndexItem = React.createClass({
 
   render: function () {
     return (
-      <li>
-        <header>
+      <li className="form-item">
+        <header className="form-item-header group">
           <h3>{this.props.form.name}</h3>
-          <label>Public</label>
-          <input
-            defaultChecked={this.state.public ? "checked" : false}
-            type="checkbox"
-            onChange={self.handlePublicToggle}
-            />
+          <div className ="form-toggle">
+            <label className="form-toggle-label">Public</label>
+            <input
+              className="form-toggle-box"
+              defaultChecked={this.state.public ? "checked" : false}
+              type="checkbox"
+              onChange={self.handlePublicToggle}
+              />
+          </div>
         </header>
+        <section className="form-options"></section>
       </li>
     );
   }
