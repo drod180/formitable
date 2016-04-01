@@ -1,14 +1,15 @@
 var React = require('react');
+var FieldStore = require('react');
 
-var FieldIndexItems = React.createClass({
-
+var FieldIndexItem = React.createClass({
+	
   render: function () {
     return (
 			<div>
-
+				Here is where fields would go!
       </div>
     );
   }
 });
 
-module.exports = FieldIndexItems;
+module.exports = FieldIndexItem;

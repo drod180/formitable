@@ -3,7 +3,9 @@ class Api::FieldsController < ApplicationController
 	  before_action :ensure_logged_in
 
 	  def index
-	    @field = Form.find(params[:fields][:form_id]).fields
+			form = Form.find(params[:fields][:form_id])
+			@fields = form ? form.fields : {}
+			render json: @fields
 	  end
 
 

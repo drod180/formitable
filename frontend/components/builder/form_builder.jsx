@@ -1,7 +1,7 @@
 var React = require('react');
 var FormStore = require('../../stores/forms_store');
 var BuilderOptions = require('./builder_options');
-
+var FieldBuilderView = require('./form_building_view');
 var FormBuilder = React.createClass({
 
   render: function () {
@@ -15,7 +15,7 @@ var FormBuilder = React.createClass({
 					<span><BuilderOptions /></span>
 				</section>
 
-				<span>This needs to be a new component which is my form</span>
+				<span><FieldBuilderView /></span>
       </div>
 
     );

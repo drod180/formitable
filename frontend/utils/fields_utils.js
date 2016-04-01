@@ -8,7 +8,7 @@ var FieldUtils = {
 			data: { fields: { form_id: formId } },
       dataType: "json",
       success: function (fields) {
-        FormActions.receiveFieldsForForm(fields);
+        FieldActions.receiveFieldsForForm(fields);
       },
       error: function () {
         console.log("Failure in FieldUtils#fetchFormForUser");
@@ -22,10 +22,25 @@ var FieldUtils = {
       url: "/api/field/" + params.id,
       dataType: "json",
       success: function (field) {
-        FormActions.receiveFieldForForm(field);
+        FieldActions.receiveFieldForForm(field);
       },
       error: function () {
         console.log("Failure in FieldUtils#fetchFormForUser");
+      }
+    });
+  },
+
+	addFieldToForm: function (params) {
+    $.ajax({
+      type: "POST",
+      url: "/api/fields",
+			data: params,
+      dataType: "json",
+      success: function (field) {
+        FieldActions.receiveFieldForForm(field);
+      },
+      error: function () {
+        console.log("Failure in FieldUtils#addFieldToForm");
       }
     });
   }
