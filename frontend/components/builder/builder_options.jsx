@@ -1,6 +1,6 @@
 var React = require('react');
 var FormStore = require('../../stores/forms_store');
-var FormAdder = require('./form_builder');
+var FieldAdder = require('./field_adder');
 
 var BuilderOptions = React.createClass({
 
@@ -10,9 +10,9 @@ var BuilderOptions = React.createClass({
 		//If its add field we will need to map all the fields
 		//If its field settings need to render based on the currently selected field
     return (
-      <div className="builder-options">
-				{FormAdder}
-      </div>
+      <ul className="builder-options">
+				<FieldAdder />
+      </ul>
 
     );
   }

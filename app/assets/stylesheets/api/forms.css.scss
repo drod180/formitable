@@ -218,9 +218,10 @@ li.account-item:hover {
   line-height: 37px;
 }
 
-.form-item-header:hover {
+.form-item:hover .form-item-header{
 	background: #FAE158;
 }
+
 
 .form-item-header > h3 {
   float: left;
@@ -266,6 +267,7 @@ li.account-item:hover {
   box-shadow: #A9C5DD 0 1px 3px;
 	margin-bottom: 8px;
 }
+
 
 .form-list > li:not(:first-child) {
 	margin-top: 8px;

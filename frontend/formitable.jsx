@@ -8,6 +8,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var browserHistory = ReactRouter.browserHistory;
 
 var FormManager = require('./components/manager/form_manager');
+var FormBuilder = require('./components/builder/form_builder');
 var CurrentUserStore = require('./stores/current_user_store');
 var App = require('./components/app');
 var LoginForm = require('./components/auth/login_form');
@@ -22,7 +23,15 @@ window.initializeApp = function () {
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignUpForm}/>
       <Route path="/" component={App}>
-        <IndexRoute component={FormManager}  onEnter={_requireSignedIn} />
+        <IndexRoute
+					component={FormManager}
+					onEnter={_requireSignedIn}
+					/>
+				<Route
+					path="/builder"
+					component={FormBuilder}
+					onEnter={_requireSignedIn}
+					/>
       </Route>
 
 
@@ -42,7 +51,7 @@ function _requireSignedIn(nextState, replace, asyncCompletionCallback) {
 
   function _redirectIfNotLoggedIn() {
     if(!CurrentUserStore.isLoggedIn) {
-      replace("/login");
+      replace("/signup");
     }
 
     asyncCompletionCallback();

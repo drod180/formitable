@@ -56,7 +56,7 @@ var SignUpForm = React.createClass({
             <a
 							className="header-auth-switch header-auth-switch-login"
 							onClick={this.clickLogin}
-							>Login</a>
+							/>
           </nav>
         </header>
 
