@@ -3,8 +3,9 @@ class Api::FieldsController < ApplicationController
 	  before_action :ensure_logged_in
 
 	  def index
-			form = Form.find(params[:fields][:form_id])
-			@fields = form ? form.fields : {}
+
+			form = Form.find(params[:fields][:form_id]) if params[:fields]
+			@fields = form ? form.fields : []
 			render json: @fields
 	  end
 
@@ -29,7 +30,7 @@ class Api::FieldsController < ApplicationController
 	  def update
 	    @field = Field.find(params[:id])
 	    if @field
-	      @field.update(forms_params)
+	      @field.update(field_params)
 	      if @field
 	        render json: @field
 	      else
@@ -64,7 +65,7 @@ class Api::FieldsController < ApplicationController
 
 	  private
 
-	  def fields_params
+	  def field_params
 	    params.require(:fields).permit(:type, :label, :form_rank_id, :form_id)
 	  end
 end

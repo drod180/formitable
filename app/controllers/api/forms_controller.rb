@@ -1,6 +1,6 @@
 class Api::FormsController < ApplicationController
 
-  before_action :ensure_logged_in, except: :show
+  before_action :ensure_logged_in, except: [:show]
 
   def index
     @forms = Form.formsForUser(current_user.id)

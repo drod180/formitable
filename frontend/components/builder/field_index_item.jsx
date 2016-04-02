@@ -2,12 +2,14 @@ var React = require('react');
 var FieldStore = require('react');
 
 var FieldIndexItem = React.createClass({
-	
+
   render: function () {
+		var item = this.props.field.type;
+
     return (
-			<div>
-				Here is where fields would go!
-      </div>
+			<li key={item.id}>
+				{item}
+      </li>
     );
   }
 });

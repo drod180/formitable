@@ -1,13 +1,14 @@
 var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/dispatcher');
 var FieldConstants = require('../constants/field_constants');
+
 var _fields = [];
 
-function _add(field) {
+function _addField(field) {
   _fields.push(field);
 }
 
-function _resetForms(fields) {
+function _resetFields(fields) {
   _fields = fields;
 }
 
@@ -15,14 +16,13 @@ function _resetForms(fields) {
 var FieldStore = new Store(AppDispatcher);
 
 FieldStore.__onDispatch = function (payload) {
-
   switch (payload.actionType) {
       case FieldConstants.FIELDS_RECEIVED:
-        _resetForms(payload.fields);
+        _resetFields(payload.fields);
         FieldStore.__emitChange();
         break;
       case FieldConstants.FIELD_RECEIVED:
-        _addForm(payload.field);
+        _addField(payload.field);
         FieldStore.__emitChange();
         break;
       default:
@@ -31,7 +31,7 @@ FieldStore.__onDispatch = function (payload) {
 };
 
 FieldStore.all = function () {
-  return _fields.slice(0);
+	return _fields.slice(0);
 };
 
 

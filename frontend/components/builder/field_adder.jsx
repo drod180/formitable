@@ -2,20 +2,18 @@ var React = require('react');
 var FieldTypeConstants = require('../../constants/field_type_constants');
 var FieldsUtils = require('../../utils/fields_utils');
 var FieldStore = require('../../stores/fields_store');
-var FieldIndex = require ('./field_index_item');
+var FieldActions = require ('../../actions/field_actions');
 
 var FieldAdder = React.createClass({
 
-	handleNewField: function (key) {
+	handleNewField: function (key, e) {
+		e.preventDefault();
 		var params = {
-			fields: {
-				type: FieldTypeConstants[key].type,
-				label: FieldTypeConstants[key].label,
-				form_rank_id: (FieldStore.all.length + 1),
-				form_id: 1
-			}
+			type: FieldTypeConstants[key].type,
+			label: FieldTypeConstants[key].label,
+			form_rank_id: (FieldStore.all.length + 1),
 		};
-		FieldsUtils.addFieldToForm(params);
+		FieldActions.receiveFieldForForm(params);
 	},
 
   render: function () {
