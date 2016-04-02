@@ -66,7 +66,9 @@ img {
 
 .navbar {
   background: #CF3B19;
-  border: 1px solid #B83A1F;
+  border-top: 1px solid #B83A1F;
+	border-right: 1px solid #B83A1F;
+	border-left: 1px solid #B83A1F;
   width: 958px;
   margin: 0 auto;
 
@@ -88,10 +90,15 @@ img {
 }
 
 .navbar-item {
+	box-sizing: border-box;
   display: block;
   float: left;
   padding-top: 2px;
   margin-right: 40px;
+}
+
+.navbar-item .selected {
+	border-bottom: 5px solid #fff;
 }
 
 .navbar-item > a {
@@ -99,6 +106,11 @@ img {
   margin: 0 auto;
   text-decoration: none;
   line-height: 36px;
+	cursor: pointer;
+}
+
+.navbar-item > a.selected {
+  line-height: 32px;
 }
 
 .navbar-item {

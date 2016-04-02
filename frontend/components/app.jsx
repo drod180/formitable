@@ -28,7 +28,15 @@ var App = React.createClass({
    }
   },
 
+	handleFormClick:  function (e) {
+		e.preventDefault();
+		var router = this.context.router;
+      router.push("/");
+	},
+
   handleSignOut: function (e) {
+		e.preventDefault();
+
     var router = this.context.router;
 
     CurrentUserUtils.logout(function() {
@@ -36,11 +44,18 @@ var App = React.createClass({
     });
   },
 
-  handleAccount: function (e) {
+	handleAccountClick: function (e) {
+		e.preventDefault();
 
-  },
+		 var router = this.context.router;
+		 router.push("/");
+	},
 
   render: function () {
+		var selected = "";
+		if (window.location.pathname === "/") {
+			selected = "selected";
+		}
     return (
       <div className="app-body">
 
@@ -49,12 +64,16 @@ var App = React.createClass({
 
           <ul className="navbar-menu group">
             <li className="navbar-item">
-              <a href="#">Forms</a>
+              <a className={selected} onClick={this.handleFormClick}>Forms</a>
             </li>
             <li className="navbar-item">
-              <a href="#">Account</a>
+              <a onClick={this.handleAccountClick}>Account</a>
               <ul className="account-items">
-                <li onClick={this.handleAccount} className="account-item"><a>My Account</a></li>
+                <li
+									onClick={this.handleAccountClick}
+									className="account-item">
+									<a>My Account</a>
+								</li>
                 <li className="divider">----------</li>
                 <li onClick={this.handleSignOut} className="account-item"><a>Sign Out</a></li>
               </ul>
