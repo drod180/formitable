@@ -19,7 +19,7 @@ var FieldUtils = {
   fetchFieldForForm: function (id) {
     $.ajax({
       type: "GET",
-      url: "/api/field/" + id,
+      url: "/api/fields/" + id,
       dataType: "json",
       success: function (field) {
         FieldActions.receiveFieldForForm(field);
@@ -29,6 +29,20 @@ var FieldUtils = {
       }
     });
   },
+
+	destoryField: function (id) {
+		$.ajax({
+			type: "DELETE",
+			url: "/api/fields/" + id,
+			dataType: "json",
+			success: function (field) {
+				FieldActions.removeFieldForForm(field);
+			},
+			error: function () {
+				console.log("Failure in FieldUtils#destoryField");
+			}
+		});
+	}
 };
 
 module.exports = FieldUtils;

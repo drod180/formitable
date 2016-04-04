@@ -12,6 +12,22 @@ function _resetFields(fields) {
   _fields = fields;
 }
 
+//Remove field from store and update the form_rank_id
+function _removeField(field) {
+	var removed = false;
+	debugger
+	for (var i = 0; i < _fields.length; i++){
+		if (removed) { _fields[i].form_rank_id--; }
+		if (!removed && _fields[i].id === field.id) {
+			removed = true;
+			_fields.splice(i, 1);
+			i--;
+		}
+	}
+
+	debugger
+}
+
 //Holds all of the forms without field information for a particular user
 var FieldStore = new Store(AppDispatcher);
 
@@ -25,6 +41,10 @@ FieldStore.__onDispatch = function (payload) {
         _addField(payload.field);
         FieldStore.__emitChange();
         break;
+			case FieldConstants.FIELD_REMOVED:
+				_removeField(payload.field);
+				FieldStore.__emitChange();
+				break;
       default:
       //no op
     }

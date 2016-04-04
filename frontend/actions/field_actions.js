@@ -14,7 +14,14 @@ FieldActions = {
       actionType: FieldConstants.FIELD_RECEIVED,
       field: field
     });
-  }
+  },
+
+	removeFieldForForm: function (field) {
+		AppDispatcher.dispatch({
+			actionType: FieldConstants.FIELD_REMOVED,
+			field: field
+		});
+	}
 };
 
 module.exports = FieldActions;
