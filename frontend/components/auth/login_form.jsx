@@ -1,5 +1,6 @@
 var React = require('react');
 var CurrentUserUtils = require('../../utils/current_user_utils');
+var GuestLogin = require('./guest_login');
 
 var LoginForm = React.createClass({
   contextTypes: {
@@ -72,6 +73,7 @@ var LoginForm = React.createClass({
               />
 
             <button className="auth-submit">Sign In</button>
+						<GuestLogin />
           </form>
         </section>
       </div>

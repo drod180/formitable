@@ -8,7 +8,7 @@ var FieldIndexItem = React.createClass({
     return (
 			<li key={this.props.field.id}>
 				{item}
-				<DeleteFieldButton fieldId={this.props.field.id} />
+				<DeleteFieldButton field={this.props.field} />
       </li>
     );
   },

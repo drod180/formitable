@@ -14,7 +14,14 @@ FormActions = {
       actionType: FormConstants.FORM_RECEIVED,
       form: form
     });
-  }
+  },
+
+	removeFormForUser: function (form) {
+		AppDispatcher.dispatch({
+			actionType: FormConstants.FORM_REMOVED,
+			form: form
+		});
+	}
 };
 
 module.exports = FormActions;

@@ -11,7 +11,7 @@ class Api::FormsController < ApplicationController
   def create
     @form = current_user.forms.create(forms_params)
     if @form
-			save_fields(params[:fields], @form)
+			@form.save_fields(params[:fields])
       render :show
     else
       payload = {
@@ -31,9 +31,8 @@ class Api::FormsController < ApplicationController
   def update
     @form = Form.find(params[:id])
     if @form
-      @form.update(forms_params)
-      if @form
-				save_fields(params[:fields], @form)
+      if @form.update(forms_params)
+				@form.save_fields(params[:fields])
         render :show
       else
         payload = {
@@ -54,6 +53,7 @@ class Api::FormsController < ApplicationController
   def destroy
     form = Form.find(params[:id])
     if form
+			form.delete_fields
       form.destroy
       render json: form
     else
@@ -73,20 +73,4 @@ class Api::FormsController < ApplicationController
     form_params
   end
 
-	def save_fields(fields, form)
-		fields.each do |field|
-			label = field[1][:label] || "Untitled"
-			field_params = {
-				category: field[1][:category],
-				label: label,
-				form_rank_id: field[1][:form_rank_id]
-			}
-
-			if field[1][:id]
-				field[1].update(field_params)
-			else
-				form.fields.create(field_params)
-			end
-		end
-	end
 end

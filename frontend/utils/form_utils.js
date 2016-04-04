@@ -69,6 +69,20 @@ var FormUtils = {
         console.log("Failure in FormUtils#updateFormForUser");
       }
     });
+  },
+
+	destroyFormForUser: function (id) {
+    $.ajax({
+      type: "DELETE",
+      url: "/api/forms/" + id,
+      dataType: "json",
+      success: function (form) {
+        FormActions.removeFormForUser(form);
+      },
+      error: function () {
+        console.log("Failure in FormUtils#removeFormForUser");
+      }
+    });
   }
 };
 
