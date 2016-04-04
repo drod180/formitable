@@ -11,39 +11,24 @@ var FieldUtils = {
         FieldActions.receiveFieldsForForm(fields);
       },
       error: function () {
-        console.log("Failure in FieldUtils#fetchFormForUser");
+        console.log("Failure in FieldUtils#fetchFieldsForForm");
       }
     });
   },
 
-  fetchFieldForUser: function () {
+  fetchFieldForForm: function (id) {
     $.ajax({
       type: "GET",
-      url: "/api/field/" + params.id,
+      url: "/api/field/" + id,
       dataType: "json",
       success: function (field) {
         FieldActions.receiveFieldForForm(field);
       },
       error: function () {
-        console.log("Failure in FieldUtils#fetchFormForUser");
+        console.log("Failure in FieldUtils#fetchFieldForForm");
       }
     });
   },
-
-	addFieldToForm: function (params) {
-    $.ajax({
-      type: "POST",
-      url: "/api/fields",
-			data: params,
-      dataType: "json",
-      success: function (field) {
-        FieldActions.receiveFieldForForm(field);
-      },
-      error: function () {
-        console.log("Failure in FieldUtils#addFieldToForm");
-      }
-    });
-  }
 };
 
 module.exports = FieldUtils;

@@ -15,16 +15,37 @@ var FormUtils = {
     });
   },
 
-  fetchFormForUser: function () {
+  fetchFormForUser: function (id) {
     $.ajax({
       type: "GET",
-      url: "/api/form/" + params.id,
+      url: "/api/form/" + id,
       dataType: "json",
       success: function (form) {
         FormActions.receiveFormForUser(form);
       },
       error: function () {
         console.log("Failure in FormUtils#fetchFormFromUser");
+      }
+    });
+  },
+
+	saveFormForUser: function (form, fields) {
+    $.ajax({
+      type: "POST",
+      url: "/api/forms",
+			data: {
+				forms: {
+					name: form.name,
+					description: form.description
+				},
+				fields: fields
+			},
+      dataType: "json",
+      success: function (form) {
+        FormActions.receiveFormForUser(form);
+      },
+      error: function () {
+        console.log("Failure in FormUtils#saveFormForUser");
       }
     });
   }

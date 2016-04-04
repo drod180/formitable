@@ -9,8 +9,9 @@ class Api::FormsController < ApplicationController
   # If successfully created go to index page,
   # otherwise re-render create form
   def create
-    @form = Form.create(forms_params)
+    @form = current_user.forms.create(forms_params)
     if @form
+			save_fields(params[:fields], @form)
       render :show
     else
       payload = {
@@ -70,4 +71,15 @@ class Api::FormsController < ApplicationController
     form_params[:user_id] = current_user.id
     form_params
   end
+
+	def save_fields(fields, form)
+		fields.each do |field|
+			label = field[1]["label"] || "Untitled"
+			success = form.fields.create({
+				category: field[1]["category"],
+				label: label,
+				form_rank_id: field[1]["form_rank_id"]
+				})
+		end
+	end
 end

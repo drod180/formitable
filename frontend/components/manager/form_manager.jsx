@@ -1,6 +1,7 @@
 var React = require('react');
 var FormStore = require('../../stores/forms_store');
 var FormIndex = require('./form_index');
+var FormAction = require('../../actions/form_actions');
 
 var FormManager = React.createClass({
 	contextTypes: {
@@ -8,7 +9,12 @@ var FormManager = React.createClass({
 	},
 
 	handleNewForm: function () {
+		var form = {};
 		var router = this.context.router;
+
+		form.name = "Untitled Form";
+		form.description = "This is my form. Please fill it out. It's awesome!";
+		FormAction.receiveFormForUser(form);
 
 		router.push("/builder");
 	},

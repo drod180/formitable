@@ -4,6 +4,7 @@ var FormConstants = require('../constants/form_constants');
 var _forms = [];
 
 function _add(form) {
+	_forms = [];
   _forms.push(form);
 }
 
@@ -22,7 +23,7 @@ FormStore.__onDispatch = function (payload) {
         FormStore.__emitChange();
         break;
       case FormConstants.FORM_RECEIVED:
-        _addForm(payload.form);
+        _add(payload.form);
         FormStore.__emitChange();
         break;
       default:
@@ -32,6 +33,10 @@ FormStore.__onDispatch = function (payload) {
 
 FormStore.all = function () {
   return _forms.slice(0);
+};
+
+FormStore.first = function () {
+	return _forms.slice(0).first;
 };
 
 
