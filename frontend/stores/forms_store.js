@@ -36,7 +36,7 @@ FormStore.all = function () {
 };
 
 FormStore.first = function () {
-	return _forms.slice(0).first;
+	return _forms.slice(0)[0];
 };
 
 

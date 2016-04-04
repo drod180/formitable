@@ -14,9 +14,9 @@ var FormManager = React.createClass({
 
 		form.name = "Untitled Form";
 		form.description = "This is my form. Please fill it out. It's awesome!";
+		router.push("/builder");
 		FormAction.receiveFormForUser(form);
 
-		router.push("/builder");
 	},
 
   render: function () {

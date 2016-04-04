@@ -10,6 +10,22 @@ var FieldBuilderView = React.createClass({
 		router: React.PropTypes.object.isRequired
 	},
 
+	getInitialState: function () {
+		return {
+			name: "Untitled",
+			description: "This is my form. Please fill it out. It's awesome!"
+		};
+	},
+
+	componentDidMount: function () {
+		var formStoreToken = FormStore.addListener(this._onChange);
+		FormUtil.fetchFormForUser(this.props.formId);
+	},
+
+	componentWillUnmount: function () {
+		formStoreToken.remove();
+	},
+
 	saveForm: function () {
 		var router = this.context.router;
 		var fields = FieldStore.all();
@@ -21,7 +37,7 @@ var FieldBuilderView = React.createClass({
 			form.description = "This is my form. Please fill it out. It's awesome!";
 		}
 
-		FormUtil.saveFormForUser(form, fields);
+		(form.id === undefined) ? FormUtil.saveFormForUser(form, fields) : FormUtil.updateFormForUser(form, fields);
 
 		router.push('/');
 	},
@@ -29,11 +45,20 @@ var FieldBuilderView = React.createClass({
   render: function () {
     return (
 			<div>
-				<FieldIndex />
+				<h2>{this.state.name}</h2>
+				<p>{this.state.description}</p>
+				<FieldIndex formId={this.props.formId} />
 				<button onClick={this.saveForm}>Save Form</button>
       </div>
     );
-  }
+  },
+
+	_onChange: function () {
+		this.setState({
+			name: FormStore.first().name,
+			description: FormStore.first().description
+		});
+	}
 });
 
 module.exports = FieldBuilderView;

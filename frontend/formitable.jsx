@@ -22,18 +22,13 @@ window.initializeApp = function () {
 
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignUpForm}/>
-      <Route path="/" component={App}>
-        <IndexRoute
-					component={FormManager}
-					onEnter={_requireSignedIn}
-					/>
-				<Route
-					path="/builder"
-					component={FormBuilder}
-					onEnter={_requireSignedIn}
-					/>
+			
+      <Route path="/" component={App} onEnter={_requireSignedIn} >
+        <IndexRoute component={FormManager} />
+				<Route path="/builder" component={FormBuilder} >
+					<Route path="/builder/:formId" />
+				</Route>
       </Route>
-
 
     </Router>,
     document.getElementById('root')

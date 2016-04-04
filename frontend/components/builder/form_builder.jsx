@@ -15,7 +15,7 @@ var FormBuilder = React.createClass({
 					<span><BuilderOptions /></span>
 				</section>
 
-				<span><FieldBuilderView /></span>
+				<span><FieldBuilderView formId={this.props.params.formId} /></span>
       </div>
 
     );

@@ -18,7 +18,7 @@ var FormUtils = {
   fetchFormForUser: function (id) {
     $.ajax({
       type: "GET",
-      url: "/api/form/" + id,
+      url: "/api/forms/" + id,
       dataType: "json",
       success: function (form) {
         FormActions.receiveFormForUser(form);
@@ -46,6 +46,27 @@ var FormUtils = {
       },
       error: function () {
         console.log("Failure in FormUtils#saveFormForUser");
+      }
+    });
+  },
+
+	updateFormForUser: function (form, fields) {
+    $.ajax({
+      type: "PATCH",
+      url: "/api/forms/" + form.id,
+			data: {
+				forms: {
+					name: form.name,
+					description: form.description
+				},
+				fields: fields
+			},
+      dataType: "json",
+      success: function (form) {
+        FormActions.receiveFormForUser(form);
+      },
+      error: function () {
+        console.log("Failure in FormUtils#updateFormForUser");
       }
     });
   }

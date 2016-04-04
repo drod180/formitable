@@ -5,13 +5,17 @@ var FieldUtil = require('../../utils/fields_utils');
 var FieldActions = require('../../actions/field_actions');
 
 var FieldIndex = React.createClass({
+	contextTypes: {
+		router: React.PropTypes.object.isRequired
+	},
+
 	getInitialState: function () {
 			return { fields: this.getStateFromStore() };
 	},
 
 	componentDidMount: function () {
 		this.fieldStoreToken = FieldStore.addListener(this._onChange);
-		FieldUtil.fetchFieldsForForm(/*Need to get ID if it is an edit*/);
+		FieldUtil.fetchFieldsForForm(this.props.formId);
 	},
 
 	componentWillUnmount: function () {

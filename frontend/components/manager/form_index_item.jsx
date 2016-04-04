@@ -1,5 +1,6 @@
 var React = require('react');
 var FormStore = require('../../stores/forms_store');
+var EditForm = require('./edit_form');
 
 var FormIndexItem = React.createClass({
   getInitialState: function () {
@@ -25,7 +26,9 @@ var FormIndexItem = React.createClass({
               />
           </div>
         </header>
-        <section className="form-options"></section>
+        <section className="form-options">
+					<EditForm formId={this.props.form.id} />
+        </section>
       </li>
     );
   }
