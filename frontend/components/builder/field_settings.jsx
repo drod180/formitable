@@ -5,10 +5,10 @@ var FieldSettings = React.createClass({
 
   render: function () {
 		var settings;
-		//settings depends on which field is selected.
+
     return (
       <div className="field-settings">
-				{settings}
+				Needs to be implemented!!!!!
       </div>
 
     );

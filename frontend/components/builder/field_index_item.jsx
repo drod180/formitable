@@ -1,6 +1,6 @@
 var React = require('react');
 var FieldStore = require('react');
-
+var DeleteFieldButton = require('../buttons/delete_field');
 var FieldIndexItem = React.createClass({
 
   render: function () {
@@ -8,6 +8,7 @@ var FieldIndexItem = React.createClass({
     return (
 			<li key={this.props.field.id}>
 				{item}
+				<DeleteFieldButton fieldId={this.props.field.id} />
       </li>
     );
   },

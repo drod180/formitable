@@ -33,6 +33,7 @@ class Api::FormsController < ApplicationController
     if @form
       @form.update(forms_params)
       if @form
+				save_fields(params[:fields], @form)
         render :show
       else
         payload = {
@@ -74,12 +75,18 @@ class Api::FormsController < ApplicationController
 
 	def save_fields(fields, form)
 		fields.each do |field|
-			label = field[1]["label"] || "Untitled"
-			success = form.fields.create({
-				category: field[1]["category"],
+			label = field[1][:label] || "Untitled"
+			field_params = {
+				category: field[1][:category],
 				label: label,
-				form_rank_id: field[1]["form_rank_id"]
-				})
+				form_rank_id: field[1][:form_rank_id]
+			}
+
+			if field[1][:id]
+				field[1].update(field_params)
+			else
+				form.fields.create(field_params)
+			end
 		end
 	end
 end

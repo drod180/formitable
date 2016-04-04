@@ -50,7 +50,7 @@ var LoginForm = React.createClass({
         </header>
 
         <section className="auth-body group">
-          <h1 className="auth-slogan">Time to Perform.</h1>
+          <h1 className="auth-slogan">This isn't even my final form!</h1>
           <form className="auth-form" onSubmit={this.handleSubmit}>
 
             <label className="auth-email" htmlFor="email">Email Address</label>

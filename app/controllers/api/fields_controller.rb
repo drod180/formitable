@@ -3,9 +3,8 @@ class Api::FieldsController < ApplicationController
 	  before_action :ensure_logged_in
 
 	  def index
-
 			form = Form.find(params[:fields][:form_id]) if params[:fields]
-			@fields = form ? form.fields : []
+			@fields = form ? Field.get_fields_by_form_order(form) : []
 			render json: @fields
 	  end
 

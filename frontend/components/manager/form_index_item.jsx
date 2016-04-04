@@ -1,6 +1,6 @@
 var React = require('react');
 var FormStore = require('../../stores/forms_store');
-var EditForm = require('./edit_form');
+var EditForm = require('../buttons/edit_form');
 
 var FormIndexItem = React.createClass({
   getInitialState: function () {

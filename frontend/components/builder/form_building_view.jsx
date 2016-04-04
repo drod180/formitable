@@ -18,12 +18,12 @@ var FieldBuilderView = React.createClass({
 	},
 
 	componentDidMount: function () {
-		var formStoreToken = FormStore.addListener(this._onChange);
+		this.formStoreToken = FormStore.addListener(this._onChange);
 		FormUtil.fetchFormForUser(this.props.formId);
 	},
 
 	componentWillUnmount: function () {
-		formStoreToken.remove();
+		this.formStoreToken.remove();
 	},
 
 	saveForm: function () {
