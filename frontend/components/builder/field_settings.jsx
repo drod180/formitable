@@ -12,20 +12,31 @@ var FieldSettings = React.createClass({
   },
 
   render: function () {
+    var formRank = 3;
     return (
-      <div className="field-settings">
-        <input
-          type="textarea"
-          className="settings-field-label"
-          onChange={this.fieldLabelChange}
-          />
-				<select
-          className="settings-field-type"
-          onChange={this.fieldTypeChange}
-          />
+      <ul className="field-settings">
+        <li>
+          <div className="form-rank-display">
+            {formRank + "."}
+          </div>
+        </li>
+        <li className="setting-list-item group">
+          <label className="field-settings-label">Field Label</label>
+          <textarea
+            className="form-label-setter"
+            onChange={this.fieldLabelChange}
+            />
+        </li>
+        <li className="setting-list-item group">
+          <label className="field-settings-label">Field Type</label>
+  				<select
+            className="settings-field-type"
+            onChange={this.fieldTypeChange}
+            />
+        </li>
         <FieldOption />
         <FieldChoices />
-      </div>
+      </ul>
 
     );
   }

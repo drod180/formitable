@@ -34,7 +34,7 @@ var FieldIndexItem = React.createClass({
 				displayItem = <input type="number" className="text" disabled />;
 				break;
 			case "textarea":
-				displayItem = <input type="textarea" className="textarea" disabled />;
+				displayItem = <textarea className="textarea" disabled />;
 				break;
 			case "radio":
 				displayItem = <input type="radio" className="radio" disabled />;
