@@ -5,10 +5,11 @@ var FieldIndexItem = React.createClass({
 
   render: function () {
 		var item = this._displayField();
+		// <DeleteFieldButton field={this.props.field} />
     return (
 			<li key={this.props.field.id}>
 				{item}
-				<DeleteFieldButton field={this.props.field} />
+
       </li>
     );
   },

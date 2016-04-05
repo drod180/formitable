@@ -27,8 +27,7 @@ button, article, footer, small {
 
 .form-edit {
 	float: left;
-	font-family: font-family
-'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
 	font-size: 11.05px;
 	font-weight: bold;
 	margin-left: 14px;
@@ -40,4 +39,20 @@ button, article, footer, small {
 
 .form-edit:hover {
 	background: #B9DCFF;
+}
+
+.delete-form  {
+	float: right;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+	font-size: 11.05px;
+	font-weight: bold;
+	margin-right: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #444;
+	line-height: 30px;
+}
+
+.delete-form:hover {
+	background: #FAA;
 }
