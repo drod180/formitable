@@ -14,9 +14,9 @@ fields will be added unless you save the form.
 progress. Put an x between the brackets for a checkmark: [x] -->
 
 ## Minimum Viable Product
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Create and edit forms in form creator
+- [x] Create an account
+- [x] Log in / Log out
+- [x] Create and edit forms in form creator
 - [ ] View and delete forms in form manager
 - [ ] Host form with unique URL
 
@@ -41,11 +41,11 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [x] create new project
+- [x] create `User` model
+- [x] authentication
+- [x] user signup/signin pages
+- [x] blank landing page after signin
 
 ####[Phase 2-3][phase-two-three]
 ### Phase 2: Flux Architecture and Form CRUD (1.5 days)
@@ -53,40 +53,40 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 **Objective:** Forms can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Form` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`FormsController`)
-- [ ] jBuilder and HTML views for forms
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [x] create `Form` model
+- [x] seed the database with a small amount of test data
+- [x] CRUD API for notes (`FormsController`)
+- [x] jBuilder and HTML views for forms
+- [x] setup Webpack & Flux scaffold
+- [x] setup `APIUtil` to interact with the API
+- [x] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days)
 
 **Objective:** Forms can be created, read, updated and destroyed with the
 user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [x] setup the flux loop with skeleton files
+- [x] setup React Router
 - implement each form component, building out the flux loop as needed.
-  - [ ] `FormManager`
+  - [x] `FormManager`
   - [ ] `FormManagerSearch`
   - [ ] `FormManagerFilters`
-  - [ ] `FormsIndex`
-  - [ ] `FormsIndexItems`
-  - [ ] `FormCreator`
-  - [ ] `FormCreatorButtons`
+  - [x] `FormsIndex`
+  - [x] `FormsIndexItems`
+  - [x] `FormCreator`
+  - [x] `FormCreatorButtons`
   - [ ] `FormCreatorSettings`
 
-- [ ] save Forms to the DB when submitted
+- [x] save Forms to the DB when submitted
 
 ### Phase 4: Start Styling (1 day)
 
 **Objective:** Existing pages (including singup/signin) will look good.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
+- [x] create a basic style guide
+- [x] position elements on the page
+- [x] add basic colors & styles
 
 ####[Phase 5-6][phase-five-six]
 ### Phase 5: Flux Architecture and Fields CRUD (1.5 day)
@@ -94,26 +94,26 @@ user interface.
 **Objective:** Fields can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Field` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`FieldsController`)
-- [ ] jBuilder and HTML views for fields
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [x] create `Field` model
+- [x] seed the database with a small amount of test data
+- [x] CRUD API for notes (`FieldsController`)
+- [x] jBuilder and HTML views for fields
+- [x] setup `APIUtil` to interact with the API
+- [x] test out API interaction in the console.
 
 ### Phase 6: Flux Architecture and Router (1.5 days)
 
 **Objective:** Forms can be read and destroyed with the
 user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [x] setup the flux loop with skeleton files
+- [x] setup React Router
 - implement each field component, building out the flux loop as needed.
-  - [ ] `FieldCreatorButtons`
+  - [x] `FieldCreatorButtons`
   - [ ] `FieldCreatorSettings`
-  - [ ] `FieldItemsindex`
-  - [ ] `FieldItems`
-- [ ] save fields to the DB when form is saved
+  - [x] `FieldItemsindex`
+  - [x] `FieldItems`
+- [x] save fields to the DB when form is saved
 
 ####[Phase 7][phase-seven]
 ### Phase 7: Setup Search and Filtering for Forms (.5 Day)
