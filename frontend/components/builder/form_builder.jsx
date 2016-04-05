@@ -35,7 +35,9 @@ var FormBuilder = React.createClass({
 					<BuilderOptions options={this.state.options} />
 				</section>
 
-				<FieldBuilderView formId={this.props.params.formId} />
+				<FieldBuilderView
+          callback={this.settingsTabSelect} 
+          formId={this.props.params.formId} />
       </div>
 
     );

@@ -49,21 +49,21 @@ var FieldIndexItem = React.createClass({
 				displayItem = (
           <div type="date" className="date" >
             <input
-              type="date"
+              type="text"
               className="date-1"
               placeholder="MM"
               disabled
               />
             <span className="symbol">/</span>
             <input
-              type="date"
+              type="text"
               className="date-2"
               placeholder="DD"
               disabled
               />
             <span className="symbol">/</span>
             <input
-              type="date"
+              type="text"
               className="date-3"
               placeholder="YYYY"
               disabled

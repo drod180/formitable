@@ -57,7 +57,10 @@ var FieldBuilderView = React.createClass({
   					<h2>{this.state.name}</h2>
   					<p>{this.state.description}</p>
   				</header>
-  				<FieldIndex formId={this.props.formId} />
+  				<FieldIndex
+            callback={this.props.callback}
+            formId={this.props.formId}
+            />
         </section>
         <footer className="form-view-footer">
           <button

@@ -24,7 +24,7 @@ var FieldAdder = React.createClass({
 			return (
 				<li key={i}>
 					<button
-						className="field-adder-button" 
+						className="field-adder-button"
 						onClick={this.handleNewField.bind(this, fieldKey)}
 						>{fields[fieldKey].name}
 					</button>

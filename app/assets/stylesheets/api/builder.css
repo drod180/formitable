@@ -147,8 +147,8 @@ ul.adder > .field-settings-tab  {
 }
 
 .builder-options {
-  min-height: 500px;
-
+  min-height: 473px;
+  padding-top: 20px;
 }
 
 ul.settings + .builder-options {
@@ -326,7 +326,7 @@ input.date-1, input.date-2 {
   border-right: 1px solid #c3c3c3;
   border-bottom: 1px solid #ddd;
   height: 20px;
-  width: 20px;
+  width: 23px;
 }
 
 input.date-3 {
