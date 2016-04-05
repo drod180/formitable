@@ -11,7 +11,7 @@ var BuilderOptions = React.createClass({
 									<FieldSettings />;
 
     return (
-      <ul className="builder-options">
+      <ul className="builder-options group">
 				{options}
       </ul>
 

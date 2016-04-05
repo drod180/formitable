@@ -20,15 +20,19 @@ var FormBuilder = React.createClass({
     return (
       <div className="builder">
 				<section className="builder-sidebar">
-					<ul className="builder-tabs">
-						<li className="field-adder-tab">
-							<button onClick={this.adderTabSelect} >Add a Field</button>
+					<ul className={"builder-tabs group " + this.state.options}>
+						<li
+							className="field-adder-tab"
+							onClick={this.adderTabSelect}>
+							Add a Field
 						</li>
-						<li className="field-settings-tab">
-							<button onClick={this.settingsTabSelect} >Field Settings</button>
+						<li
+							className="field-settings-tab"
+							onClick={this.settingsTabSelect}>
+							Field Settings
 						</li>
 					</ul>
-					<span><BuilderOptions options={this.state.options} /></span>
+					<BuilderOptions options={this.state.options} />
 				</section>
 
 				<span><FieldBuilderView formId={this.props.params.formId} /></span>

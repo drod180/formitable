@@ -28,7 +28,7 @@ var FieldBuilderView = React.createClass({
 
 	saveForm: function (e) {
 		e.preventDefault();
-		
+
 		var router = this.context.router;
 		var fields = FieldStore.all();
 		var form = FormStore.first();
@@ -46,12 +46,14 @@ var FieldBuilderView = React.createClass({
 
   render: function () {
     return (
-			<div>
-				<h2>{this.state.name}</h2>
-				<p>{this.state.description}</p>
+			<section className="form-view-section">
+				<header className="form-view-header">
+					<h2>{this.state.name}</h2>
+					<p>{this.state.description}</p>
+				</header>
 				<FieldIndex formId={this.props.formId} />
 				<button onClick={this.saveForm}>Save Form</button>
-      </div>
+      </section>
     );
   },
 
