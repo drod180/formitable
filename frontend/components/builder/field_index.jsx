@@ -35,14 +35,14 @@ var FieldIndex = React.createClass({
   },
 
   render: function () {
-		var fields = this.state.fields.map(function (field) {
+		var fields = this.state.fields.map(function (field, i) {
 			return (
         <FieldIndexItem
         fieldSelected={this.state.selected === field.form_rank_id ?
                   true : false }
         callback={this.itemSelect}
         field={field}
-        key={field.form_rank_id} />
+        key={i} />
       );
     }.bind(this));
     return (

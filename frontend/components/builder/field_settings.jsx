@@ -5,10 +5,14 @@ var FieldSettings = React.createClass({
 
   render: function () {
 		var settings;
+      // <FieldLabel />
+      // {formRank}
+      // <FieldType />
+      // <FieldSize />);
 
     return (
       <div className="field-settings">
-				Needs to be implemented!!!!!
+				{settings}
       </div>
 
     );

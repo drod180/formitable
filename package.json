@@ -18,7 +18,6 @@
     "react-router": "^2.0.1",
     "webpack": "^1.12.14"
   },
-
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

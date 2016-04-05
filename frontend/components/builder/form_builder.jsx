@@ -13,12 +13,12 @@ var FormBuilder = React.createClass({
 	},
 
 	settingsTabSelect: function () {
-		this.setState({ options: "select" });
+		this.setState({ options: "settings" });
 	},
 
   render: function () {
     return (
-      <div className="builder group">
+      <div className={"builder group " + this.state.options}>
 				<section className="builder-sidebar">
 					<ul className={"builder-tabs group " + this.state.options}>
 						<li

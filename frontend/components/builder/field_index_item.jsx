@@ -28,31 +28,77 @@ var FieldIndexItem = React.createClass({
 		var displayItem;
 		switch (this.props.field.category) {
 			case "text":
-				displayItem = <input type="text" className="text" />;
+				displayItem = <input type="text" className="text" disabled />;
 				break;
 			case "number":
-				displayItem = <input type="number" className="text" />;
+				displayItem = <input type="number" className="text" disabled />;
 				break;
 			case "textarea":
-				displayItem = <input type="textarea" className="textarea" />;
+				displayItem = <input type="textarea" className="textarea" disabled />;
 				break;
 			case "radio":
-				displayItem = <input type="radio" className="radio" />;
+				displayItem = <input type="radio" className="radio" disabled />;
 				break;
 			case "checkbox":
-				displayItem = <input type="checkbox" className="checkbox" />;
+				displayItem = <input type="checkbox" className="checkbox" disabled />;
 				break;
 			case "select":
-				displayItem = <select />;
+				displayItem = <select disabled />;
 				break;
 			case "date":
-				displayItem = <input type="date" className="date" />;
+				displayItem = (
+          <div type="date" className="date" >
+            <input
+              type="date"
+              className="date-1"
+              placeholder="MM"
+              disabled
+              />
+            <span className="symbol">/</span>
+            <input
+              type="date"
+              className="date-2"
+              placeholder="DD"
+              disabled
+              />
+            <span className="symbol">/</span>
+            <input
+              type="date"
+              className="date-3"
+              placeholder="YYYY"
+              disabled
+              />
+          </div>
+        );
 				break;
 			case "email":
-				displayItem = <input type="email" className="email" />;
+				displayItem = <input type="email" className="text" disabled />;
 				break;
 			case "tel":
-				displayItem = <input type="tel" className="telephone" />;
+				displayItem = (
+          <div type="tel" className="telephone" >
+            <input
+              type="tel"
+              className="telephone-1"
+              placeholder="###"
+              disabled
+              />
+            <span className="symbol">-</span>
+            <input
+              type="tel"
+              className="telephone-2"
+              placeholder="###"
+              disabled
+              />
+            <span className="symbol">-</span>
+            <input
+              type="tel"
+              className="telephone-3"
+              placeholder="####"
+              disabled
+              />
+          </div>
+        );
 					break;
 			default:
 				displayItem = "";

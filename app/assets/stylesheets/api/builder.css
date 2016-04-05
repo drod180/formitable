@@ -8,7 +8,7 @@ section, article, footer, small {
 html, body, header, nav, h1, h2, h3, h4, h5, a, ul, li,
 strong, main, section, img, div, p,
 form, fieldset, label, input, textarea,
-button, article, footer, small {
+button, article, footer, small, select {
 
   padding: 0;
   outline: 0;
@@ -58,6 +58,14 @@ img {
   box-shadow: rgba(0,0,0,0.1) 0px 1px 1px 1px;
 }
 
+div.adder {
+  background: #FDFDED;
+}
+
+div.settings {
+  background: #EFF6FF;
+}
+
 /* ---- Body Sidebar ---- */
 
 .builder-sidebar {
@@ -73,7 +81,7 @@ img {
 	font-size: 11.05px;
 }
 
-.builder-tabs.select {
+.builder-tabs.settings {
   border-bottom: 1px solid #3B699F;
 }
 
@@ -85,7 +93,7 @@ img {
 	cursor: pointer;
 }
 
-ul.select {
+ul.settings {
 	background: #CFE7FF;
 }
 
@@ -103,7 +111,7 @@ ul.adder > .field-adder-tab {
   border-left: 1px solid #F7DA77;
 }
 
-ul.select > .field-settings-tab {
+ul.settings > .field-settings-tab {
 	background: #EFF6FF;
 	color: #3B699F;
   margin-bottom: -1px; /* -1 margin to move tab down 1px */
@@ -113,7 +121,7 @@ ul.select > .field-settings-tab {
   border-left: 1px solid;
 }
 
-ul.select > .field-adder-tab,
+ul.settings > .field-adder-tab,
 ul.adder > .field-settings-tab  {
 	color: #666;
 }
@@ -138,16 +146,17 @@ ul.adder > .field-settings-tab  {
 	cursor: pointer;
 }
 
-ul.select + .builder-options {
-	background: #EFF6FF;
-	border-right: 1px solid #3B699F;
+.builder-options {
   min-height: 500px;
+
+}
+
+ul.settings + .builder-options {
+	background: #EFF6FF;
 }
 
 ul.adder + .builder-options {
 	background: #FDFDED;
-	border-right: 1px solid #F7DA77;
-	min-height: 500px;
 }
 
 
@@ -166,15 +175,27 @@ ul.adder + .builder-options {
 	border-radius: 10px;
 	background-clip: padding-box;
 	background-color: #fff;
+  cursor: pointer;
 }
 
 /* ---- Form View ---- */
 
+
 .form-view-section {
- float: left;
+ float: right;
  width: 574.812px;
- padding: 10px 15px;
+ padding: 10px 15px 10px 14px;
  min-height: 415px;
+ background: #fff;
+ border-left: 1px solid black;
+}
+
+div.settings > div > .form-view-section {
+  border-left: 1px solid #3B699F;
+}
+
+div.adder > div > .form-view-section {
+  border-left: 1px solid #F7DA77;
 }
 
 .form-view-header {
@@ -214,11 +235,20 @@ ul.adder + .builder-options {
 	display: block;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
 	font-size: 12.35px;
+  font-weight: bold;
   cursor: inherit;
+  padding-bottom: 3px;
+  overflow: hidden;
 }
 
-.field-input-items > li > input {
+.field-input-items > li > input, select {
   cursor: inherit;
+  margin-bottom: 1px;
+
+  text-rendering: auto;
+  display: inline-block;
+  text-align: start;
+  font: 11px BlinkMacSystemFont;
 }
 
 .field-input-items > li > input.text {
@@ -227,6 +257,7 @@ ul.adder + .builder-options {
   border-left: 1px solid #c3c3c3;
   border-right: 1px solid #c3c3c3;
   border-bottom: 1px solid #ddd;
+  height: 20px;
 }
 
 .field-input-items > li > input.textarea {
@@ -237,9 +268,7 @@ ul.adder + .builder-options {
   border-bottom: 1px solid #ddd;
   width: 100%;
   height: 150px;
-  -webkit-appearance: textarea;
-  -webkit-rtl-ordering: logical;
-  /*-webkit-user-select: text;*/
+
   flex-direction: column;
   resize: auto;
   white-space: pre-wrap;
@@ -247,15 +276,28 @@ ul.adder + .builder-options {
 }
 
 .field-input-items > li > input.checkbox {
-
+  margin-top: 4px;
 }
 
 .field-input-items > li > input.radio {
-
+  margin-top: 4px;
 }
 
 .field-input-items > li > select {
+  border: 1px solid #A6A6A6;
+  background: #F8F8F8;
+  border-radius: 5px;
+  min-width: 150px;
 
+
+  -webkit-appearance: menulist;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+  float: left;
+
+  font-size: 120%;
 }
 
 .field-input-items > li > input.date {
@@ -266,16 +308,87 @@ ul.adder + .builder-options {
 
 }
 
-.field-input-items > li > input.telephone {
-
-}
-.form-view-footer {
+.field-input-items > li > div.date > input, span {
   float: left;
+  margin-right: 4.68px;
+}
+
+.field-input-items > li > div.date > span {
+  font-size: 15.6px;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+}
+
+
+input.date-1, input.date-2 {
+  box-shadow: inset 0 1px rgba(0,0,0,0.2);
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-bottom: 1px solid #ddd;
+  height: 20px;
+  width: 20px;
+}
+
+input.date-3 {
+  box-shadow: inset 0 1px rgba(0,0,0,0.2);
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-bottom: 1px solid #ddd;
+  height: 20px;
+  width: 35px;
+}
+
+.field-input-items > li > div.telephone > input, span {
+  float: left;
+  margin-right: 4.68px;
+}
+
+.field-input-items > li > div.telephone > span {
+  font-size: 15.6px;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+}
+
+
+input.telephone-1, input.telephone-2 {
+  box-shadow: inset 0 1px rgba(0,0,0,0.2);
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-bottom: 1px solid #ddd;
+  height: 20px;
+  width: 26px;
+}
+
+input.telephone-3 {
+  box-shadow: inset 0 1px rgba(0,0,0,0.2);
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-bottom: 1px solid #ddd;
+  height: 20px;
+  width: 35px;
+}
+
+/* Footer */
+
+.form-view-footer {
+  float: right;
   background: #FFE79F;
   padding: 25px 0 30px 0;
   border-top: 1px solid #F7DA77;
-  width: 604.797px;
+  width: 603.797px;
 }
+
+div.settings > div > .form-view-footer {
+  border-left: 1px solid #3B699F;
+}
+
+div.adder > div > .form-view-footer {
+  border-left: 1px solid #F7DA77;
+}
+
+
 .form-save-button {
   color: #63A142;
   font-weight: bold;
