@@ -3,6 +3,7 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var FieldConstants = require('../constants/field_constants');
 
 var _fields = [];
+var _fieldIdsToDelete = [];
 
 function _addField(field) {
   _fields.push(field);
@@ -12,16 +13,23 @@ function _resetFields(fields) {
   _fields = fields;
 }
 
+function _resetDeleteFields() {
+  _fieldIdsToDelete = [];
+}
+
 //Remove field from store and update the form_rank_id
 //Use form_rank_id to handle both fields in
 function _removeField(field) {
 	var removed = false;
 	for (var i = 0; i < _fields.length; i++){
-		// if (removed) { _fields[i].form_rank_id--; }
+		if (removed) { _fields[i].form_rank_id--; }
 		if (!removed && _fields[i].form_rank_id === field.form_rank_id) {
 			removed = true;
+      if (_fields[i].id) {
+        _fieldIdsToDelete.push(_fields[i].id);
+      }
 			_fields.splice(i, 1);
-			// i--;
+			 i--;
 		}
 	}
 }
@@ -33,6 +41,7 @@ FieldStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
       case FieldConstants.FIELDS_RECEIVED:
         _resetFields(payload.fields);
+        _resetDeleteFields();
         FieldStore.__emitChange();
         break;
       case FieldConstants.FIELD_RECEIVED:
@@ -52,6 +61,9 @@ FieldStore.all = function () {
 	return _fields.slice(0);
 };
 
+FieldStore.allRemoved = function () {
+  return _fieldIdsToDelete.slice(0);
+};
 
 
 module.exports = FieldStore;

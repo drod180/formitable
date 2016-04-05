@@ -5,17 +5,17 @@ var FieldActions = require('../../actions/field_actions');
 var DeleteFieldButton = React.createClass({
 	deleteField: function (e) {
 		e.preventDefault();
-		
-		if (this.props.field.id) {
-			FieldUtil.destoryField(this.props.field.id);
-		} else {
-			FieldActions.removeFieldForForm(this.props.field);
-		}
+
+		FieldActions.removeFieldForForm(this.props.field);
 	},
 
   render: function () {
     return (
-      <button onClick={this.deleteField}>DELETE FIELD</button>
+      <button
+        className="field-delete"
+        onClick={this.deleteField}
+        >--
+      </button>
     );
   }
 });

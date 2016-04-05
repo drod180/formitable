@@ -18,7 +18,7 @@ var FormBuilder = React.createClass({
 
   render: function () {
     return (
-      <div className="builder">
+      <div className="builder group">
 				<section className="builder-sidebar">
 					<ul className={"builder-tabs group " + this.state.options}>
 						<li
@@ -35,7 +35,7 @@ var FormBuilder = React.createClass({
 					<BuilderOptions options={this.state.options} />
 				</section>
 
-				<span><FieldBuilderView formId={this.props.params.formId} /></span>
+				<FieldBuilderView formId={this.props.params.formId} />
       </div>
 
     );

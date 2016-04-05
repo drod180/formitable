@@ -30,16 +30,16 @@ var FieldUtils = {
     });
   },
 
-	destoryField: function (id) {
+	destroyField: function (id) {
 		$.ajax({
 			type: "DELETE",
 			url: "/api/fields/" + id,
 			dataType: "json",
-			success: function (field) {
-				FieldActions.removeFieldForForm(field);
+			success: function () {
+				
 			},
 			error: function () {
-				console.log("Failure in FieldUtils#destoryField");
+				console.log("Failure in FieldUtils#destroyField");
 			}
 		});
 	}

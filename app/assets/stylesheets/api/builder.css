@@ -51,20 +51,34 @@ img {
   clear: both;
 }
 
+/* ---- Form Body ---- */
 .builder {
 	width: 960px;
 	margin: 0 auto;
+  box-shadow: rgba(0,0,0,0.1) 0px 1px 1px 1px;
 }
+
+/* ---- Body Sidebar ---- */
 
 .builder-sidebar {
 	float: left;
 	width: 355.188px;
 }
 
+/* ---- Sidebar tabs ---- */
+
 .builder-tabs {
 	display: block;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
 	font-size: 11.05px;
+}
+
+.builder-tabs.select {
+  border-bottom: 1px solid #3B699F;
+}
+
+.builder-tabs.adder {
+  border-bottom: 1px solid #F7DA77;
 }
 
 .builder-tabs > li {
@@ -82,11 +96,21 @@ ul.adder {
 ul.adder > .field-adder-tab {
 	background: #FDFDED;
 	color: #BF6F2F;
+  margin-bottom: -1px; /* -1 margin to move tab down 1px */
+  border-bottom: 1px solid #FDFDED;
+  border-top: 1px solid #F7DA77;
+  border-right: 1px solid #F7DA77;
+  border-left: 1px solid #F7DA77;
 }
 
 ul.select > .field-settings-tab {
 	background: #EFF6FF;
 	color: #3B699F;
+  margin-bottom: -1px; /* -1 margin to move tab down 1px */
+  border-bottom: 1px solid #EFF6FF;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-left: 1px solid;
 }
 
 ul.select > .field-adder-tab,
@@ -94,15 +118,11 @@ ul.adder > .field-settings-tab  {
 	color: #666;
 }
 
-
 .field-adder-tab {
 	float: left;
-	border-top: 1px solid;
-	border-right: 1px solid;
-	border-left: 1px solid;
 	padding: 4px 30px;
 	margin-top: 4px;
-	margin-left: 30px;
+	margin-left: 32px;
 	border-top-right-radius: 12px;
 	border-top-left-radius: 12px;
 	cursor: pointer;
@@ -110,12 +130,9 @@ ul.adder > .field-settings-tab  {
 
 .field-settings-tab {
 	float: left;
-	border-top: 1px solid;
-	border-right: 1px solid;
-	border-left: 1px solid;
 	padding: 4px 30px;
 	margin-top: 4px;
-	margin-left: 30px;
+	margin-left: 32px;
 	border-top-right-radius: 12px;
 	border-top-left-radius: 12px;
 	cursor: pointer;
@@ -123,12 +140,13 @@ ul.adder > .field-settings-tab  {
 
 ul.select + .builder-options {
 	background: #EFF6FF;
-	border: 1px solid #3B699F;
+	border-right: 1px solid #3B699F;
+  min-height: 500px;
 }
 
 ul.adder + .builder-options {
 	background: #FDFDED;
-	border: 1px solid #BF6F2F;
+	border-right: 1px solid #F7DA77;
 	min-height: 500px;
 }
 
@@ -150,10 +168,13 @@ ul.adder + .builder-options {
 	background-color: #fff;
 }
 
+/* ---- Form View ---- */
+
 .form-view-section {
  float: left;
  width: 574.812px;
  padding: 10px 15px;
+ min-height: 415px;
 }
 
 .form-view-header {
@@ -172,12 +193,20 @@ ul.adder + .builder-options {
 	font-size: 12.35px;
 }
 
-
 .field-input-items {
+  border: 1px solid transparent;
 	display: block;
-	border: 1px dotted black;
 	padding: 6px;
-	margin: 10px 0;
+	margin: 0 0 1px 0;
+  cursor: pointer;
+}
+
+.field-input-items:hover {
+	border: 1px dashed #3B699F;
+}
+
+.field-selected {
+  background: #C2D7EF;
 }
 
 .field-input-label {
@@ -185,21 +214,77 @@ ul.adder + .builder-options {
 	display: block;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
 	font-size: 12.35px;
+  cursor: inherit;
 }
 
 .field-input-items > li > input {
-	background-color: #ffffff;
-border: 1px solid #cccccc;
--webkit-border-radius: 3px;
-	 -moz-border-radius: 3px;
-				border-radius: 3px;
--webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	 -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-				box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
--webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
-	 -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-		-ms-transition: border linear 0.2s, box-shadow linear 0.2s;
-		 -o-transition: border linear 0.2s, box-shadow linear 0.2s;
-				transition: border linear 0.2s, box-shadow linear 0.2s;
+  cursor: inherit;
+}
 
+.field-input-items > li > input.text {
+  box-shadow: inset 0 1px rgba(0,0,0,0.2);
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-bottom: 1px solid #ddd;
+}
+
+.field-input-items > li > input.textarea {
+  box-shadow: inset 0 1px rgba(0,0,0,0.2);
+  border-top: 1px solid #7c7c7c;
+  border-left: 1px solid #c3c3c3;
+  border-right: 1px solid #c3c3c3;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  height: 150px;
+  -webkit-appearance: textarea;
+  -webkit-rtl-ordering: logical;
+  /*-webkit-user-select: text;*/
+  flex-direction: column;
+  resize: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.field-input-items > li > input.checkbox {
+
+}
+
+.field-input-items > li > input.radio {
+
+}
+
+.field-input-items > li > select {
+
+}
+
+.field-input-items > li > input.date {
+
+}
+
+.field-input-items > li > input.email {
+
+}
+
+.field-input-items > li > input.telephone {
+
+}
+.form-view-footer {
+  float: left;
+  background: #FFE79F;
+  padding: 25px 0 30px 0;
+  border-top: 1px solid #F7DA77;
+  width: 604.797px;
+}
+.form-save-button {
+  color: #63A142;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px 6px 10px;
+  border: 1px solid #dedede;
+  background-color: #fff;
+  font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
+  cursor: pointer;
+  border-radius: 11px;
+  box-shadow: rgba(0,0,0,0.1) 0px 1px 1px;
 }

@@ -10,7 +10,7 @@ var FieldIndex = React.createClass({
 	},
 
 	getInitialState: function () {
-			return { fields: this.getStateFromStore() };
+			return { fields: this.getStateFromStore(), selected: 0 };
 	},
 
 	componentDidMount: function () {
@@ -30,10 +30,21 @@ var FieldIndex = React.createClass({
 		return FieldStore.all();
 	},
 
+  itemSelect: function (rankId) {
+    this.setState({ selected: rankId });
+  },
+
   render: function () {
 		var fields = this.state.fields.map(function (field) {
-			return (<FieldIndexItem field={field} key={field.id} />);
-		});
+			return (
+        <FieldIndexItem
+        fieldSelected={this.state.selected === field.form_rank_id ?
+                  true : false }
+        callback={this.itemSelect}
+        field={field}
+        key={field.form_rank_id} />
+      );
+    }.bind(this));
     return (
 			<ul>
 				{fields}

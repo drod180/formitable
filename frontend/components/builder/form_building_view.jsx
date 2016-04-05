@@ -32,6 +32,7 @@ var FieldBuilderView = React.createClass({
 		var router = this.context.router;
 		var fields = FieldStore.all();
 		var form = FormStore.first();
+    var deleteFields = FieldStore.allRemoved();
 
 		if (form === undefined) {
 			form = {};
@@ -41,19 +42,31 @@ var FieldBuilderView = React.createClass({
 
 		(form.id === undefined) ? FormUtil.saveFormForUser(form, fields) : FormUtil.updateFormForUser(form, fields);
 
+    deleteFields.forEach(function (id) {
+      FieldsUtil.destroyField(id);
+    });
+
 		router.push('/');
 	},
 
   render: function () {
     return (
-			<section className="form-view-section">
-				<header className="form-view-header">
-					<h2>{this.state.name}</h2>
-					<p>{this.state.description}</p>
-				</header>
-				<FieldIndex formId={this.props.formId} />
-				<button onClick={this.saveForm}>Save Form</button>
-      </section>
+      <div>
+  			<section className="form-view-section">
+  				<header className="form-view-header">
+  					<h2>{this.state.name}</h2>
+  					<p>{this.state.description}</p>
+  				</header>
+  				<FieldIndex formId={this.props.formId} />
+        </section>
+        <footer className="form-view-footer">
+          <button
+            className="form-save-button"
+            onClick={this.saveForm}
+            >Save Form
+          </button>
+        </footer>
+      </div>
     );
   },
 

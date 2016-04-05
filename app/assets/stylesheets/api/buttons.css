@@ -56,3 +56,17 @@ button, article, footer, small {
 .delete-form:hover {
 	background: #FAA;
 }
+
+.field-delete {
+  width: 16px;
+  height: 16px;
+  float: right;
+  z-index: 100;
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
