@@ -1,11 +1,19 @@
-## Minimum Viable Product
 
-WooFu is a web application inspired by WuFoo built using Ruby on Rails
-and React.js. WooFu allows users to:
+## Website description
+
+Formitable is a web application designed as a Wufoo clone
+(https://secure.wufoo.com/signup/1/). The best way to navigate
+through the Formitable is by either creating your own account or
+using the sign in as Guest functionality. Once you are logged in
+you can manager your forms by either adding a new form, deleting a form
+or editing a form. For editing a form you will be in the builder view
+and are capable of adding fields to the form. Note that none of the
+fields will be added unless you save the form.
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
+## Minimum Viable Product
 - [ ] Create an account
 - [ ] Log in / Log out
 - [ ] Create and edit forms in form creator
