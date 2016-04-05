@@ -4,6 +4,8 @@ var FieldActions = require('../../actions/field_actions');
 
 var DeleteFieldButton = React.createClass({
 	deleteField: function (e) {
+		e.preventDefault();
+		
 		if (this.props.field.id) {
 			FieldUtil.destoryField(this.props.field.id);
 		} else {

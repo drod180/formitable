@@ -9,6 +9,8 @@ var FormIndexItem = React.createClass({
   },
 
   handlePublicToggle: function (e) {
+		e.preventDefault();
+		
     this.setState({public: e.target.value});
   },
 

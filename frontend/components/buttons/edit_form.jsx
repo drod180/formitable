@@ -10,13 +10,18 @@ var EditForm = React.createClass({
 	},
 
 	editForm: function (e) {
+		e.preventDefault();
+
 		var router = this.context.router;
 		router.push('/builder/' + this.props.formId);
 	},
 
   render: function () {
     return (
-      <button onClick={this.editForm}>Edit</button>
+      <a href="#"
+				className="form-edit" onClick={this.editForm}
+				>Edit
+			</a>
     );
   }
 });

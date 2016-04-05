@@ -3,6 +3,8 @@ var FormUtil = require('../../utils/form_utils');
 
 var DeleteFormButton = React.createClass({
 	deleteForm: function (e) {
+		e.preventDefault();
+		
 		FormUtil.destroyFormForUser(this.props.formId);
 	},
 

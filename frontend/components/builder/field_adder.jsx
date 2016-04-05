@@ -12,7 +12,7 @@ var FieldAdder = React.createClass({
 		var params = {
 			category: FieldTypeConstants[key].type,
 			label: FieldTypeConstants[key].label,
-			form_rank_id: (FieldStore.all().length + 1),
+			form_rank_id: (FieldStore.last().form_rank_id + 1),
 		};
 		FieldActions.receiveFieldForForm(params);
 	},

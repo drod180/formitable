@@ -26,7 +26,9 @@ var FieldBuilderView = React.createClass({
 		this.formStoreToken.remove();
 	},
 
-	saveForm: function () {
+	saveForm: function (e) {
+		e.preventDefault();
+		
 		var router = this.context.router;
 		var fields = FieldStore.all();
 		var form = FormStore.first();

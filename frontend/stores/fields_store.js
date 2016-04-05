@@ -13,15 +13,15 @@ function _resetFields(fields) {
 }
 
 //Remove field from store and update the form_rank_id
-//Use form_rank_id to handle both fields in 
+//Use form_rank_id to handle both fields in
 function _removeField(field) {
 	var removed = false;
 	for (var i = 0; i < _fields.length; i++){
-		if (removed) { _fields[i].form_rank_id--; }
+		// if (removed) { _fields[i].form_rank_id--; }
 		if (!removed && _fields[i].form_rank_id === field.form_rank_id) {
 			removed = true;
 			_fields.splice(i, 1);
-			i--;
+			// i--;
 		}
 	}
 }

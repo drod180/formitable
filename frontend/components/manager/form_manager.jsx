@@ -8,7 +8,9 @@ var FormManager = React.createClass({
 		router: React.PropTypes.object.isRequired
 	},
 
-	handleNewForm: function () {
+	handleNewForm: function (e) {
+		e.preventDefault();
+		
 		var form = {};
 		var router = this.context.router;
 

@@ -147,7 +147,7 @@ img {
 	background: #fff;
 }
 
-.auth-submit {
+.auth-submit, .guest-submit {
   font-size: 32px;
   font-weight: bold;
   padding: 15px 0;
@@ -159,6 +159,6 @@ img {
   cursor: pointer;
 }
 
-.auth-submit:hover {
+.auth-submit:hover, .guest-submit:hover {
   background: #4cdc4f;
 }
