@@ -49,8 +49,10 @@ var FieldSettings = React.createClass({
             onChange={this.fieldLabelChange}
             />
         </li>
-        <FieldType selectedField={this.props.selectedField} />
-        <FieldOption selectedField={this.props.selectedField} />
+        <li className="setting-list-item group">
+          <FieldType selectedField={this.props.selectedField} />
+          <FieldOption selectedField={this.props.selectedField} />
+        </li>
         <FieldChoices selectedField={this.props.selectedField} />
       </ul>
     );

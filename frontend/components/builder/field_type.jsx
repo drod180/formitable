@@ -13,7 +13,7 @@ var FieldType = React.createClass({
   render: function () {
     var disabled = this.props.selectedField.id ? true : false;
     return (
-      <li className="setting-list-item group">
+      <div className="field-options-dropdowns group">
         <label className="field-settings-label">Field Type</label>
         <select
           disabled={disabled}
@@ -22,7 +22,7 @@ var FieldType = React.createClass({
           onChange={this.fieldTypeChange}
           >{this._renderOptions()}
         </select>
-      </li>
+      </div>
     );
   },
 
@@ -32,7 +32,7 @@ var FieldType = React.createClass({
         <option
           value={FieldTypeConstants[fieldTypes].type}
           key={i}
-          >{FieldTypeConstants[fieldTypes].type}
+          >{FieldTypeConstants[fieldTypes].name}
         </option>
     );
     }.bind(this));
