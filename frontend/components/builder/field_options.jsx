@@ -44,9 +44,9 @@ var FieldOptions = React.createClass({
           className={"settings-field-option"}
           onChange={this.fieldOptionChange}
           >
-          <option value="Small">Small</option>
-          <option value="Medium">Medium</option>
-          <option value="Large">Large</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
         </select>
       </div>
     );
@@ -61,10 +61,10 @@ var FieldOptions = React.createClass({
           className={"settings-field-option"}
           onChange={this.fieldOptionChange}
           >
-          <option value="One">One Column</option>
-          <option value="Two">Two Column</option>
-          <option value="Three">Three Column</option>
-          <option value="Side">Side-by-side</option>
+          <option value="one">One Column</option>
+          <option value="two">Two Column</option>
+          <option value="three">Three Column</option>
+          <option value="side">Side-by-side</option>
         </select>
       </div>
     );

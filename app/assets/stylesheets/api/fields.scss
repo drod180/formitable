@@ -77,7 +77,6 @@ img {
   border-right: 1px solid #c3c3c3;
   border-bottom: 1px solid #ddd;
   width: 100%;
-  height: 150px;
 
   flex-direction: column;
   resize: auto;
@@ -126,6 +125,30 @@ img {
 .field-input-items > li > div.date > span {
   font-size: 15.6px;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+}
+
+input.small, select.small {
+  width: 25%;
+}
+
+input.medium, select.medium {
+  width: 50%;
+}
+
+input.large, select.large {
+  width: 100%;
+}
+
+textarea.small {
+  height: 77.5px;
+}
+
+textarea.medium {
+  height: 136px;
+}
+
+textarea.large {
+  height: 266px;
 }
 
 

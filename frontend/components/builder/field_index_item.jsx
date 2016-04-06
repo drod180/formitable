@@ -35,24 +35,25 @@ var FieldIndexItem = React.createClass({
 
 	_displayField: function () {
 		var displayItem;
+    var option = this.props.field.option;
 		switch (this.props.field.category) {
 			case "text":
-				displayItem = <input type="text" className="text" disabled />;
+				displayItem = <input type="text" className={"text " + option}  disabled />;
 				break;
 			case "number":
-				displayItem = <input type="number" className="text" disabled />;
+				displayItem = <input type="number" className={"text " + option} disabled />;
 				break;
 			case "textarea":
-				displayItem = <textarea className="textarea" disabled />;
+				displayItem = <textarea className={"textarea " + option} disabled />;
 				break;
 			case "radio":
-				displayItem = <input type="radio" className="radio" disabled />;
+				displayItem = <input type="radio" className={"radio " + option} disabled />;
 				break;
 			case "checkbox":
-				displayItem = <input type="checkbox" className="checkbox" disabled />;
+				displayItem = <input type="checkbox" className={"checkbox " + option} disabled />;
 				break;
 			case "select":
-				displayItem = <select disabled />;
+				displayItem = <select disabled className={option} />;
 				break;
 			case "date":
 				displayItem = (
@@ -81,7 +82,7 @@ var FieldIndexItem = React.createClass({
         );
 				break;
 			case "email":
-				displayItem = <input type="email" className="text" disabled />;
+				displayItem = <input type="email" className={"text " + option} disabled />;
 				break;
 			case "tel":
 				displayItem = (
