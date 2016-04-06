@@ -8,7 +8,7 @@ var BuilderOptions = React.createClass({
   render: function () {
 		var options = this.props.options === "adder" ?
 		 							<FieldAdder /> :
-									<FieldSettings />;
+									<FieldSettings selectedField={this.props.selectedField}/>;
 
     return (
       <ul className="builder-options group">

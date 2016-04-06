@@ -16,6 +16,13 @@ FieldActions = {
     });
   },
 
+  updateFieldForForm: function (field) {
+    AppDispatcher.dispatch({
+      actionType: FieldConstants.FIELD_UPDATED,
+      field: field
+    });
+  },
+
 	removeFieldForForm: function (field) {
 		AppDispatcher.dispatch({
 			actionType: FieldConstants.FIELD_REMOVED,

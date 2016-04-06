@@ -2,18 +2,25 @@ var React = require('react');
 var FormStore = require('../../stores/forms_store');
 var BuilderOptions = require('./builder_options');
 var FieldBuilderView = require('./form_building_view');
+var FieldIndex = require('./field_index');
+
 var FormBuilder = React.createClass({
 
 	getInitialState: function () {
-		return { options: "adder" };
+		return { options: "adder", field: null };
 	},
 
 	adderTabSelect: function () {
-		this.setState({ options: "adder" });
+		this.setState({ options: "adder"});
 	},
 
-	settingsTabSelect: function () {
-		this.setState({ options: "settings" });
+	settingsTabSelect: function (field, e) {
+    e.preventDefault();
+    if (field !== null) {
+  		this.setState({ options: "settings", field: field });
+    } else {
+      this.setState({ options: "settings" });
+    }
 	},
 
   render: function () {
@@ -28,15 +35,19 @@ var FormBuilder = React.createClass({
 						</li>
 						<li
 							className="field-settings-tab"
-							onClick={this.settingsTabSelect}>
+							onClick={this.settingsTabSelect.bind(this, null)}>
 							Field Settings
 						</li>
 					</ul>
-					<BuilderOptions options={this.state.options} />
+					<BuilderOptions
+            options={this.state.options}
+            selectedField={this.state.field}
+            />
 				</section>
 
 				<FieldBuilderView
-          callback={this.settingsTabSelect} 
+          callback={this.settingsTabSelect}
+          selectedField={this.state.field}
           formId={this.props.params.formId} />
       </div>
 

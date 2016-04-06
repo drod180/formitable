@@ -1,17 +1,26 @@
 var React = require('react');
 var FieldStore = require('react');
 var DeleteFieldButton = require('../buttons/delete_field');
-var FieldIndexItem = React.createClass({
 
-  inputSelect: function () {
-    this.props.callback(this.props.field.form_rank_id);
+var FieldIndexItem = React.createClass({
+  inputSelect: function (e) {
+    this.props.callback(this.props.field, e);
   },
 
   render: function () {
 		var item = this._displayField();
+    var selectedField;
+
+    if (this.props.fieldSelected &&
+      this.props.fieldSelected.form_rank_id === this.props.field.form_rank_id) {
+      selectedField = "field-selected";
+    } else {
+      selectedField = "";
+    }
+
     return (
 			<div
-        className={"field-input-items group " + (this.props.fieldSelected ? "field-selected" : "") }
+        className={"field-input-items group " + selectedField }
         onClick={this.inputSelect}
         >
 				<label className="field-input-label">{this.props.field.label}</label>

@@ -17,6 +17,16 @@ function _resetDeleteFields() {
   _fieldIdsToDelete = [];
 }
 
+function _updateField(field) {
+  var fieldIndex = _findIndexByFormRankId(field.form_rank_id);
+  _fields[fieldIndex] = field;
+}
+
+function _findIndexByFormRankId(id) {
+  for (var i = 0; i < _fields.length; i++){
+    if (_fields[i].form_rank_id === id) { return i; }
+  }
+}
 //Remove field from store and update the form_rank_id
 //Use form_rank_id to handle both fields in
 function _removeField(field) {
@@ -46,6 +56,10 @@ FieldStore.__onDispatch = function (payload) {
         break;
       case FieldConstants.FIELD_RECEIVED:
         _addField(payload.field);
+        FieldStore.__emitChange();
+        break;
+      case FieldConstants.FIELD_UPDATED:
+        _updateField(payload.field);
         FieldStore.__emitChange();
         break;
 			case FieldConstants.FIELD_REMOVED:

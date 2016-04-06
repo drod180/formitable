@@ -19,7 +19,9 @@ var FieldBuilderView = React.createClass({
 
 	componentDidMount: function () {
 		this.formStoreToken = FormStore.addListener(this._onChange);
-		FormUtil.fetchFormForUser(this.props.formId);
+    if (this.props.formId) {
+		  FormUtil.fetchFormForUser(this.props.formId);
+    }
 	},
 
 	componentWillUnmount: function () {
@@ -40,13 +42,15 @@ var FieldBuilderView = React.createClass({
 			form.description = "This is my form. Please fill it out. It's awesome!";
 		}
 
-		(form.id === undefined) ? FormUtil.saveFormForUser(form, fields) : FormUtil.updateFormForUser(form, fields);
+		(form.id === undefined)
+      ? FormUtil.saveFormForUser(form, fields)
+      : FormUtil.updateFormForUser(form, fields);
 
     deleteFields.forEach(function (id) {
       FieldsUtil.destroyField(id);
     });
 
-		router.push('/');
+		window.setInterval(function() { router.push('/'); }, 0);
 	},
 
   render: function () {
@@ -58,6 +62,7 @@ var FieldBuilderView = React.createClass({
   					<p>{this.state.description}</p>
   				</header>
   				<FieldIndex
+            selectedField={this.props.selectedField}
             callback={this.props.callback}
             formId={this.props.formId}
             />

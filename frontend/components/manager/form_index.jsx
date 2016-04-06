@@ -5,7 +5,7 @@ var FormUtils = require('../../utils/form_utils');
 
 var FormIndex = React.createClass({
   getInitialState : function () {
-    return { forms: this._getStateFromStore() };
+    return { forms: [] };
   },
 
   componentDidMount: function () {

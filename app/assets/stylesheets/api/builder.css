@@ -293,7 +293,7 @@ div.adder > div > .form-view-section {
 	border: 1px dashed #3B699F;
 }
 
-.field-selected {
+div.settings .field-selected {
   background: #C2D7EF;
 }
 
