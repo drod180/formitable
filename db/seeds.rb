@@ -16,32 +16,32 @@ admin_user = User.create!({ email: email, password: password, username: username
 
 Form.destroy_all
 
-name = Faker::Hacker.noun
-description = Faker::Hacker.say_something_smart
+name = "Movies"
+description = "Planes, Trains, other things"
 user_id = admin_user.id
 form_1 = Form.create!({ name: name, description: description, user_id: user_id})
 
-name = Faker::Hacker.noun
-description = Faker::Hacker.say_something_smart
+name = "Gondola"
+description = "I am never at home on Sundays."
 form_2 = Form.create!({ name: name, description: description, user_id: user_id})
 
-name = Faker::Hacker.noun
-description = Faker::Hacker.say_something_smart
+name = "Missile"
+description = "Abstraction is often one floor above you."
 form_3 = Form.create!({ name: name, description: description, user_id: user_id})
 
-name = Faker::Hacker.noun
-description = Faker::Hacker.say_something_smart
+name = "Sardine"
+description = "Lets all be unique together until we realise we are all the same."
 form_4 = Form.create!({ name: name, description: description, user_id: user_id})
 
-name = Faker::Hacker.noun
-description = Faker::Hacker.say_something_smart
+name = "Saw"
+description = "We have never been to Asia, nor have we visited Africa."
 form_5 = Form.create!({ name: name, description: description, user_id: user_id})
 
 
 Field.destroy_all
 
 category = "text"
-label = Faker::Hacker.noun
+label = "Barber"
 form_rank_id = 1;
 form_id = form_1.id
 Field.create!({ category: category,
@@ -52,7 +52,7 @@ Field.create!({ category: category,
 	})
 
 category = "number"
-label = Faker::Hacker.noun
+label = "Biplane"
 form_rank_id = 2;
 form_id = form_1.id
 Field.create!({ category: category,
@@ -63,7 +63,7 @@ Field.create!({ category: category,
 	})
 
 category = "checkbox"
-label = Faker::Hacker.noun
+label = "Experience"
 form_rank_id = 3;
 form_id = form_1.id
 Field.create!({ category: category,
@@ -74,7 +74,7 @@ Field.create!({ category: category,
 	})
 
 category = "radio"
-label = Faker::Hacker.noun
+label = "Freighter"
 form_rank_id = 4;
 form_id = form_1.id
 Field.create!({ category: category,
@@ -85,7 +85,7 @@ Field.create!({ category: category,
 	})
 
 category = "date"
-label = Faker::Hacker.noun
+label = "Hexagon"
 form_rank_id = 5;
 form_id = form_1.id
 Field.create!({ category: category,
@@ -98,7 +98,7 @@ Field.create!({ category: category,
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 category = "text"
-label = Faker::Hacker.noun
+label = "Cap"
 form_rank_id = 1;
 form_id = form_2.id
 Field.create!({ category: category,
@@ -109,7 +109,7 @@ Field.create!({ category: category,
 	})
 
 category = "number"
-label = Faker::Hacker.noun
+label = "Chick"
 form_rank_id = 2;
 form_id = form_2.id
 Field.create!({ category: category,
@@ -120,7 +120,7 @@ Field.create!({ category: category,
 	})
 
 category = "checkbox"
-label = Faker::Hacker.noun
+label = "Dipstick"
 form_rank_id = 3;
 form_id = form_2.id
 Field.create!({ category: category,
@@ -131,7 +131,7 @@ Field.create!({ category: category,
 	})
 
 category = "radio"
-label = Faker::Hacker.noun
+label = "Romanian"
 form_rank_id = 4;
 form_id = form_2.id
 Field.create!({ category: category,
@@ -142,7 +142,7 @@ Field.create!({ category: category,
 	})
 
 category = "date"
-label = Faker::Hacker.noun
+label = "Tank"
 form_rank_id = 5;
 form_id = form_2.id
 Field.create!({ category: category,
@@ -155,7 +155,7 @@ Field.create!({ category: category,
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 category = "text"
-label = Faker::Hacker.noun
+label = "Check"
 form_rank_id = 1;
 form_id = form_3.id
 Field.create!({ category: category,
@@ -166,7 +166,7 @@ Field.create!({ category: category,
 	})
 
 category = "number"
-label = Faker::Hacker.noun
+label = "Glider"
 form_rank_id = 2;
 form_id = form_3.id
 Field.create!({ category: category,
@@ -177,7 +177,7 @@ Field.create!({ category: category,
 	})
 
 category = "checkbox"
-label = Faker::Hacker.noun
+label = "Laundry"
 form_rank_id = 3;
 form_id = form_3.id
 Field.create!({ category: category,
@@ -188,7 +188,7 @@ Field.create!({ category: category,
 	})
 
 category = "radio"
-label = Faker::Hacker.noun
+label = "Scent"
 form_rank_id = 4;
 form_id = form_3.id
 Field.create!({ category: category,
@@ -199,7 +199,7 @@ Field.create!({ category: category,
 	})
 
 category = "date"
-label = Faker::Hacker.noun
+label = "Silk"
 form_rank_id = 5;
 form_id = form_3.id
 Field.create!({ category: category,
@@ -212,7 +212,7 @@ Field.create!({ category: category,
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 category = "text"
-label = Faker::Hacker.noun
+label = "Agenda"
 form_rank_id = 1;
 form_id = form_4.id
 Field.create!({ category: category,
@@ -223,7 +223,7 @@ Field.create!({ category: category,
 	})
 
 category = "Telephone"
-label = Faker::Hacker.noun
+label = "Digger"
 form_rank_id = 2;
 form_id = form_4.id
 Field.create!({ category: category,
@@ -234,7 +234,7 @@ Field.create!({ category: category,
 	})
 
 category = "checkbox"
-label = Faker::Hacker.noun
+label = "Discussion"
 form_rank_id = 3;
 form_id = form_4.id
 Field.create!({ category: category,
@@ -245,7 +245,7 @@ Field.create!({ category: category,
 	})
 
 category = "radio"
-label = Faker::Hacker.noun
+label = "Pumpkin"
 form_rank_id = 4;
 form_id = form_4.id
 Field.create!({ category: category,
@@ -256,7 +256,7 @@ Field.create!({ category: category,
 	})
 
 category = "date"
-label = Faker::Hacker.noun
+label = "Wine"
 form_rank_id = 5;
 form_id = form_4.id
 Field.create!({ category: category,
@@ -269,7 +269,7 @@ Field.create!({ category: category,
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 category = "text"
-label = Faker::Hacker.noun
+label = "Wine"
 form_rank_id = 1;
 form_id = form_5.id
 Field.create!({ category: category,
@@ -280,7 +280,7 @@ Field.create!({ category: category,
 	})
 
 category = "number"
-label = Faker::Hacker.noun
+label = "Mustard"
 form_rank_id = 2;
 form_id = form_5.id
 Field.create!({ category: category,
@@ -290,7 +290,7 @@ Field.create!({ category: category,
 	})
 
 category = "textarea"
-label = Faker::Hacker.noun
+label = "Nose"
 form_rank_id = 3;
 form_id = form_5.id
 Field.create!({ category: category,
@@ -301,7 +301,7 @@ Field.create!({ category: category,
 	})
 
 category = "radio"
-label = Faker::Hacker.noun
+label = "Tortoise"
 form_rank_id = 4;
 form_id = form_5.id
 Field.create!({ category: category,
@@ -312,7 +312,7 @@ Field.create!({ category: category,
 	})
 
 category = "Email"
-label = Faker::Hacker.noun
+label = "Puppy"
 form_rank_id = 5;
 form_id = form_5.id
 Field.create!({ category: category,
