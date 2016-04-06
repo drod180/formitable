@@ -10,7 +10,7 @@ var FieldOptions = React.createClass({
   fieldOptionChange: function (e) {
     e.preventDefault();
     var field = this.props.selectedField;
-    field.category = e.target.value;
+    field.option = e.target.value;
     FieldActions.updateFieldForForm(field);
   },
 
@@ -40,7 +40,7 @@ var FieldOptions = React.createClass({
       <div className="field-options-dropdowns group">
         <label className="field-settings-label">Field Size</label>
         <select
-          value="Medium"
+          value={this.props.selectedField.option}
           className={"settings-field-option"}
           onChange={this.fieldOptionChange}
           >
@@ -57,7 +57,7 @@ var FieldOptions = React.createClass({
       <div className="field-options-dropdowns group">
         <label className="field-settings-label">Field Layout</label>
         <select
-          value="Medium"
+          value={this.props.selectedField.option}
           className={"settings-field-option"}
           onChange={this.fieldOptionChange}
           >

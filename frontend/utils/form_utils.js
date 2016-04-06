@@ -29,7 +29,7 @@ var FormUtils = {
     });
   },
 
-	saveFormForUser: function (form, fields) {
+	saveFormForUser: function (form, fields, callback) {
     $.ajax({
       type: "POST",
       url: "/api/forms",
@@ -43,6 +43,7 @@ var FormUtils = {
       dataType: "json",
       success: function (form) {
         FormActions.receiveFormForUser(form);
+        callback && callback();
       },
       error: function () {
         console.log("Failure in FormUtils#saveFormForUser");
@@ -50,7 +51,7 @@ var FormUtils = {
     });
   },
 
-	updateFormForUser: function (form, fields) {
+	updateFormForUser: function (form, fields, callback) {
     $.ajax({
       type: "PATCH",
       url: "/api/forms/" + form.id,
@@ -64,6 +65,7 @@ var FormUtils = {
       dataType: "json",
       success: function (form) {
         FormActions.receiveFormForUser(form);
+        callback && callback();
       },
       error: function () {
         console.log("Failure in FormUtils#updateFormForUser");

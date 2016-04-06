@@ -10,16 +10,18 @@ class Form < ActiveRecord::Base
   end
 
 	def save_fields(fields)
-		fields.each do |field|
-			label = field[1][:label] || "Untitled"
-			field_params = {
-				category: field[1][:category],
-				label: label,
-				form_rank_id: field[1][:form_rank_id]
-			}
+		fields.each do |idx, field|
 
-			if field[1][:id]
-				field[1].update(field_params)
+			label = field[:label] || "Untitled"
+      option = field[:option] || ""
+			field_params = {
+				category: field[:category],
+				label: label,
+        option: option,
+				form_rank_id: field[:form_rank_id]
+			}
+			if field[:id]
+				Field.find(field[:id]).update(field_params)
 			else
 				self.fields.create(field_params)
 			end

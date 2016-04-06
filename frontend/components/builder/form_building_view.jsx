@@ -35,7 +35,13 @@ var FieldBuilderView = React.createClass({
 		var fields = FieldStore.all();
 		var form = FormStore.first();
     var deleteFields = FieldStore.allRemoved();
-
+    function callback() {
+      deleteFields.forEach(function (id) {
+        FieldsUtil.destroyField(id);
+      });
+      router.push('/');
+    }
+    
 		if (form === undefined) {
 			form = {};
 			form.name = "Untitled Form";
@@ -43,14 +49,10 @@ var FieldBuilderView = React.createClass({
 		}
 
 		(form.id === undefined)
-      ? FormUtil.saveFormForUser(form, fields)
-      : FormUtil.updateFormForUser(form, fields);
+      ? FormUtil.saveFormForUser(form, fields, callback)
+      : FormUtil.updateFormForUser(form, fields, callback);
 
-    deleteFields.forEach(function (id) {
-      FieldsUtil.destroyField(id);
-    });
 
-		window.setInterval(function() { router.push('/'); }, 0);
 	},
 
   render: function () {

@@ -65,6 +65,6 @@ class Api::FieldsController < ApplicationController
 	  private
 
 	  def field_params
-	    params.require(:fields).permit(:category, :label, :form_rank_id, :form_id)
+	    params.require(:fields).permit(:category, :label, :form_rank_id, :form_id, :option)
 	  end
 end

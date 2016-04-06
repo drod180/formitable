@@ -16,7 +16,7 @@ var FormBuilder = React.createClass({
   },
 
   componentWillUnmount: function () {
-    fieldStoreToken.remove();
+    this.fieldStoreToken.remove();
   },
 
   _onChange: function () {

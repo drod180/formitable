@@ -46,6 +46,7 @@ form_rank_id = 1;
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
+  option: "Medium",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
@@ -56,6 +57,7 @@ form_rank_id = 2;
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
+  option: "Small",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
@@ -66,6 +68,7 @@ form_rank_id = 3;
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
+  option: "Two",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
@@ -76,6 +79,7 @@ form_rank_id = 4;
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
+  option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
@@ -86,6 +90,7 @@ form_rank_id = 5;
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
+  option: "",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
@@ -98,6 +103,7 @@ form_rank_id = 1;
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
+  option: "Large",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
@@ -108,40 +114,44 @@ form_rank_id = 2;
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
+  option: "Medium",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "checkbox"
 label = Faker::Hacker.noun
 form_rank_id = 3;
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
+  option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "radio"
 label = Faker::Hacker.noun
 form_rank_id = 4;
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
+  option: "Side",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "date"
 label = Faker::Hacker.noun
 form_rank_id = 5;
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
+  option: "",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 category = "text"
@@ -150,50 +160,55 @@ form_rank_id = 1;
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
+  option: "Medium",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "number"
 label = Faker::Hacker.noun
 form_rank_id = 2;
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
+  option: "Medium",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "checkbox"
 label = Faker::Hacker.noun
 form_rank_id = 3;
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
+  option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "radio"
 label = Faker::Hacker.noun
 form_rank_id = 4;
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
+  option: "Three",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "date"
 label = Faker::Hacker.noun
 form_rank_id = 5;
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
+  option: "",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 category = "text"
@@ -202,50 +217,55 @@ form_rank_id = 1;
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
+  option: "Large",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "Telephone"
 label = Faker::Hacker.noun
 form_rank_id = 2;
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
+  option: "",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "checkbox"
 label = Faker::Hacker.noun
 form_rank_id = 3;
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
+  option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "radio"
 label = Faker::Hacker.noun
 form_rank_id = 4;
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
+  option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "date"
 label = Faker::Hacker.noun
 form_rank_id = 5;
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
+  option: "",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 category = "text"
@@ -254,10 +274,11 @@ form_rank_id = 1;
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
+  option: "Small",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "number"
 label = Faker::Hacker.noun
 form_rank_id = 2;
@@ -267,37 +288,40 @@ Field.create!({ category: category,
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "textarea"
 label = Faker::Hacker.noun
 form_rank_id = 3;
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
+  option: "Medium",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "radio"
 label = Faker::Hacker.noun
 form_rank_id = 4;
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
+  option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 category = "Email"
 label = Faker::Hacker.noun
 form_rank_id = 5;
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
+  option: "Medium",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
-	
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #Make 50 new users
 # i = 0
