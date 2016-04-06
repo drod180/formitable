@@ -237,6 +237,10 @@ ul.adder + .builder-options {
   font-size: 120%;
 }
 
+select.disabled {
+  color: #666;  
+}
+
 .form-rank-display {
   float: right;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
@@ -245,6 +249,7 @@ ul.adder + .builder-options {
   width: 85px;
   margin-bottom: 7px;
 }
+
 /* ---- Form View ---- */
 
 

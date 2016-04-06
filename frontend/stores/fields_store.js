@@ -79,5 +79,9 @@ FieldStore.allRemoved = function () {
   return _fieldIdsToDelete.slice(0);
 };
 
+FieldStore.findByRank = function (id) {
+  var index = _findIndexByFormRankId(id);
+  return _fields.slice(0)[index];
+};
 
 module.exports = FieldStore;

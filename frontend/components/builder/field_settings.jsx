@@ -1,6 +1,7 @@
 var React = require('react');
 var FieldOption = require('./field_options');
 var FieldChoices = require('./field_choices');
+var FieldType = require('./field_type');
 var FieldActions = require('../../actions/field_actions');
 
 var FieldSettings = React.createClass({
@@ -23,10 +24,6 @@ var FieldSettings = React.createClass({
     );
   },
 
-  fieldTypeChange: function (e) {
-    e.preventDefault();
-  },
-
   render: function () {
     if (this.props.selectedField) {
       return this._renderField();
@@ -47,26 +44,28 @@ var FieldSettings = React.createClass({
         <li className="setting-list-item group">
           <label className="field-settings-label">Field Label</label>
           <textarea
-            value={this.state.fieldLabel}
+            value={this.props.selectedField.label}
             className="form-label-setter"
             onChange={this.fieldLabelChange}
             />
         </li>
-        <li className="setting-list-item group">
-          <label className="field-settings-label">Field Type</label>
-          <select
-            className="settings-field-type"
-            onChange={this.fieldTypeChange}
-            />
-        </li>
-        <FieldOption />
-        <FieldChoices />
+        <FieldType selectedField={this.props.selectedField} />
+        <FieldOption selectedField={this.props.selectedField} />
+        <FieldChoices selectedField={this.props.selectedField} />
       </ul>
     );
   },
 
   _renderEmpty: function () {
-    return (<div>{"I'm Ron Burgandy?"}</div>);
+    return (
+      <div className="field-settings-empty">
+        <h4 className="empty-settings-header">No Field Selected</h4>
+        <p
+          className="empty-settings-description"
+          >Please click on a field in the form preview on the right to change its properties.
+        </p>
+      </div>
+    );
   }
 });
 

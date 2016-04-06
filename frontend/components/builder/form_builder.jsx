@@ -1,5 +1,6 @@
 var React = require('react');
 var FormStore = require('../../stores/forms_store');
+var FieldStore = require('../../stores/fields_store');
 var BuilderOptions = require('./builder_options');
 var FieldBuilderView = require('./form_building_view');
 var FieldIndex = require('./field_index');
@@ -9,6 +10,22 @@ var FormBuilder = React.createClass({
 	getInitialState: function () {
 		return { options: "adder", field: null };
 	},
+
+  componentDidMount: function () {
+    this.fieldStoreToken = FieldStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount: function () {
+    fieldStoreToken.remove();
+  },
+
+  _onChange: function () {
+    if (this.state.field !== null) {
+      this.setState({
+        field: FieldStore.findByRank(this.state.field.form_rank_id)
+      });
+    }
+  },
 
 	adderTabSelect: function () {
 		this.setState({ options: "adder"});
