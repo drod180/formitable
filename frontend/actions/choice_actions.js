@@ -14,6 +14,20 @@ ChoiceActions = {
 			actionType: ChoiceConstants.CHOICE_RECEIVED,
 			choice: choice
 		});
+	},
+
+	updateChoiceForField: function (choice) {
+		AppDispatcher.dispatch({
+			actionType: ChoiceConstants.CHOICE_UPDATED,
+			choice: choice
+		});
+	},
+
+	removeChoiceForField: function (choice) {
+		AppDispatcher.dispatch({
+			actionType: ChoiceConstants.CHOICE_REMOVED,
+			choice: choice
+		});
 	}
 };
 

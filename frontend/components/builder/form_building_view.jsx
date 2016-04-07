@@ -2,8 +2,10 @@ var React = require('react');
 var FieldIndex = require('./field_index');
 var FieldsUtil = require('../../utils/fields_utils');
 var FormUtil = require('../../utils/form_utils');
+var ChoiceUtil = require('../../utils/choice_utils');
 var FormStore = require('../../stores/forms_store');
 var FieldStore = require('../../stores/fields_store');
+var ChoiceStore = require('../../stores/choices_store');
 
 var FieldBuilderView = React.createClass({
 	contextTypes: {
@@ -35,22 +37,31 @@ var FieldBuilderView = React.createClass({
 		var fields = FieldStore.all();
 		var form = FormStore.first();
     var deleteFields = FieldStore.allRemoved();
-    function callback() {
+		var deleteChoices = ChoiceStore.allRemoved();
+
+    function clearFields() {
       deleteFields.forEach(function (id) {
         FieldsUtil.destroyField(id);
       });
-      router.push('/');
+			deleteChoices.forEach(function (id) {
+        FieldsUtil.destroyField(id);
+      });
+			router.push('/');
     }
-    
+
 		if (form === undefined) {
 			form = {};
 			form.name = "Untitled Form";
 			form.description = "This is my form. Please fill it out. It's awesome!";
 		}
 
+		fields.forEach(function (field) {
+			field.choices = ChoiceStore.allForField(field.form_rank_id);
+		});
+
 		(form.id === undefined)
-      ? FormUtil.saveFormForUser(form, fields, callback)
-      : FormUtil.updateFormForUser(form, fields, callback);
+      ? FormUtil.saveFormForUser(form, fields, clearFields)
+      : FormUtil.updateFormForUser(form, fields, clearFields);
 
 
 	},

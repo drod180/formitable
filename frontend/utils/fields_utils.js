@@ -34,13 +34,13 @@ var FieldUtils = {
     });
   },
 
-	destroyField: function (id) {
+	destroyField: function (id, callback) {
 		$.ajax({
 			type: "DELETE",
 			url: "/api/fields/" + id,
 			dataType: "json",
 			success: function () {
-
+				callback && callback();
 			},
 			error: function () {
 				console.log("Failure in FieldUtils#destroyField");

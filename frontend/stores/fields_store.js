@@ -27,6 +27,7 @@ function _findIndexByFormRankId(id) {
     if (_fields[i].form_rank_id === id) { return i; }
   }
 }
+
 //Remove field from store and update the form_rank_id
 //Use form_rank_id to handle both fields in
 function _removeField(field) {

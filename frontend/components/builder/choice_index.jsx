@@ -25,8 +25,13 @@ var ChoiceIndex = React.createClass({
 	},
 
 	getStateFromStore: function () {
-		var value = ChoiceStore.allForField(this.props.field.form_rank_id);
-		return value;
+		return ChoiceStore.allForField(this.props.field.form_rank_id);
+	},
+
+	componentWillReceiveProps: function (newProps) {
+		this.setState({
+			choices: ChoiceStore.allForField(newProps.field.form_rank_id)
+		});
 	},
 
   render: function () {
@@ -45,8 +50,6 @@ var ChoiceIndex = React.createClass({
 		var displayItem;
 		switch (this.props.field.category) {
 			case "select":
-				displayItem = <select>{choices}</select>;
-				break;
 			case "checkbox":
 			case "radio":
 				displayItem = <div>{choices}</div>;

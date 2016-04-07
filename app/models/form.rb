@@ -4,6 +4,7 @@ class Form < ActiveRecord::Base
 
 	has_many :fields
   belongs_to :user
+	has_many :choices, through: :fields
 
   def self.formsForUser(id)
     self.where("user_id = ?", id)
@@ -21,9 +22,12 @@ class Form < ActiveRecord::Base
 				form_rank_id: field[:form_rank_id]
 			}
 			if field[:id]
-				Field.find(field[:id]).update(field_params)
+				new_field = Field.find(field[:id])
+				new_field.update(field_params)
+				new_field.save_choices(field[:choices])
 			else
-				self.fields.create(field_params)
+				new_field = self.fields.create(field_params)
+				new_field.save_choices(field[:choices])
 			end
 		end
 	end
@@ -31,4 +35,5 @@ class Form < ActiveRecord::Base
 	def delete_fields
 		self.fields.each { |field| field.destroy }
 	end
+
 end

@@ -58,12 +58,14 @@ var FieldAdder = React.createClass({
 
 		var second_params = {
 			label: "Second Choice",
+			selected: false,
 			field_rank_id: 2,
 			field_form_rank_id: formRank
 		};
 
 		var third_params = {
 			label: "Third Choice",
+			selected: false,
 			field_rank_id: 3,
 			field_form_rank_id: formRank
 		};
