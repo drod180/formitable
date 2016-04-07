@@ -17,13 +17,14 @@ type        | string    | not null
 label       | string    | not null
 form_rank_id| integer   | not null
 form_id     | integer   | not null, foreign key (references forms), indexed
+option      | string    |
 
 ## multiChoice
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-label       | string    | not null
-data        | string    | not null
+label       | string    | not null, default: false
+selected    | boolean   | not null
 field_id    | integer   | not null, foreign key (references forms), indexed
 
 ## users
