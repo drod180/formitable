@@ -1,6 +1,6 @@
 var React = require('react');
 var FieldOption = require('./field_options');
-var FieldChoices = require('./field_choices');
+var ChoiceIndex = require('./choice_index');
 var FieldType = require('./field_type');
 var FieldActions = require('../../actions/field_actions');
 
@@ -53,7 +53,9 @@ var FieldSettings = React.createClass({
           <FieldType selectedField={this.props.selectedField} />
           <FieldOption selectedField={this.props.selectedField} />
         </li>
-        <FieldChoices selectedField={this.props.selectedField} />
+				<li className="setting-list-item group">
+        	<ChoiceIndex field={this.props.selectedField} />
+				</li>
       </ul>
     );
   },

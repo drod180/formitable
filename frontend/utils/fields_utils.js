@@ -1,7 +1,7 @@
 var FieldActions = require('../actions/field_actions');
 
 var FieldUtils = {
-  fetchFieldsForForm: function (formId) {
+  fetchFieldsForForm: function (formId, callback) {
     $.ajax({
       type: "GET",
       url: "/api/fields",
@@ -9,6 +9,10 @@ var FieldUtils = {
       dataType: "json",
       success: function (fields) {
         FieldActions.receiveFieldsForForm(fields);
+				fields.forEach(function (field) {
+					callback && callback(field.id);
+				});
+
       },
       error: function () {
         console.log("Failure in FieldUtils#fetchFieldsForForm");
@@ -36,7 +40,7 @@ var FieldUtils = {
 			url: "/api/fields/" + id,
 			dataType: "json",
 			success: function () {
-				
+
 			},
 			error: function () {
 				console.log("Failure in FieldUtils#destroyField");

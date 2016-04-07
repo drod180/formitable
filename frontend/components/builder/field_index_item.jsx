@@ -1,5 +1,4 @@
 var React = require('react');
-var FieldStore = require('react');
 var DeleteFieldButton = require('../buttons/delete_field');
 
 var FieldIndexItem = React.createClass({

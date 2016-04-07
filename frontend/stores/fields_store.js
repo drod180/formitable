@@ -44,7 +44,7 @@ function _removeField(field) {
 	}
 }
 
-//Holds all of the forms without field information for a particular user
+
 var FieldStore = new Store(AppDispatcher);
 
 FieldStore.__onDispatch = function (payload) {

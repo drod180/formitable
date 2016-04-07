@@ -2,6 +2,7 @@ var React = require('react');
 var FieldIndexItem = require('./field_index_item');
 var FieldStore = require('../../stores/fields_store');
 var FieldUtil = require('../../utils/fields_utils');
+var ChoiceUtil = require('../../utils/choice_utils');
 var FieldActions = require('../../actions/field_actions');
 
 var FieldIndex = React.createClass({
@@ -15,7 +16,8 @@ var FieldIndex = React.createClass({
 
 	componentDidMount: function () {
 		this.fieldStoreToken = FieldStore.addListener(this._onChange);
-		FieldUtil.fetchFieldsForForm(this.props.formId);
+		FieldUtil.fetchFieldsForForm(this.props.formId,
+			ChoiceUtil.fetchChoicesForField);
 	},
 
 	componentWillUnmount: function () {
