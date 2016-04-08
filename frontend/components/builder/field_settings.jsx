@@ -53,8 +53,11 @@ var FieldSettings = React.createClass({
           <FieldType selectedField={this.props.selectedField} />
           <FieldOption selectedField={this.props.selectedField} />
         </li>
-				<li className="setting-list-item group">
-        	<ChoiceIndex field={this.props.selectedField} />
+				<li className="setting-list-item">
+					<label>Choices</label>
+					<div className="setting-list-item-choice group">
+        		<ChoiceIndex field={this.props.selectedField} />
+					</div>
 				</li>
       </ul>
     );

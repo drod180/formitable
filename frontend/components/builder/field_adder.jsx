@@ -31,9 +31,9 @@ var FieldAdder = React.createClass({
 		var fields = FieldTypeConstants;
 		var selectors = Object.keys(fields).map(function (fieldKey, i) {
 			return (
-				<li key={i}>
+				<li key={i} >
 					<button
-						className="field-adder-button"
+						className={"field-adder-button"}
 						onClick={this.handleNewField.bind(this, fieldKey)}
 						>{fields[fieldKey].name}
 					</button>

@@ -67,7 +67,7 @@ var ChoiceIndex = React.createClass({
 			case "select":
 			case "checkbox":
 			case "radio":
-				displayItem = <div>{choices}</div>;
+				displayItem = <div className="group">{choices}</div>;
 				break;
 			default:
 				displayItem = <div></div>;

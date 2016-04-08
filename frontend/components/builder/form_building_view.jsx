@@ -76,8 +76,6 @@ var FieldBuilderView = React.createClass({
 		this.setState({ description: e.target.value });
 	},
 
-	// <h2 onClick={this._editFormName}>{this.state.name}</h2>
-	// <p onClick={this._editFormDescription}>{this.state.description}</p>
   render: function () {
 
     return (

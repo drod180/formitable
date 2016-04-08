@@ -179,6 +179,16 @@ ul.adder + .builder-options {
   cursor: pointer;
 }
 
+.field-adder-button:hover {
+	background: #DFEEA3;
+	border-color: #C6D880;
+}
+
+.field-adder-button:active {
+	background: #C1DF5D;
+	border-color: #93B825;
+}
+
 /* --- Field Settings --- */
 
 .field-settings-label {
@@ -276,6 +286,54 @@ select.disabled {
   margin-bottom: 7px;
 }
 
+
+.setting-list-item:last-child > label {
+	background: #CFE7FF;
+	padding: 4px 7px 0 10px;
+	display: block;
+	width: 68.3px;
+	text-align: left;
+	margin-top: 20px;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+}
+
+.setting-list-item-choice {
+	background: #CFE7FF;
+	padding: 10px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.setting-list-item-choice  .choice-setting-option{
+	float: left;
+	height: 20px;
+}
+
+.setting-list-item-choice  .choice-option-label {
+	float: left;
+	margin-left: 3px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 7px;
+	width: 245px;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+	font-size: 11px;
+	padding: 3px 5px;
+	text-align: left;
+
+}
+
+.setting-list-item-choice .choice-option-box {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
 /* ---- Form View ---- */
 
 
@@ -297,19 +355,27 @@ div.adder > div > .form-view-section {
 }
 
 .form-view-header {
-	padding: 10px 6px 14px 6px;
+	padding: 10px 6px 0px 6px;
 	margin-bottom: 5px;
 	text-align: left;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
 }
 
-.form-view-header > h2 {
- font-size: 20.8px;
- margin-bottom: 5px;
+.form-view-header .form-title {
+	display: block;
+	width: 100%;
+	font-size: 20.8px;
+	margin-bottom: 5px;
 }
 
-.form-view-header > p {
+.form-view-header .form-description {
 	font-size: 12.35px;
+	width: 100%;
+	min-height: 50px;
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #CCCCCC;
+	resize: none;
+	overflow: auto;
 }
 
 .field-input-items {
@@ -339,6 +405,20 @@ div.settings .field-selected {
   overflow: hidden;
 }
 
+.choice-form-option {
+	margin-top: 5px;
+}
+
+.choice-form-div {
+	display: block;
+	width: 100%;
+}
+.choice-form-label {
+	float: left;
+	padding: 5px;
+	font-size: 13px;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+}
 /* Footer */
 
 .form-view-footer {

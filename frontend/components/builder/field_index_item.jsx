@@ -172,7 +172,7 @@ var FieldIndexItem = React.createClass({
 				break;
 			case "radio":
 				displayItem = (
-					<div key={index}>
+					<div className="choice-form-div group" key={index}>
 						<input
 							disabled
 							type="radio"
@@ -185,7 +185,7 @@ var FieldIndexItem = React.createClass({
 				break;
 			case "checkbox":
 				displayItem = (
-					<div key={index}>
+					<div className="choice-form-div group" key={index}>
 						<input
 							disabled
 							type="checkbox"

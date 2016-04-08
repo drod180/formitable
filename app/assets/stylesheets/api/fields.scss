@@ -110,11 +110,9 @@ img {
 }
 
 .field-input-items > li > input.date {
-
 }
 
 .field-input-items > li > input.email {
-
 }
 
 .field-input-items > li > div.date > input, span {
@@ -160,6 +158,7 @@ input.date-1, input.date-2 {
   border-bottom: 1px solid #ddd;
   height: 20px;
   width: 23px;
+	cursor: pointer;
 }
 
 input.date-3 {
@@ -170,6 +169,7 @@ input.date-3 {
   border-bottom: 1px solid #ddd;
   height: 20px;
   width: 35px;
+	cursor: pointer;
 }
 
 .field-input-items > li > div.telephone > input, span {
@@ -180,6 +180,7 @@ input.date-3 {
 .field-input-items > li > div.telephone > span {
   font-size: 15.6px;
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+
 }
 
 
@@ -191,6 +192,7 @@ input.telephone-1, input.telephone-2 {
   border-bottom: 1px solid #ddd;
   height: 20px;
   width: 26px;
+	cursor: pointer;
 }
 
 input.telephone-3 {
@@ -201,4 +203,5 @@ input.telephone-3 {
   border-bottom: 1px solid #ddd;
   height: 20px;
   width: 35px;
+	cursor: pointer;
 }

@@ -21,7 +21,7 @@ var ChoiceIndexItem = React.createClass({
 			case "select":
 			case "radio":
 				displayItem = (
-					<div>
+					<div className="choice-option-box group">
 						<input
 							type="radio"
 							name={this.props.field.form_rank_id + "-choice-group"}
@@ -40,7 +40,7 @@ var ChoiceIndexItem = React.createClass({
 				break;
 			case "checkbox":
 				displayItem = (
-					<div>
+					<div className="choice-option-box group">
 						<input
 							type="checkbox"
 							checked={this.props.choice.selected}
