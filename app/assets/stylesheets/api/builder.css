@@ -379,6 +379,7 @@ div.adder > div > .form-view-section {
 }
 
 .field-input-items {
+	position: relative;
   border: 1px solid transparent;
 	display: block;
 	padding: 6px;
@@ -418,6 +419,21 @@ div.settings .field-selected {
 	padding: 5px;
 	font-size: 13px;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
+}
+
+div.two {
+	float: left;
+	width: 45%;
+}
+
+div.three {
+	float: left;
+	width: 30%;
+}
+
+div.side {
+	float: left;
+	width: auto;
 }
 /* Footer */
 

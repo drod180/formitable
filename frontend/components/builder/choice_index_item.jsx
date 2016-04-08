@@ -3,7 +3,6 @@ var ChoiceActions = require('../../actions/choice_actions');
 var DeleteChoiceButton = require('../buttons/delete_choice');
 var AddChoiceButton = require('../buttons/add_choice');
 var ChoiceIndexItem = React.createClass({
-
 	getInitialState: function () {
 		return {
 			selected: this.props.choice.selected,

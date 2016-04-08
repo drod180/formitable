@@ -160,11 +160,12 @@ var FieldIndexItem = React.createClass({
 
 	_displayChoice: function (choice, index) {
 		var displayItem;
+		var option = this.props.field.option;
 		switch (this.props.field.category) {
 			case "select":
 				if (choice.selected) {
 					displayItem = (
-						<select disabled className="choice-form-option" key={index} >
+						<select disabled className={"choice-form-option " + option} key={index} >
 							<option disabled>{choice.label}</option>
 						</select>
 					);
@@ -172,7 +173,7 @@ var FieldIndexItem = React.createClass({
 				break;
 			case "radio":
 				displayItem = (
-					<div className="choice-form-div group" key={index}>
+					<div className={"choice-form-div group " + option} key={index}>
 						<input
 							disabled
 							type="radio"
@@ -185,7 +186,7 @@ var FieldIndexItem = React.createClass({
 				break;
 			case "checkbox":
 				displayItem = (
-					<div className="choice-form-div group" key={index}>
+					<div className={"choice-form-div group " + option } key={index}>
 						<input
 							disabled
 							type="checkbox"
