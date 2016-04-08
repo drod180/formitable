@@ -59,7 +59,7 @@ button, article, footer, small {
 
 .field-delete {
 	position: absolute;
-	right: -15px;
+	right: 1px;
 	bottom: 1px;
   width: 16px;
   height: 16px;
