@@ -1,6 +1,7 @@
 var AppDispatcher = require('../dispatcher/dispatcher.js');
 var ChoiceConstants = require('../constants/choice_constants.js');
 
+
 ChoiceActions = {
   receiveChoicesForField: function (choices) {
     AppDispatcher.dispatch({
@@ -30,5 +31,6 @@ ChoiceActions = {
 		});
 	}
 };
+
 
 module.exports = ChoiceActions;

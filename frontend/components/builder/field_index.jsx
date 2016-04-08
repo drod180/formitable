@@ -37,7 +37,6 @@ var FieldIndex = React.createClass({
     this.props.callback(field, e);
   },
 
-
   render: function () {
 		var fields = this.state.fields.map(function (field, i) {
 			return (

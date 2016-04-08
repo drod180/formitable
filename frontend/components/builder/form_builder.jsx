@@ -24,7 +24,9 @@ var FormBuilder = React.createClass({
       this.setState({
         field: FieldStore.findByRank(this.state.field.form_rank_id)
       });
-    }
+    } else {
+			this.setState({field: null});
+		}
   },
 
 	adderTabSelect: function () {

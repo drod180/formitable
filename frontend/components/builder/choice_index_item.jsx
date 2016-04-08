@@ -5,9 +5,10 @@ var ChoiceIndexItem = React.createClass({
 	getInitialState: function () {
 		return {
 			selected: this.props.choice.selected,
-			label: this.props.choice.label,
+			label: this.props.choice.label
 		};
 	},
+
 
   render: function () {
 		item = this._displayChoice();
@@ -24,15 +25,15 @@ var ChoiceIndexItem = React.createClass({
 						<input
 							type="radio"
 							name={this.props.field.form_rank_id + "-choice-group"}
-							selected={this.state.selected}
-							onChange={this._handleCheckSelect}
+							checked={this.props.choice.selected}
+							onChange={this._handleRadioSelect}
 							className="choice-setting-option"
 							/>
 							<input
 								type="text"
 								onChange={this._handleLabelChange}
 								className="choice-option-label"
-								value={this.state.label}
+								value={this.props.choice.label}
 								/>
 					</div>
 				);
@@ -61,8 +62,12 @@ var ChoiceIndexItem = React.createClass({
 		return displayItem;
 	},
 
+	_handleRadioSelect: function (e) {
+		var choice = this.props.choice;
+		this.props.callback(choice);
+	},
+
 	_handleCheckSelect: function (e) {
-		debugger
 		var choice = this.props.choice;
 		choice.selected = e.target.checked;
 		this.setState({ selected: e.target.checked }, ChoiceActions.updateChoiceForField(choice));

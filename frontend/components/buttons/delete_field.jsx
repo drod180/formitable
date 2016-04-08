@@ -5,7 +5,7 @@ var FieldActions = require('../../actions/field_actions');
 var DeleteFieldButton = React.createClass({
 	deleteField: function (e) {
 		e.preventDefault();
-
+		e.stopPropagation();
 		FieldActions.removeFieldForForm(this.props.field);
 	},
 

@@ -1,14 +1,47 @@
 var React = require('react');
 var DeleteFieldButton = require('../buttons/delete_field');
+var ChoiceStore = require('../../stores/choices_store');
+var FieldStore = require('../../stores/fields_store');
 
 var FieldIndexItem = React.createClass({
+	getInitialState: function () {
+		return { choices: this._getStateFromStore() };
+	},
+
   inputSelect: function (e) {
     this.props.callback(this.props.field, e);
   },
 
+	componentDidMount: function () {
+		this.choiceToken = ChoiceStore.addListener(this._onChange);
+	},
+
+	componentWillUnmount: function () {
+		this.choiceToken.remove();
+	},
+
+	_onChange: function () {
+		this.setState({
+			choices: ChoiceStore.allForField(this.props.field.form_rank_id)
+		});
+	},
+
+	_getStateFromStore: function () {
+		return ChoiceStore.allForField(this.props.field.form_rank_id);
+	},
+
+	componentWillReceiveProps: function (newProps) {
+		if (newProps && newProps.field) {
+			this.setState({
+				choices: ChoiceStore.allForField(newProps.field.form_rank_id)
+			});
+		}
+	},
+
   render: function () {
-		var item = this._displayField();
+		var item;
     var selectedField;
+		var choiceItems;
 
     if (this.props.fieldSelected &&
       this.props.fieldSelected.form_rank_id === this.props.field.form_rank_id) {
@@ -16,6 +49,15 @@ var FieldIndexItem = React.createClass({
     } else {
       selectedField = "";
     }
+
+		if (this.state.choices.length > 0) {
+			choiceItems = this.state.choices.map(function (choice, i) {
+				return this._displayChoice(choice, i);
+			}.bind(this));
+		}
+
+
+		item =  this._displayField(choiceItems);
 
     return (
 			<div
@@ -32,7 +74,7 @@ var FieldIndexItem = React.createClass({
     );
   },
 
-	_displayField: function () {
+	_displayField: function (choiceItems) {
 		var displayItem;
     var option = this.props.field.option;
 		switch (this.props.field.category) {
@@ -46,13 +88,13 @@ var FieldIndexItem = React.createClass({
 				displayItem = <textarea className={"textarea " + option} disabled />;
 				break;
 			case "radio":
-				displayItem = <input type="radio" className={"radio " + option} disabled />;
+				displayItem = choiceItems || <input type="radio" className={"radio " + option} disabled />;
 				break;
 			case "checkbox":
-				displayItem = <input type="checkbox" className={"checkbox " + option} disabled />;
+				 displayItem =  choiceItems || <input type="checkbox" className={"checkbox " + option} disabled />;
 				break;
 			case "select":
-				displayItem = <select disabled className={option} />;
+				displayItem = choiceItems || <select disabled className={option} />;
 				break;
 			case "date":
 				displayItem = (
@@ -114,7 +156,51 @@ var FieldIndexItem = React.createClass({
 		}
 
 		return displayItem;
-	}
+	},
+
+	_displayChoice: function (choice, index) {
+		var displayItem;
+		switch (this.props.field.category) {
+			case "select":
+				if (choice.selected) {
+					displayItem = (
+						<select disabled className="choice-form-option" key={index} >
+							<option disabled>{choice.label}</option>
+						</select>
+					);
+				}
+				break;
+			case "radio":
+				displayItem = (
+					<div key={index}>
+						<input
+							disabled
+							type="radio"
+							checked={choice.selected}
+							className="choice-form-option"
+							/>
+						<label className="choice-form-label">{choice.label}</label>
+					</div>
+				);
+				break;
+			case "checkbox":
+				displayItem = (
+					<div key={index}>
+						<input
+							disabled
+							type="checkbox"
+							checked={choice.selected}
+							className="choice-form-option"
+							/>
+						<label className="choice-form-label">{choice.label}</label>
+					</div>
+				);
+				break;
+			default:
+				displayItem = "";
+		}
+		return displayItem;
+	},
 });
 
 

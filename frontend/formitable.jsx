@@ -15,14 +15,13 @@ var LoginForm = require('./components/auth/login_form');
 var SignUpForm = require('./components/auth/signup_form');
 var CurrentUserUtils = require ('./utils/current_user_utils');
 
-
 window.initializeApp = function () {
   ReactDOM.render(
     <Router history={browserHistory} >
 
       <Route path="/login" component={LoginForm} />
       <Route path="/signup" component={SignUpForm}/>
-			
+
       <Route path="/" component={App} onEnter={_requireSignedIn} >
         <IndexRoute component={FormManager} />
 				<Route path="/builder" component={FormBuilder} >

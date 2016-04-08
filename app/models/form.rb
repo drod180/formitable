@@ -36,4 +36,8 @@ class Form < ActiveRecord::Base
 		self.fields.each { |field| field.destroy }
 	end
 
+	def delete_choices
+		self.choices.each { |choice| choice.destroy }
+	end
+
 end

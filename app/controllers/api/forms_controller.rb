@@ -53,6 +53,7 @@ class Api::FormsController < ApplicationController
   def destroy
     form = Form.find(params[:id])
     if form
+			form.delete_choices
 			form.delete_fields
       form.destroy
       render json: form

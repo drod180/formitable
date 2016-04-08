@@ -2,6 +2,7 @@ var React = require('react');
 var ChoiceStore = require('../../stores/choices_store');
 var ChoiceUtil = require('../../utils/choice_utils');
 var ChoiceIndexItem = require('./choice_index_item');
+var ChoiceAction = require('../../actions/choice_actions');
 
 var ChoiceIndex = React.createClass({
 	contextTypes: {
@@ -34,12 +35,26 @@ var ChoiceIndex = React.createClass({
 		});
 	},
 
+	hanldeRadioSelect: function (selectedChoice) {
+		var choices = ChoiceStore.allForField(this.props.field.form_rank_id);
+		choices.forEach(function (choice) {
+			if (choice.selected === true) {
+				choice.selected = false;
+				ChoiceAction.updateChoiceForField(choice);
+			}
+		});
+
+		selectedChoice.selected = true;
+		ChoiceAction.updateChoiceForField(selectedChoice);
+	},
+
   render: function () {
 		var choices = this.state.choices.map(function (choice, i) {
 			return (
         <ChoiceIndexItem
         field={this.props.field}
         choice={choice}
+				callback={this.hanldeRadioSelect}
         key={i} />
       );
     }.bind(this));

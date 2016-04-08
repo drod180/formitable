@@ -2,6 +2,7 @@ var Store = require('flux/utils').Store;
 var AppDispatcher = require('../dispatcher/dispatcher');
 var ChoiceConstants = require('../constants/choice_constants');
 var FormConstants = require('../constants/form_constants');
+var FieldConstants = require('../constants/field_constants');
 
 var _choices = [];
 var _choiceIdsToDelete = [];
@@ -29,6 +30,18 @@ function _updateChoice(choice) {
 	_choices[_findIndexByFormRankId(fieldRank, formRank)] = choice;
 }
 
+function _removeChoices(field) {
+	var choices = _findChoicesForField(field.form_rank_id);
+	choices.forEach(function (choice) {
+		_removeChoice(choice);
+	});
+	_choices.forEach(function (choice) {
+		if (choice.field_form_rank_id > field.form_rank_id) {
+			choice.field_form_rank_id --;
+		}
+	});
+}
+
 function _findIndexByFormRankId(fieldRank, formRank) {
   for (var i = 0; i < _choices.length; i++){
     if (_choices[i].form_rank_id === fieldRank &&
@@ -43,13 +56,14 @@ function _findChoicesForField(field_form_rank_id) {
 		return choice.field_form_rank_id === field_form_rank_id;
 	});
 }
-//Remove field from store and update the form_rank_id
+
+//Remove choice from store and update the form_rank_id
 //Use form_rank_id to handle both fields in
-function _removeChoice(field) {
+function _removeChoice(choice) {
 	var removed = false;
 	for (var i = 0; i < _choices.length; i++){
-		var matchField = (_choices[i].field_form_rank_id === field.field_form_rank_id);
-		var matchChoice = (_choices[i].field_rank_id === field.field_rank_id);
+		var matchField = (_choices[i].field_form_rank_id === choice.field_form_rank_id);
+		var matchChoice = (_choices[i].field_rank_id === choice.field_rank_id);
 
 		if (removed && matchField) {
 			_choices[i].field_rank_id--;
@@ -91,6 +105,10 @@ ChoiceStore.__onDispatch = function (payload) {
 				_resetDeleteChoices();
 				ChoiceStore.__emitChange();
 				break;
+			case FieldConstants.FIELD_REMOVED:
+				_removeChoices(payload.field);
+				ChoiceStore.__emitChange();
+				break;
       default:
       //no op
     }
@@ -105,8 +123,6 @@ ChoiceStore.allRemoved = function () {
 };
 
 ChoiceStore.all = function () {
-	return _choices.slice();
-}
-
-window.ChoiceStore = ChoiceStore;
+	return _choices.slice(0);
+};
 module.exports = ChoiceStore;
