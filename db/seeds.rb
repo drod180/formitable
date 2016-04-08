@@ -42,7 +42,7 @@ Field.destroy_all
 
 category = "text"
 label = "Barber"
-form_rank_id = 1;
+form_rank_id = 1
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
@@ -53,7 +53,7 @@ Field.create!({ category: category,
 
 category = "number"
 label = "Biplane"
-form_rank_id = 2;
+form_rank_id = 2
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
@@ -64,73 +64,73 @@ Field.create!({ category: category,
 
 category = "checkbox"
 label = "Experience"
-form_rank_id = 3;
+form_rank_id = 3
 form_id = form_1.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "Two",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "None"
-	selected: true;
-	field_rank_id: 1;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "None",
+	selected: true,
+	field_rank_id: 1,
+	field_form_rank_id: 3,
 	})
 
-form.choice.create!({
-	label: "Some"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Some",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 3,
 	})
 
-form.choice.create!({
-	label: "Tons"
-	selected: false;
-	field_rank_id: 3;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Tons",
+	selected: false,
+	field_rank_id: 3,
+	field_form_rank_id: 3,
 	})
 
 
 category = "radio"
 label = "Freighter"
-form_rank_id = 4;
+form_rank_id = 4
 form_id = form_1.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Choo Choo"
-	selected: true;
-	field_rank_id: 1;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Choo Choo",
+	selected: true,
+	field_rank_id: 1,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Twain"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Twain",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Big"
-	selected: false;
-	field_rank_id: 3;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Big",
+	selected: false,
+	field_rank_id: 3,
+	field_form_rank_id: 4,
 	})
 
 
 category = "date"
 label = "Hexagon"
-form_rank_id = 5;
+form_rank_id = 5
 form_id = form_1.id
 Field.create!({ category: category,
 	label: label,
@@ -143,7 +143,7 @@ Field.create!({ category: category,
 
 category = "text"
 label = "Cap"
-form_rank_id = 1;
+form_rank_id = 1
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
@@ -154,7 +154,7 @@ Field.create!({ category: category,
 
 category = "number"
 label = "Chick"
-form_rank_id = 2;
+form_rank_id = 2
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
@@ -165,66 +165,66 @@ Field.create!({ category: category,
 
 category = "checkbox"
 label = "Dipstick"
-form_rank_id = 3;
+form_rank_id = 3
 form_id = form_2.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Dip"
-	selected: true;
-	field_rank_id: 1;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Dip",
+	selected: true,
+	field_rank_id: 1,
+	field_form_rank_id: 3,
 	})
 
-form.choice.create!({
-	label: "Cat"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Cat",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 3,
 	})
 
-form.choice.create!({
-	label: "Stick"
-	selected: true;
-	field_rank_id: 3;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Stick",
+	selected: true,
+	field_rank_id: 3,
+	field_form_rank_id: 3,
 	})
 
 
 category = "radio"
 label = "Romanian"
-form_rank_id = 4;
+form_rank_id = 4
 form_id = form_2.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "Side",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Country"
-	selected: true;
-	field_rank_id: 1;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Country",
+	selected: true,
+	field_rank_id: 1,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Person"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Person",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 4,
 	})
 
 
 category = "date"
 label = "Tank"
-form_rank_id = 5;
+form_rank_id = 5
 form_id = form_2.id
 Field.create!({ category: category,
 	label: label,
@@ -237,7 +237,7 @@ Field.create!({ category: category,
 
 category = "text"
 label = "Check"
-form_rank_id = 1;
+form_rank_id = 1
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
@@ -248,7 +248,7 @@ Field.create!({ category: category,
 
 category = "number"
 label = "Glider"
-form_rank_id = 2;
+form_rank_id = 2
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
@@ -259,78 +259,78 @@ Field.create!({ category: category,
 
 category = "checkbox"
 label = "Laundry"
-form_rank_id = 3;
+form_rank_id = 3
 form_id = form_3.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Mine"
-	selected: false;
-	field_rank_id: 1;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Mine",
+	selected: false,
+	field_rank_id: 1,
+	field_form_rank_id: 3,
 	})
 
-form.choice.create!({
-	label: "Yours"
-	selected: true;
-	field_rank_id: 2;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Yours",
+	selected: true,
+	field_rank_id: 2,
+	field_form_rank_id: 3,
 	})
 
-form.choice.create!({
-	label: "Theirs"
-	selected: true;
-	field_rank_id: 3;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Theirs",
+	selected: true,
+	field_rank_id: 3,
+	field_form_rank_id: 3,
 	})
 
 category = "radio"
 label = "Scent"
-form_rank_id = 4;
+form_rank_id = 4
 form_id = form_3.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "Three",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Great"
-	selected: true;
-	field_rank_id: 1;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Great",
+	selected: true,
+	field_rank_id: 1,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "OK"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "OK",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Bad"
-	selected: false;
-	field_rank_id: 3;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Bad",
+	selected: false,
+	field_rank_id: 3,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Awful"
-	selected: false;
-	field_rank_id: 4;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Awful",
+	selected: false,
+	field_rank_id: 4,
+	field_form_rank_id: 4,
 	})
 
 category = "date"
 label = "Silk"
-form_rank_id = 5;
+form_rank_id = 5
 form_id = form_3.id
 Field.create!({ category: category,
 	label: label,
@@ -343,7 +343,7 @@ Field.create!({ category: category,
 
 category = "text"
 label = "Agenda"
-form_rank_id = 1;
+form_rank_id = 1
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
@@ -354,7 +354,7 @@ Field.create!({ category: category,
 
 category = "Telephone"
 label = "Digger"
-form_rank_id = 2;
+form_rank_id = 2
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
@@ -365,59 +365,59 @@ Field.create!({ category: category,
 
 category = "checkbox"
 label = "Discussion"
-form_rank_id = 3;
+form_rank_id = 3
 form_id = form_4.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Confirmation Bias"
-	selected: true;
-	field_rank_id: 1;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Confirmation Bias",
+	selected: true,
+	field_rank_id: 1,
+	field_form_rank_id: 3,
 	})
 
-form.choice.create!({
-	label: "Confirmation Bias"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 3;
+field.choices.create!({
+	label: "Confirmation Bias",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 3,
 	})
 
 
 category = "radio"
 label = "Pumpkin"
-form_rank_id = 4;
+form_rank_id = 4
 form_id = form_4.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Smashing"
-	selected: true;
-	field_rank_id: 1;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Smashing",
+	selected: true,
+	field_rank_id: 1,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Regular"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Regular",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 4,
 	})
 
 
 category = "date"
 label = "Wine"
-form_rank_id = 5;
+form_rank_id = 5
 form_id = form_4.id
 Field.create!({ category: category,
 	label: label,
@@ -430,7 +430,7 @@ Field.create!({ category: category,
 
 category = "text"
 label = "Wine"
-form_rank_id = 1;
+form_rank_id = 1
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
@@ -441,7 +441,7 @@ Field.create!({ category: category,
 
 category = "number"
 label = "Mustard"
-form_rank_id = 2;
+form_rank_id = 2
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
@@ -451,7 +451,7 @@ Field.create!({ category: category,
 
 category = "textarea"
 label = "Nose"
-form_rank_id = 3;
+form_rank_id = 3
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
@@ -462,39 +462,39 @@ Field.create!({ category: category,
 
 category = "radio"
 label = "Tortoise"
-form_rank_id = 4;
+form_rank_id = 4
 form_id = form_5.id
-form = Field.create!({ category: category,
+field = Field.create!({ category: category,
 	label: label,
   option: "One",
 	form_rank_id: form_rank_id,
 	form_id: form_id
 	})
 
-form.choice.create!({
-	label: "Slow"
-	selected: false;
-	field_rank_id: 1;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Slow",
+	selected: false,
+	field_rank_id: 1,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Steady"
-	selected: false;
-	field_rank_id: 2;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Steady",
+	selected: false,
+	field_rank_id: 2,
+	field_form_rank_id: 4,
 	})
 
-form.choice.create!({
-	label: "Why not both?"
-	selected: true;
-	field_rank_id: 3;
-	field_form_rank_id: 4;
+field.choices.create!({
+	label: "Why not both?",
+	selected: true,
+	field_rank_id: 3,
+	field_form_rank_id: 4,
 	})
 
 category = "Email"
 label = "Puppy"
-form_rank_id = 5;
+form_rank_id = 5
 form_id = form_5.id
 Field.create!({ category: category,
 	label: label,
