@@ -11,33 +11,35 @@ class Form < ActiveRecord::Base
   end
 
 	def save_fields(fields)
-		fields.each do |idx, field|
+		if(fields)
+			fields.each do |idx, field|
 
-			label = field[:label] || "Untitled"
-      option = field[:option] || ""
-			field_params = {
-				category: field[:category],
-				label: label,
-        option: option,
-				form_rank_id: field[:form_rank_id]
-			}
-			if field[:id]
-				new_field = Field.find(field[:id])
-				new_field.update(field_params)
-				new_field.save_choices(field[:choices])
-			else
-				new_field = self.fields.create(field_params)
-				new_field.save_choices(field[:choices])
+				label = field[:label] || "Untitled"
+	      option = field[:option] || ""
+				field_params = {
+					category: field[:category],
+					label: label,
+	        option: option,
+					form_rank_id: field[:form_rank_id]
+				}
+				if field[:id]
+					new_field = Field.find(field[:id])
+					new_field.update(field_params)
+					new_field.save_choices(field[:choices])
+				else
+					new_field = self.fields.create(field_params)
+					new_field.save_choices(field[:choices])
+				end
 			end
 		end
-	end
 
-	def delete_fields
-		self.fields.each { |field| field.destroy }
-	end
+		def delete_fields
+			self.fields.each { |field| field.destroy }
+		end
 
-	def delete_choices
-		self.choices.each { |choice| choice.destroy }
+		def delete_choices
+			self.choices.each { |choice| choice.destroy }
+		end
 	end
 
 end

@@ -51,9 +51,11 @@ var FieldBuilderView = React.createClass({
 
 		if (form === undefined) {
 			form = {};
-			form.name = "Untitled Form";
-			form.description = "This is my form. Please fill it out. It's awesome!";
 		}
+
+		form.name = this.state.name;
+		form.description = this.state.description;
+
 
 		fields.forEach(function (field) {
 			field.choices = ChoiceStore.allForField(field.form_rank_id);
@@ -63,16 +65,37 @@ var FieldBuilderView = React.createClass({
       ? FormUtil.saveFormForUser(form, fields, clearFields)
       : FormUtil.updateFormForUser(form, fields, clearFields);
 
-
 	},
 
+	_editFormName: function (e) {
+		e.preventDefault();
+		this.setState({ name: e.target.value });
+	},
+	_editFormDescription: function (e) {
+		e.preventDefault();
+		this.setState({ description: e.target.value });
+	},
+
+	// <h2 onClick={this._editFormName}>{this.state.name}</h2>
+	// <p onClick={this._editFormDescription}>{this.state.description}</p>
   render: function () {
+
     return (
       <div>
   			<section className="form-view-section">
   				<header className="form-view-header">
-  					<h2>{this.state.name}</h2>
-  					<p>{this.state.description}</p>
+						<input
+							type="text"
+							onChange={this._editFormName}
+							className="form-title"
+							value={this.state.name}
+							/>
+						<textarea
+							onChange={this._editFormDescription}
+							className="form-description"
+							value={this.state.description}
+							/>
+
   				</header>
   				<FieldIndex
             selectedField={this.props.selectedField}
