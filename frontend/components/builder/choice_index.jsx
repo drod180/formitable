@@ -10,7 +10,7 @@ var ChoiceIndex = React.createClass({
 	},
 
 	getInitialState: function () {
-			return { choices: this.getStateFromStore()};
+			return { choices: this.getStateFromStore() };
 	},
 
 	componentDidMount: function () {
@@ -50,6 +50,7 @@ var ChoiceIndex = React.createClass({
 
   render: function () {
 		var choices = this.state.choices.map(function (choice, i) {
+
 			return (
         <ChoiceIndexItem
         field={this.props.field}

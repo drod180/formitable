@@ -1,5 +1,7 @@
 var React = require('react');
 var ChoiceActions = require('../../actions/choice_actions');
+var DeleteChoiceButton = require('../buttons/delete_choice');
+var AddChoiceButton = require('../buttons/add_choice');
 var ChoiceIndexItem = React.createClass({
 
 	getInitialState: function () {
@@ -35,6 +37,8 @@ var ChoiceIndexItem = React.createClass({
 								className="choice-option-label"
 								value={this.props.choice.label}
 								/>
+							<AddChoiceButton choice={this.props.choice} />
+							<DeleteChoiceButton choice={this.props.choice} />
 					</div>
 				);
 				break;
@@ -53,6 +57,8 @@ var ChoiceIndexItem = React.createClass({
 								className="choice-option-label"
 								value={this.props.choice.label}
 								/>
+							<AddChoiceButton choice={this.props.choice} />
+							<DeleteChoiceButton choice={this.props.choice} />
 					</div>
 				);
 				break;

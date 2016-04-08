@@ -20,6 +20,16 @@ function _resetChoices() {
 }
 
 function _addChoice(choice) {
+	if (choice.field_rank_id === null) {
+		var choices = _findChoicesForField(choice.field_form_rank_id);
+		var highestRank = 1;
+		choices.forEach(function (choiceEl) {
+			if (highestRank < choiceEl.field_rank_id) {
+				highestRank = choiceEl.field_rank_id;
+			}
+		});
+		choice.field_rank_id = highestRank + 1;
+	}
 	_choices.push(choice);
 }
 
