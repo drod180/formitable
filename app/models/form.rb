@@ -2,7 +2,7 @@ class Form < ActiveRecord::Base
   validates :name, :description, :user_id, presence: true
   validates :public, inclusion: { in: [true, false] }
 
-	has_many :fields
+	has_many :fields, dependent: :destroy
   belongs_to :user
 	has_many :choices, through: :fields
 

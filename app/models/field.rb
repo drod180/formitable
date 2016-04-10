@@ -2,7 +2,7 @@ class Field < ActiveRecord::Base
 	validates :category, :label, :form_rank_id, :form_id, presence: true
 
 	belongs_to :form
-	has_many :choices
+	has_many :choices, dependent: :destroy
 
 	def self.get_fields_by_form_order(form)
 			form.fields.order("form_rank_id")

@@ -52,7 +52,6 @@ class Api::FieldsController < ApplicationController
   def destroy
     field = Field.find(params[:id])
     if field
-			field.delete_choices
       field.destroy
       render json: field
     else
