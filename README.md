@@ -1,7 +1,6 @@
 # Formitable
-	Formitable is a web application that allows you to build custom forms.
-	It is a clone of certain features of the Wufoo web application and uses
-	Rails and React.js. You can find the site at www.form-i-table.com.
+
+Formitable is a web application that allows you to build custom forms. It is a clone of certain features of the Wufoo web application and uses Rails and React.js. You can find the site at www.form-i-table.com.
 
 Make some forms at [form-i-table.com](http://www.form-i-table.com/)
 
