@@ -1,5 +1,6 @@
 var CurrentUserActions = require('../actions/current_user_actions');
 var CurrentUserStore = require('../stores/current_user_store');
+var ErrorActions = require('../actions/error_actions');
 
 var CurrentUserUtils = {
   fetchCurrentUser: function (completion) {
@@ -15,9 +16,6 @@ var CurrentUserUtils = {
       complete: function() {
         completion && completion();
       },
-      error: function () {
-        console.log("Failure in CurrentUserUtils#fetchCurrentUser");
-      }
     });
   },
 
@@ -31,8 +29,9 @@ var CurrentUserUtils = {
          CurrentUserActions.currentUserReceived(currentUser);
          callback && callback();
        },
-       error: function () {
-         console.log("Failure in CurrentUserUtils#login");
+       error: function (errors) {
+         var error = $.parseJSON(errors.responseText).error;
+         ErrorActions.errorsReceived(error);
        }
      });
    },
@@ -46,8 +45,9 @@ var CurrentUserUtils = {
          CurrentUserActions.logout();
          callback && callback();
        },
-       error: function () {
-         console.log("Failure in CurrentUserUtils#logout");
+       error: function (errors) {
+         var error = $.parseJSON(errors.responseText).error;
+         ErrorActions.errorsReceived(error);
        }
      });
    },
@@ -62,8 +62,15 @@ var CurrentUserUtils = {
          CurrentUserActions.currentUserReceived(currentUser);
          callback && callback();
        },
-       error: function () {
-         console.log("Failure in CurrentUserUtils#signup");
+       error: function (errors) {
+         var error;
+         if (errors.status === 500){
+           error = ["Either email address or username is already taken"];
+           ErrorActions.errorsReceived(error);
+         } else {
+           error = $.parseJSON(errors.responseText).error;
+           ErrorActions.errorsReceived(error);
+         }
        }
      });
    }

@@ -1,5 +1,6 @@
 var React = require('react');
 var CurrentUserUtils = require('../../utils/current_user_utils');
+var ErrorStore = require('../../stores/errors_store');
 
 var SignUpForm = React.createClass({
   contextTypes: {
@@ -10,8 +11,21 @@ var SignUpForm = React.createClass({
     return {
       email: "",
       password: "",
-      username: ""
+      username: "",
+      errors: []
     };
+  },
+
+  componentDidMount: function () {
+    this.errorToken = ErrorStore.addListener(this._updateErrors);
+  },
+
+  componentWillUnmount: function () {
+    this.errorToken.remove();
+  },
+
+  _updateErrors: function () {
+    this.setState({ errors: ErrorStore.all() });
   },
 
   handleSubmit: function(e) {
@@ -48,6 +62,9 @@ var SignUpForm = React.createClass({
   },
 
   render: function() {
+    var errors = this.state.errors.map(function (error, i) {
+      return <li key={i}>{error}</li>;
+    });
     return (
       <div>
         <header className="auth-header group">
@@ -95,6 +112,7 @@ var SignUpForm = React.createClass({
               <button className="auth-submit">Sign Up</button>
           </form>
         </section>
+        <ul className="app-errors">{errors}</ul>
       </div>
     );
   },

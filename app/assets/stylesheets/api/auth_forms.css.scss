@@ -162,3 +162,12 @@ img {
 .auth-submit:hover, .guest-submit:hover {
   background: #4cdc4f;
 }
+
+.app-errors {
+  background: #ee9a95;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  width: 50%;
+  margin: 10px auto;
+}

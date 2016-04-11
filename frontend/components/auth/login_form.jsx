@@ -1,6 +1,7 @@
 var React = require('react');
 var CurrentUserUtils = require('../../utils/current_user_utils');
 var GuestLogin = require('./guest_login');
+var ErrorStore = require('../../stores/errors_store');
 
 var LoginForm = React.createClass({
   contextTypes: {
@@ -10,8 +11,21 @@ var LoginForm = React.createClass({
   getInitialState: function() {
     return {
       email: "",
-      password: ""
+      password: "",
+      error: ""
     };
+  },
+
+  componentDidMount: function () {
+    this.errorToken = ErrorStore.addListener(this._updateError);
+  },
+
+  componentWillUnmount: function () {
+    this.errorToken.remove();
+  },
+
+  _updateError: function () {
+    this.setState({ error: ErrorStore.all() });
   },
 
   handleSubmit: function(e) {
@@ -74,6 +88,7 @@ var LoginForm = React.createClass({
 						<GuestLogin />
           </form>
         </section>
+        <ul className="app-errors"><li>{this.state.error}</li></ul>
       </div>
     );
   },

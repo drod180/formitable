@@ -20,7 +20,7 @@ before_action :ensure_logged_out, only: [:create]
       render 'show'
     else
       render json: {
-        error: ["Invalid credentials"]
+        error: "Invalid credentials"
         }, status: 401
     end
   end

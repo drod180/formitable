@@ -16,14 +16,12 @@ class Api::UsersController < ApplicationController
       login!(@user)
       render 'show'
     else
-
-      errors = @user.errors.full_messages
+      error = @user.errors.full_messages
       unless is_a_valid_email?(params[:user][:email])
-        errors.push("Invalid Email Address")
+        error.push("Invalid Email Address")
       end
-
       render json: {
-        error: errors
+        error: error
         }, status: 401
     end
   end

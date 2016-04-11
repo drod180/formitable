@@ -58,7 +58,6 @@ var App = React.createClass({
 		}
     return (
       <div className="app-body">
-
         <header className="navbar group">
           <img className="logo-navbar" />
 
