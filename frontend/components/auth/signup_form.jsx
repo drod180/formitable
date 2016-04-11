@@ -54,7 +54,7 @@ var SignUpForm = React.createClass({
           <nav className="header-nav group">
             <img className="header-logo" />
             <a className="header-auth-switch header-auth-switch-login"
-							onClick={this.clickLogin} />
+							 onClick={this.clickLogin} />
           </nav>
         </header>
 
