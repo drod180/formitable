@@ -23,10 +23,6 @@ class Api::FieldsController < ApplicationController
     end
   end
 
-  # def show
-  #   @field = Field.find(params[:id])
-  # end
-
   def update
     @field = Field.find(params[:id])
     if @field

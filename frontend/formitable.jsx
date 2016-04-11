@@ -35,7 +35,8 @@ window.initializeApp = function () {
 };
 
 function _requireSignedIn(nextState, replace, asyncCompletionCallback) {
-  if (CurrentUserStore.currentUserHasBeenFetched){
+
+  if (!CurrentUserStore.currentUserHasBeenFetched()){
     CurrentUserUtils.fetchCurrentUser(function () {
       _redirectIfNotLoggedIn();
     });
@@ -53,19 +54,18 @@ function _requireSignedIn(nextState, replace, asyncCompletionCallback) {
 }
 
 function _requireSignedOut(nextState, replace, asyncCompletionCallback) {
-  // if (CurrentUserStore.currentUserHasBeenFetched){
-  //   CurrentUserUtils.fetchCurrentUser(function () {
-  //     _redirectIfLoggedIn();
-  //   });
-  // } else {
-  //   _redirectIfLoggedIn();
-  // }
-  //
-  // function _redirectIfLoggedIn() {
+  if (!CurrentUserStore.currentUserHasBeenFetched()){
+    CurrentUserUtils.fetchCurrentUser(function () {
+      _redirectIfLoggedIn();
+    });
+  } else {
+    _redirectIfLoggedIn();
+  }
+
+  function _redirectIfLoggedIn() {
     if(CurrentUserStore.isLoggedIn()) {
       replace("/");
     }
-
     asyncCompletionCallback();
-  // }
+  }
 }

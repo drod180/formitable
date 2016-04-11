@@ -8,7 +8,9 @@ var CurrentUserUtils = {
       url: "/api/session",
       dataType: "json",
       success: function (user) {
-        CurrentUserActions.currentUserReceived(user);
+        if (Object.keys(user).length > 0 ) {
+          CurrentUserActions.currentUserReceived(user);
+        }
       },
       complete: function() {
         completion && completion();

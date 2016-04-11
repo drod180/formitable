@@ -43,10 +43,8 @@ var LoginForm = React.createClass({
         <header className="auth-header group">
           <nav className="header-nav group">
             <img className="header-logo" />
-            <a
-							className="header-auth-switch header-auth-switch-signup"
-							onClick={this.clickSignUp}
-							/>
+            <a className="header-auth-switch header-auth-switch-signup"
+              onClick={this.clickSignUp} />
           </nav>
         </header>
 

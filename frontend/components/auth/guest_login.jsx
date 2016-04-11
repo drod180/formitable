@@ -7,14 +7,14 @@ var GuestLogin = React.createClass({
   },
 
 	guestLogin: function (e) {
-		e.preventDefault();
+    e.preventDefault();
 
-		var creds = {
+    var creds = {
 			email: "admin@aa.io",
 			password: "password"
 		};
 
-		var router = this.context.router;
+    var router = this.context.router;
 		CurrentUserUtils.login(creds, function() {
       router.push("/");
     });
