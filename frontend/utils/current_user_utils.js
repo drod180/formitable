@@ -63,14 +63,8 @@ var CurrentUserUtils = {
          callback && callback();
        },
        error: function (errors) {
-         var error;
-         if (errors.status === 500){
-           error = ["Either email address or username is already taken"];
-           ErrorActions.errorsReceived(error);
-         } else {
-           error = $.parseJSON(errors.responseText).error;
-           ErrorActions.errorsReceived(error);
-         }
+        var error = $.parseJSON(errors.responseText).error;
+        ErrorActions.errorsReceived(error);
        }
      });
    }
