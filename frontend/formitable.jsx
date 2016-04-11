@@ -19,8 +19,8 @@ window.initializeApp = function () {
   ReactDOM.render(
     <Router history={browserHistory} >
 
-      <Route path="/login" component={LoginForm} />
-      <Route path="/signup" component={SignUpForm}/>
+      <Route path="/login" component={LoginForm} onEnter={_requireSignedOut} />
+      <Route path="/signup" component={SignUpForm} onEnter={_requireSignedOut} />
 
       <Route path="/" component={App} onEnter={_requireSignedIn} >
         <IndexRoute component={FormManager} />
@@ -44,10 +44,28 @@ function _requireSignedIn(nextState, replace, asyncCompletionCallback) {
   }
 
   function _redirectIfNotLoggedIn() {
-    if(!CurrentUserStore.isLoggedIn) {
+    if(!CurrentUserStore.isLoggedIn()) {
       replace("/signup");
     }
 
     asyncCompletionCallback();
   }
+}
+
+function _requireSignedOut(nextState, replace, asyncCompletionCallback) {
+  // if (CurrentUserStore.currentUserHasBeenFetched){
+  //   CurrentUserUtils.fetchCurrentUser(function () {
+  //     _redirectIfLoggedIn();
+  //   });
+  // } else {
+  //   _redirectIfLoggedIn();
+  // }
+  //
+  // function _redirectIfLoggedIn() {
+    if(CurrentUserStore.isLoggedIn()) {
+      replace("/");
+    }
+
+    asyncCompletionCallback();
+  // }
 }

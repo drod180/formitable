@@ -4,7 +4,8 @@ before_action :ensure_logged_out, only: [:create]
 
   def show
     if logged_in?
-      render json: current_user
+      @user = current_user
+      render 'show'
     else
       render json: { message: "Not logged in" }, status: 401
     end
@@ -15,7 +16,7 @@ before_action :ensure_logged_out, only: [:create]
 
     if @user
       login!(@user)
-      render json: @user
+      render 'show'
     else
       render json: {
         error: @user.errors.full_messages

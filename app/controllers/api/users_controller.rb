@@ -2,22 +2,24 @@ class Api::UsersController < ApplicationController
 
   def show
     if logged_in?
-      render json: current_user
+      @user = current_user
+      render 'show'
     else
       render json: { message: "Not logged in" }, status: 401
     end
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save && params[:user][:email].include?('@')
 
-      render json: @user
+    @user = User.new(user_params)
+    if @user.save && is_a_valid_email?(params[:user][:email])
+      login!(@user)
+      render 'show'
     else
 
       errors = @user.errors.full_messages
-      unless params[:user][:email].include?('@')
-        errors.push("Email must contain '@'")
+      unless is_a_valid_email?(params[:user][:email])
+        errors.push("Invalid Email Address")
       end
 
       render json: {
@@ -27,14 +29,16 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    # @user = User.new(user_params)
-    # User.update!(@user)
-    redirect_to new_user_url
+    render 'show'
   end
 
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :username)
+  end
+
+  def is_a_valid_email?(email)
+    (email =~ /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
   end
 end
