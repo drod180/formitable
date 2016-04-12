@@ -40,10 +40,10 @@ var FieldBuilderView = React.createClass({
 		var deleteChoices = ChoiceStore.allRemoved();
 
     function clearFields() {
-      deleteFields.forEach(function (id) {
-        FieldsUtil.destroyField(id);
-      });
 			deleteChoices.forEach(function (id) {
+				ChoiceUtil.destroyChoice(id);
+			});
+      deleteFields.forEach(function (id) {
         FieldsUtil.destroyField(id);
       });
 			router.push('/');
