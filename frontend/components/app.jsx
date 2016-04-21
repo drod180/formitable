@@ -60,7 +60,6 @@ var App = React.createClass({
       <div className="app-body">
         <header className="navbar group">
           <img className="logo-navbar" />
-
           <ul className="navbar-menu group">
             <li className="navbar-item">
               <a className={selected} onClick={this.handleFormClick}>Forms</a>
@@ -68,12 +67,6 @@ var App = React.createClass({
             <li className="navbar-item">
               <a onClick={this.handleAccountClick}>Account</a>
               <ul className="account-items">
-                <li
-									onClick={this.handleAccountClick}
-									className="account-item">
-									<a>My Account</a>
-								</li>
-                <li className="divider">----------</li>
                 <li onClick={this.handleSignOut} className="account-item"><a>Sign Out</a></li>
               </ul>
             </li>
@@ -87,5 +80,6 @@ var App = React.createClass({
     );
   }
 });
+
 
 module.exports = App;
