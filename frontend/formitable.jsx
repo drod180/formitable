@@ -46,7 +46,7 @@ function _requireSignedIn(nextState, replace, asyncCompletionCallback) {
 
   function _redirectIfNotLoggedIn() {
     if(!CurrentUserStore.isLoggedIn()) {
-      replace("/signup");
+      replace("/login");
     }
 
     asyncCompletionCallback();
