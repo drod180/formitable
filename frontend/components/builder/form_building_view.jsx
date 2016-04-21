@@ -14,8 +14,8 @@ var FieldBuilderView = React.createClass({
 
 	getInitialState: function () {
 		return {
-			name: "Untitled",
-			description: "This is my form. Please fill it out. It's awesome!"
+			name: "",
+			description: ""
 		};
 	},
 
@@ -53,8 +53,9 @@ var FieldBuilderView = React.createClass({
 			form = {};
 		}
 
-		form.name = this.state.name;
-		form.description = this.state.description;
+		form.name = this.state.name || "Untitled";
+		form.description = this.state.description ||
+			"This is my form. Please fill it out. It's awesome!";
 
 
 		fields.forEach(function (field) {
@@ -87,11 +88,13 @@ var FieldBuilderView = React.createClass({
 							onChange={this._editFormName}
 							className="form-title"
 							value={this.state.name}
+							placeholder="Untitled"
 							/>
 						<textarea
 							onChange={this._editFormDescription}
 							className="form-description"
 							value={this.state.description}
+							placeholder="This is my form. Please fill it out. It's awesome!"
 							/>
 
   				</header>
