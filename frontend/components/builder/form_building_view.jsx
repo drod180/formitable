@@ -1,4 +1,5 @@
 var React = require('react');
+var Intro = require('intro.js/intro');
 var FieldIndex = require('./field_index');
 var FieldsUtil = require('../../utils/fields_utils');
 var FormUtil = require('../../utils/form_utils');
@@ -24,6 +25,7 @@ var FieldBuilderView = React.createClass({
     if (this.props.formId) {
 		  FormUtil.fetchFormForUser(this.props.formId);
     }
+		this.showTour();
 	},
 
 	componentWillUnmount: function () {
@@ -115,12 +117,17 @@ var FieldBuilderView = React.createClass({
     );
   },
 
+	showTour: function() {
+		$('.form-view-section').attr('data-intro', 'Here we have field buttons, which will add the selected field to the form');
+	},
+
 	_onChange: function () {
 		this.setState({
 			name: FormStore.first().name,
 			description: FormStore.first().description
 		});
 	}
+
 });
 
 module.exports = FieldBuilderView;

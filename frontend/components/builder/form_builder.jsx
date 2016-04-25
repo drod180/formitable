@@ -1,4 +1,5 @@
 var React = require('react');
+var Intro = require('intro.js/intro');
 var FormStore = require('../../stores/forms_store');
 var FieldStore = require('../../stores/fields_store');
 var BuilderOptions = require('./builder_options');
@@ -6,13 +7,13 @@ var FieldBuilderView = require('./form_building_view');
 var FieldIndex = require('./field_index');
 
 var FormBuilder = React.createClass({
-
 	getInitialState: function () {
 		return { options: "adder", field: null };
 	},
 
   componentDidMount: function () {
     this.fieldStoreToken = FieldStore.addListener(this._onChange);
+		this.showTour();
   },
 
   componentWillUnmount: function () {
@@ -67,11 +68,18 @@ var FormBuilder = React.createClass({
 				<FieldBuilderView
           callback={this.settingsTabSelect}
           selectedField={this.state.field}
-          formId={this.props.params.formId} />
+          formId={this.props.params.formId}
+					/>
       </div>
 
     );
-  }
+  },
+
+	showTour: function() {
+		$('.builder-sidebar').attr('data-intro', 'Here we can add fields to our form');
+
+		Intro.introJs().start();
+	}
 });
 
 module.exports = FormBuilder;
