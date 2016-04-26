@@ -13,7 +13,6 @@ var FormBuilder = React.createClass({
 
   componentDidMount: function () {
     this.fieldStoreToken = FieldStore.addListener(this._onChange);
-		this.showTour();
   },
 
   componentWillUnmount: function () {
@@ -75,11 +74,6 @@ var FormBuilder = React.createClass({
     );
   },
 
-	showTour: function() {
-		$('.builder-sidebar').attr('data-intro', 'Here we can add fields to our form');
-
-		Intro.introJs().start();
-	}
 });
 
 module.exports = FormBuilder;

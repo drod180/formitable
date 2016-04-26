@@ -27,8 +27,15 @@ var FormIndex = React.createClass({
 
   render: function () {
     var forms = this.state.forms.map(function (form, i) {
-      return (<FormIndexItem form={form} key={form.id} />);
-    });
+			return i === 0 ?
+				(<FormIndexItem
+					intro={true}
+					form={form}
+					key={form.id} />) :
+				(<FormIndexItem
+					form={form}
+					key={form.id} />);
+    }.bind(this));
     return (
       <section>
         <ul className="form-list">{forms}</ul>
