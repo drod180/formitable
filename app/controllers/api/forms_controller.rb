@@ -6,8 +6,6 @@ class Api::FormsController < ApplicationController
     @forms = Form.formsForUser(current_user.id)
   end
 
-  # If successfully created go to index page,
-  # otherwise re-render create form
   def create
     @form = current_user.forms.create(forms_params)
     if @form
@@ -26,8 +24,6 @@ class Api::FormsController < ApplicationController
     @form = Form.find(params[:id])
   end
 
-  # If successfully created go to index page,
-  # otherwise re-render update form
   def update
     @form = Form.find(params[:id])
     if @form

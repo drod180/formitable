@@ -57,14 +57,15 @@ var FieldBuilderView = React.createClass({
 		if (form === undefined) {
 			form = {};
 		}
-
 		form.name = this.state.name || "Untitled";
 		form.description = this.state.description ||
 			"This is my form. Please fill it out. It's awesome!";
 
-
 		fields.forEach(function (field) {
 			field.choices = ChoiceStore.allForField(field.form_rank_id);
+			field.choices.forEach(function (choice) {
+				choice.label = choice.label || "Unnamed";
+			});
 		});
 
 		(form.id === undefined)

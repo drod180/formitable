@@ -8,6 +8,7 @@ var AddChoiceButton = React.createClass({
 		var choice = $.extend(true, {}, this.props.choice);
 		choice.label = "";
 		choice.field_rank_id = null;
+		choice.id = undefined;
 		choice.selected = false;
 		ChoiceActions.receiveChoiceForField(choice);
 	},
