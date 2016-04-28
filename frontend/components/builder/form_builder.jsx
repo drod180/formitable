@@ -81,8 +81,17 @@ var FormBuilder = React.createClass({
 	continueTour: function() {
 		$('.builder').attr('data-intro', 'This is where you can create or edit forms');
 		$('.builder').attr('data-step', 1);
-
-		Intro.introJs().start();
+		var intro = Intro.introJs();
+		intro.onchange(function (targetElement) {
+			if (this._currentStep === 0) {
+				intro.setOption("disableInteraction", true);
+			} else {
+				//Have to manually clear the overlay due to bug with intro.js library
+				$('.introjs-disableInteraction').attr('style', 'width: 0px; height 0px;');
+				intro.setOption("disableInteraction", false);
+			}
+		});
+		intro.start();
 	}
 });
 
