@@ -3,6 +3,7 @@ var Intro = require('intro.js/intro');
 var FormStore = require('../../stores/forms_store');
 var EditForm = require('../buttons/edit_form');
 var DeleteForm = require('../buttons/delete_form');
+var CurrentUserStore = require('../../stores/current_user_store');
 
 var FormIndexItem = React.createClass({
   getInitialState: function () {
@@ -10,7 +11,8 @@ var FormIndexItem = React.createClass({
   },
 
 	componentDidMount: function () {
-		if (this.props.intro === true) {
+		if (CurrentUserStore.currentUser().username === "admin" &&
+				this.props.intro === true) {
 			this.continueTour();
 		}
 	},
@@ -45,10 +47,10 @@ var FormIndexItem = React.createClass({
   },
 
 	continueTour: function () {
-		$('.form-item').attr('data-intro', 'Each form, when hovered over, has an edit and delete option.');
-		$('.form-item').attr('data-step', 2);
-		$('.form-item').attr('data-position', 'top');
-
+		var $item = $('.form-item:first');
+		$item.attr('data-intro', 'Each form, when hovered over, has an edit and delete option.');
+		$item.attr('data-step', 2);
+		$item.attr('data-position', 'top');
 		Intro.introJs().start();
 	}
 });

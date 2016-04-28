@@ -7,6 +7,7 @@ var ChoiceUtil = require('../../utils/choice_utils');
 var FormStore = require('../../stores/forms_store');
 var FieldStore = require('../../stores/fields_store');
 var ChoiceStore = require('../../stores/choices_store');
+var CurrentUserStore = require('../../stores/current_user_store');
 
 var FieldBuilderView = React.createClass({
 	contextTypes: {
@@ -25,6 +26,9 @@ var FieldBuilderView = React.createClass({
     if (this.props.formId) {
 		  FormUtil.fetchFormForUser(this.props.formId);
     }
+		if (CurrentUserStore.currentUser().username === "admin") {
+			this.continueTour();
+		}
 	},
 
 	componentWillUnmount: function () {
@@ -115,6 +119,20 @@ var FieldBuilderView = React.createClass({
       </div>
     );
   },
+
+	continueTour: function () {
+		$('.form-view-section').attr('data-intro', 'Any selected fields will appear here. You can also select any of the fields and change different settings');
+		$('.form-view-section').attr('data-step', 3);
+		$('.form-view-section').attr('data-position', 'left');
+
+		$('.form-view-header').attr('data-intro', 'You will want to add an exciting title and a creative description to make your form even better');
+		$('.form-view-header').attr('data-step', 4);
+		$('.form-view-header').attr('data-position', 'bottom');
+
+		$('.form-save-button').attr('data-intro', 'Once you are happy with any changes you have made make sure to save!');
+		$('.form-save-button').attr('data-step', 5);
+		$('.form-save-button').attr('data-position', 'top');
+	},
 
 	_onChange: function () {
 		this.setState({

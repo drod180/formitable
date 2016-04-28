@@ -3,6 +3,7 @@ var Intro = require('intro.js/intro');
 var FormStore = require('../../stores/forms_store');
 var FormIndex = require('./form_index');
 var FormAction = require('../../actions/form_actions');
+var CurrentUserStore = require('../../stores/current_user_store');
 
 var FormManager = React.createClass({
 	contextTypes: {
@@ -10,11 +11,17 @@ var FormManager = React.createClass({
 	},
 
 	componentDidMount: function  () {
-		this.startTour();
+		if (CurrentUserStore.currentUser().username === "admin") {
+			this.startTour();
+		}
 	},
 
 	handleNewForm: function (e) {
-		e.preventDefault();
+		//Need to check because we also can get here through the intro
+		//which does not pass an event
+		if (e) {
+			e.preventDefault();
+		}
 
 		var form = {};
 		var router = this.context.router;
@@ -44,12 +51,12 @@ var FormManager = React.createClass({
   },
 
 	startTour: function() {
+		Intro.introJs().exit();
 		$('.forms-section').attr('data-intro', 'This is where you can manage all of your forms');
 		$('.forms-section').attr('data-step', 1);
 		$('.new-form-button').attr('data-intro', "Let's start a new form!");
 		$('.new-form-button').attr('data-step', 3);
-	},
-
+	}
 });
 
 module.exports = FormManager;

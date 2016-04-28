@@ -5,6 +5,7 @@ var FieldStore = require('../../stores/fields_store');
 var BuilderOptions = require('./builder_options');
 var FieldBuilderView = require('./form_building_view');
 var FieldIndex = require('./field_index');
+var CurrentUserStore = require('../../stores/current_user_store');
 
 var FormBuilder = React.createClass({
 	getInitialState: function () {
@@ -13,6 +14,9 @@ var FormBuilder = React.createClass({
 
   componentDidMount: function () {
     this.fieldStoreToken = FieldStore.addListener(this._onChange);
+		if (CurrentUserStore.currentUser().username === "admin") {
+			this.continueTour();
+		}
   },
 
   componentWillUnmount: function () {
@@ -74,6 +78,12 @@ var FormBuilder = React.createClass({
     );
   },
 
+	continueTour: function() {
+		$('.builder').attr('data-intro', 'This is where you can create or edit forms');
+		$('.builder').attr('data-step', 1);
+
+		Intro.introJs().start();
+	}
 });
 
 module.exports = FormBuilder;
