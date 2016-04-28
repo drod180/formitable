@@ -18,6 +18,9 @@ var ChoiceIndexItem = React.createClass({
 
 	_displayChoice: function () {
 		var displayItem;
+		var deleteButton = (this.props.choice.field_rank_id !== 1) ?
+			<DeleteChoiceButton choice={this.props.choice} /> : "";
+		var label = this.props.choice.label;
 		switch (this.props.field.category) {
 			case "select":
 			case "radio":
@@ -34,10 +37,11 @@ var ChoiceIndexItem = React.createClass({
 								type="text"
 								onChange={this._handleLabelChange}
 								className="choice-option-label"
-								value={this.props.choice.label}
+								placeholder="Unnamed"
+								value={label}
 								/>
 							<AddChoiceButton choice={this.props.choice} />
-							<DeleteChoiceButton choice={this.props.choice} />
+							{deleteButton}
 					</div>
 				);
 				break;
@@ -54,10 +58,11 @@ var ChoiceIndexItem = React.createClass({
 								type="text"
 								onChange={this._handleLabelChange}
 								className="choice-option-label"
-								value={this.props.choice.label}
+								value={label}
+								placeholder="Unnamed"
 								/>
 							<AddChoiceButton choice={this.props.choice} />
-							<DeleteChoiceButton choice={this.props.choice} />
+							{deleteButton}
 					</div>
 				);
 				break;

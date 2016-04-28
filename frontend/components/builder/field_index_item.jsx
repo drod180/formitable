@@ -161,12 +161,13 @@ var FieldIndexItem = React.createClass({
 	_displayChoice: function (choice, index) {
 		var displayItem;
 		var option = this.props.field.option;
+		var label = choice.label || "Unnamed";
 		switch (this.props.field.category) {
 			case "select":
 				if (choice.selected) {
 					displayItem = (
 						<select disabled className={"choice-form-option " + option} key={index} >
-							<option disabled>{choice.label}</option>
+							<option disabled>{label}</option>
 						</select>
 					);
 				}
@@ -180,7 +181,7 @@ var FieldIndexItem = React.createClass({
 							checked={choice.selected}
 							className="choice-form-option"
 							/>
-						<label className="choice-form-label">{choice.label}</label>
+						<label className="choice-form-label">{label}</label>
 					</div>
 				);
 				break;
@@ -193,7 +194,7 @@ var FieldIndexItem = React.createClass({
 							checked={choice.selected}
 							className="choice-form-option"
 							/>
-						<label className="choice-form-label">{choice.label}</label>
+						<label className="choice-form-label">{label}</label>
 					</div>
 				);
 				break;
