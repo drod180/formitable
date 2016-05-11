@@ -11,8 +11,10 @@ var FormIndexItem = React.createClass({
   },
 
 	componentDidMount: function () {
+
 		if (CurrentUserStore.currentUser().username === "admin" &&
-				this.props.intro === true) {
+				this.props.intro === true &&
+				sessionStorage.managerIntro === "play") {
 			this.continueTour();
 		}
 	},
@@ -51,7 +53,11 @@ var FormIndexItem = React.createClass({
 		$item.attr('data-intro', 'Each form, when hovered over, has an edit and delete option.');
 		$item.attr('data-step', 2);
 		$item.attr('data-position', 'top');
-		Intro.introJs().start();
+		Intro.introJs().onexit(function () {
+			sessionStorage.managerIntro = "played";
+		}).oncomplete(function () {
+			sessionStorage.managerIntro = "played";
+		}).start();
 	}
 });
 

@@ -26,7 +26,8 @@ var FieldBuilderView = React.createClass({
     if (this.props.formId) {
 		  FormUtil.fetchFormForUser(this.props.formId);
     }
-		if (CurrentUserStore.currentUser().username === "admin") {
+		if (CurrentUserStore.currentUser().username === "admin" &&
+				sessionStorage.builderIntro === "play") {
 			this.continueTour();
 		}
 	},

@@ -14,7 +14,8 @@ var FormBuilder = React.createClass({
 
   componentDidMount: function () {
     this.fieldStoreToken = FieldStore.addListener(this._onChange);
-		if (CurrentUserStore.currentUser().username === "admin") {
+		if (CurrentUserStore.currentUser().username === "admin" &&
+				sessionStorage.builderIntro === "play") {
 			this.continueTour();
 		}
   },
@@ -91,7 +92,11 @@ var FormBuilder = React.createClass({
 				intro.setOption("disableInteraction", false);
 			}
 		});
-		intro.start();
+		Intro.introJs().onexit(function () {
+			sessionStorage.builderIntro = "played";
+		}).oncomplete(function () {
+			sessionStorage.builderIntro = "played";
+		}).start();
 	}
 });
 

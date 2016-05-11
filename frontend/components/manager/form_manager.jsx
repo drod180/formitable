@@ -11,7 +11,8 @@ var FormManager = React.createClass({
 	},
 
 	componentDidMount: function  () {
-		if (CurrentUserStore.currentUser().username === "admin") {
+		if (CurrentUserStore.currentUser().username === "admin" &&
+				sessionStorage.managerIntro === "play") {
 			this.startTour();
 		}
 	},

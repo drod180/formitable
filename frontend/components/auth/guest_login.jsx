@@ -9,6 +9,9 @@ var GuestLogin = React.createClass({
 	guestLogin: function (e) {
     e.preventDefault();
 
+		sessionStorage.managerIntro = "play";
+		sessionStorage.builderIntro = "play";
+
     var creds = {
 			email: "admin@aa.io",
 			password: "password"
