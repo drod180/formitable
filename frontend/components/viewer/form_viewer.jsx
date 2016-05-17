@@ -31,14 +31,16 @@ var viewForm = React.createClass({
 			description: FormStore.first().description
 		});
 	},
-	
+
 	render: function () {
 		return (
-			<div>
-				<header>
-					View Form
+			<div className={"form-viewer"}>
+				<header className={"form-viewer-header"}>
+					<h1>{this.state.name}</h1>
+					<h3>{this.state.description}</h3>
 				</header>
 				<ViewIndex
+					className={"form-viewer-fields"}
           formId={this.props.params.formId}
           />
 			</div>

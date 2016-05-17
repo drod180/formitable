@@ -45,9 +45,10 @@ var ViewIndexItem = React.createClass({
 		item =  this._displayField(choiceItems);
 
     return (
-			<div>
-				<label>{this.props.field.label}</label>
+			<div className={"field-input-items group viewer"}>
+				<label className={"field-input-label"}>{this.props.field.label}</label>
 				<li
+					className={"field-viewer-item"}
 					key={this.props.field.id}>
 					{item}
 	      </li>

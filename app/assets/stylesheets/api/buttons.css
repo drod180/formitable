@@ -37,7 +37,7 @@ button, article, footer, small {
 	line-height: 30px;
 }
 
-.view-edit {
+.form-view {
 	float: left;
 	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-serif;
 	font-size: 11.05px;
@@ -47,6 +47,10 @@ button, article, footer, small {
 	padding-right: 10px;
 	color: #444;
 	line-height: 30px;
+}
+
+.form-view:hover {
+	background: #B9DCFF;
 }
 
 .form-edit:hover {
