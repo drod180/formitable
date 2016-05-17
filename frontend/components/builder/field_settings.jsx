@@ -56,7 +56,7 @@ var FieldSettings = React.createClass({
 				<li className="setting-list-item">
 					<label>Choices</label>
 					<div className="setting-list-item-choice group">
-        		<ChoiceIndex field={this.props.selectedField} />
+        		<ChoiceIndex field={this.props.selectedField} button={true} />
 					</div>
 				</li>
       </ul>
@@ -68,8 +68,7 @@ var FieldSettings = React.createClass({
       <div className="field-settings-empty">
         <h4 className="empty-settings-header">No Field Selected</h4>
         <p
-          className="empty-settings-description"
-          >Please click on a field in the form preview on the right to change its properties.
+          className="empty-settings-description">Please click on a field in the form preview on the right to change its properties.
         </p>
       </div>
     );

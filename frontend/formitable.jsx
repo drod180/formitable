@@ -1,4 +1,4 @@
-var React = require('react');
+var	React = require('react');
 var ReactDOM = require('react-dom');
 var ReactRouter = require("react-router");
 
@@ -9,6 +9,7 @@ var browserHistory = ReactRouter.browserHistory;
 
 var FormManager = require('./components/manager/form_manager');
 var FormBuilder = require('./components/builder/form_builder');
+var FormViewer = require('./components/viewer/form_viewer');
 var CurrentUserStore = require('./stores/current_user_store');
 var App = require('./components/app');
 var LoginForm = require('./components/auth/login_form');
@@ -26,6 +27,8 @@ window.initializeApp = function () {
         <IndexRoute component={FormManager} />
 				<Route path="/builder" component={FormBuilder} >
 					<Route path="/builder/:formId" />
+				</Route>
+				<Route path="/view/:formId" component={FormViewer} >
 				</Route>
       </Route>
 

@@ -79,6 +79,7 @@ var FieldBuilderView = React.createClass({
 		e.preventDefault();
 		this.setState({ name: e.target.value });
 	},
+	
 	_editFormDescription: function (e) {
 		e.preventDefault();
 		this.setState({ description: e.target.value });

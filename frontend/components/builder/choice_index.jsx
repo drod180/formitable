@@ -56,6 +56,7 @@ var ChoiceIndex = React.createClass({
         field={this.props.field}
         choice={choice}
 				callback={this.hanldeRadioSelect}
+				button={this.props.button}
         key={i} />
       );
     }.bind(this));

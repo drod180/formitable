@@ -2,6 +2,7 @@ var React = require('react');
 var Intro = require('intro.js/intro');
 var FormStore = require('../../stores/forms_store');
 var EditForm = require('../buttons/edit_form');
+var ViewForm = require('../buttons/view_form');
 var DeleteForm = require('../buttons/delete_form');
 var CurrentUserStore = require('../../stores/current_user_store');
 
@@ -42,6 +43,7 @@ var FormIndexItem = React.createClass({
         </header>
         <section className="form-options">
 					<EditForm formId={this.props.form.id} />
+					<ViewForm formId={this.props.form.id} />
 					<DeleteForm formId={this.props.form.id} />
         </section>
       </li>
