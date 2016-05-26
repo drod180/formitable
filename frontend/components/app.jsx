@@ -59,7 +59,7 @@ var App = React.createClass({
     return (
       <div className="app-body">
         <header className="navbar group">
-          <img className="logo-navbar" />
+          <img className="logo-navbar" onClick={this.handleFormClick} />
           <ul className="navbar-menu group">
             <li className="navbar-item">
               <a className={selected} onClick={this.handleFormClick}>Forms</a>
