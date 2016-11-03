@@ -21,7 +21,7 @@ Make some forms at [form-i-table.com](http://www.form-i-table.com/)
 
 ex.
 
-```
+```javascript
 function _removeField(field) {
 	var removed = false;
 	for (var i = 0; i < _fields.length; i++){
@@ -50,7 +50,7 @@ function _removeField(field) {
 
 ## To-Do:
 
-- [ ] Create viewable forms
+- [X] Create viewable forms
 - [ ] Host forms with unique URL
 - [ ] OmniAuth
 - [ ] PG Search
